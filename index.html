@@ -30,66 +30,73 @@
     .auth-switch{margin-top:18px;font-size:11px;color:#b3b3b3;cursor:pointer;transition:.2s}
     .auth-switch:hover{color:#00d2ff;text-decoration:underline}
     .auth-error{color:#e91429;font-size:11px;margin-bottom:12px;text-align:center;display:none;background:rgba(233,20,41,.1);padding:8px;border-radius:6px;width:100%}
+    .auth-banned{color:#e91429;font-size:12px;text-align:center;background:rgba(233,20,41,.15);padding:12px;border-radius:8px;border:1px solid rgba(233,20,41,.3);margin-bottom:12px;display:none}
     .main-container{display:flex;height:calc(100vh - 65px);padding:6px;gap:6px}
     .sidebar{width:240px;background-color:#000;display:flex;flex-direction:column;gap:6px;font-size:11px;height:100%;flex-shrink:0}
+    .sidebar-logo{background-color:#121212;border-radius:6px;padding:12px 14px;display:flex;align-items:center;gap:10px}
+    .sidebar-logo-icon{width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#0a0a0a 60%,#111);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px rgba(0,210,255,.4),0 0 10px rgba(0,210,255,.15);flex-shrink:0}
+    .sidebar-logo-icon svg{width:18px;height:18px;filter:drop-shadow(0 0 3px rgba(0,210,255,.5))}
+    .sidebar-logo-text{font-size:15px;font-weight:700;background:linear-gradient(135deg,#00d2ff,#3a7bd5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px}
     .nav-links{background-color:#121212;border-radius:6px;padding:14px}
     .nav-links a{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;opacity:.7;font-size:12px;transition:.2s;cursor:pointer;margin-bottom:12px}
     .nav-links a:last-child{margin-bottom:0}
     .nav-links a:hover,.nav-links a.active{opacity:1;color:#1db954}
     .nav-links a.logout-btn:hover{color:#e91429}
+    .nav-links a.admin-link{color:#00d2ff;opacity:.8}
+    .nav-links a.admin-link:hover{opacity:1}
+    .admin-badge-nav{background:#e91429;color:#fff;font-size:8px;font-weight:700;padding:1px 5px;border-radius:8px;margin-left:auto}
     .library{flex-grow:1;background-color:#121212;border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:12px;overflow-y:auto}
     .library-header{display:flex;justify-content:space-between;align-items:center;opacity:.8;font-weight:700;font-size:12px;border-bottom:1px solid #1f1f1f;padding-bottom:8px}
-    .playlist-box{background:linear-gradient(135deg,#242424,#171717);padding:14px;border-radius:8px;margin-bottom:4px;border:1px solid rgba(255,255,255,.03);transition:.3s ease}
-    .playlist-box:hover{border-color:rgba(29,185,84,.2)}
+    .playlist-box{background:linear-gradient(135deg,#242424,#171717);padding:14px;border-radius:8px;margin-bottom:4px;border:1px solid rgba(255,255,255,.03)}
     .box-p1{font-weight:700;font-size:12px;margin-bottom:4px}
-    .box-p2{font-size:10px;color:#b3b3b3;margin-bottom:10px;line-height:1.3}
+    .box-p2{font-size:10px;color:#b3b3b3;margin-bottom:10px}
     .badge{background-color:#fff;color:#000;border:none;border-radius:20px;padding:6px 14px;font-weight:700;font-size:11px;cursor:pointer;transition:.2s;margin-right:6px;margin-bottom:4px}
     .badge:hover{transform:scale(1.05);background-color:#1db954;color:white}
     .badge-blue{background:linear-gradient(135deg,#00d2ff,#3a7bd5);color:#fff}
-    .badge-blue:hover{background:linear-gradient(135deg,#00b8e6,#2d6bc4);color:#fff}
     .playlist-list-sidebar{display:flex;flex-direction:column;gap:6px;margin-top:2px}
     .playlist-item{display:flex;align-items:center;gap:10px;padding:8px;border-radius:6px;cursor:pointer;transition:.2s;border:1px solid transparent;position:relative}
-    .playlist-item:hover{background-color:#1a1a1a}
-    .playlist-item.active-folder{background-color:#232323;border-color:#1db954}
-    .playlist-icon-box{width:36px;height:36px;background-color:#242424;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#1db954;transition:.2s;flex-shrink:0;overflow:hidden}
-    .playlist-item:hover .playlist-icon-box{transform:scale(1.05)}
+    .playlist-item:hover{background:#1a1a1a}
+    .playlist-item.active-folder{background:#232323;border-color:#1db954}
+    .playlist-icon-box{width:36px;height:36px;background:#242424;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#1db954;flex-shrink:0}
     .playlist-info-text{flex-grow:1;overflow:hidden}
-    .playlist-info-text h4{font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:25px}
+    .playlist-info-text h4{font-size:11px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .playlist-info-text p{font-size:9px;color:#a7a7a7;margin-top:2px}
-    .delete-playlist-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:12px;position:absolute;right:10px;top:50%;transform:translateY(-50%) scale(.9);opacity:0;transition:.2s;display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%}
-    .playlist-item:hover .delete-playlist-btn{opacity:1;transform:translateY(-50%) scale(1)}
-    .delete-playlist-btn:hover{color:#e91429;background-color:rgba(233,20,41,.1)}
-    .main-content{flex-grow:1;background-color:#121212;border-radius:6px;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:0}
-    .header{display:flex;align-items:center;gap:12px;background-color:#121212;position:sticky;top:0;z-index:5;padding-bottom:10px}
+    .delete-playlist-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:12px;position:absolute;right:10px;top:50%;transform:translateY(-50%);opacity:0;transition:.2s}
+    .playlist-item:hover .delete-playlist-btn{opacity:1}
+    .delete-playlist-btn:hover{color:#e91429}
+    .main-content{flex-grow:1;background:#121212;border-radius:6px;padding:16px;overflow-y:auto;display:flex;flex-direction:column}
+    .header{display:flex;align-items:center;gap:12px;background:#121212;position:sticky;top:0;z-index:5;padding-bottom:10px}
     .search-container{position:relative;flex-grow:1;max-width:240px}
     .search-container i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#b3b3b3;font-size:12px}
-    .search-input{width:100%;background-color:#242424;border:1px solid transparent;border-radius:20px;padding:6px 12px 6px 32px;font-size:11px;color:white;outline:none;transition:.2s}
-    .search-input:focus{background-color:#2a2a2a;border-color:#535353}
+    .search-input{width:100%;background:#242424;border:1px solid transparent;border-radius:20px;padding:6px 12px 6px 32px;font-size:11px;color:white;outline:none}
+    .search-input:focus{background:#2a2a2a;border-color:#535353}
     .user-profile-badge{display:flex;align-items:center;gap:8px;margin-left:auto;background:#242424;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:600}
     .user-profile-badge i{color:#1db954}
     .user-admin-tag{font-size:8px;color:#00d2ff;background:rgba(0,210,255,.15);padding:2px 6px;border-radius:8px;margin-left:4px;font-weight:700}
-    .section-title{font-size:15px;font-weight:700;color:#fff;margin-bottom:12px;margin-top:6px;display:flex;align-items:center;gap:8px}
+    .section-title{font-size:15px;font-weight:700;margin-bottom:12px;margin-top:6px;display:flex;align-items:center;gap:8px}
     .section-title i{color:#1db954;font-size:13px}
     .section-divider-line{border:none;border-top:1px solid #1f1f1f;margin:16px 0}
-    .back-to-home{font-size:11px;color:#1db954;cursor:pointer;font-weight:600;margin-left:auto;background:rgba(29,185,84,.1);padding:4px 10px;border-radius:12px;transition:.2s}
-    .back-to-home:hover{background:rgba(29,185,84,.2)}
-    .cards-container{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:4px}
-    .card{width:130px;background-color:#181818;padding:10px;border-radius:8px;cursor:pointer;transition:.3s;position:relative}
-    .card:hover{background-color:#282828;transform:translateY(-4px)}
-    .card.playing{border:1px solid #1db954;background-color:#202020}
-    .card-img{width:100%;aspect-ratio:1;background-color:#262626;border-radius:6px;margin-bottom:8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:28px;color:#1db954;box-shadow:0 4px 12px rgba(0,0,0,.5)}
-    .card-img i.fa-music{position:absolute;z-index:1}
-    .card-img img{position:absolute;z-index:2;width:100%;height:100%;object-fit:cover;display:block;border-radius:6px}
-    .card-title{font-weight:700;margin-bottom:3px;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .card-info{font-size:9px;color:#a7a7a7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .fav-btn{position:absolute;top:14px;left:14px;background:rgba(0,0,0,.75);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#b3b3b3;transition:.2s;z-index:3;cursor:pointer;border:none}
-    .fav-btn:hover{color:#1db954;transform:scale(1.1)}
-    .fav-btn.active{color:#1db954}
-    .add-to-playlist-btn{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.75);border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#b3b3b3;transition:.2s;z-index:3;cursor:pointer;border:none}
-    .add-to-playlist-btn:hover{color:#000;background:#fff;transform:scale(1.1)}
-    .oval-list-home{display:flex;flex-direction:column;gap:6px;width:100%}
+    .back-to-home{font-size:11px;color:#1db954;cursor:pointer;font-weight:600;margin-left:auto;background:rgba(29,185,84,.1);padding:4px 10px;border-radius:12px}
+    .artist-cards-row{display:flex;gap:12px;margin-bottom:6px;overflow-x:auto;padding-bottom:4px}
+    .artist-card{min-width:120px;width:120px;background:#181818;padding:10px;border-radius:10px;cursor:pointer;transition:.3s;text-align:center;border:1px solid transparent;flex-shrink:0}
+    .artist-card:hover{background:#282828;transform:translateY(-4px);border-color:rgba(29,185,84,.2)}
+    .artist-card-img{width:70px;height:70px;border-radius:50%;background:#262626;margin:0 auto 8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:20px;color:#1db954}
+    .artist-card-img i{position:absolute;z-index:1}
+    .artist-card-img img{position:absolute;z-index:2;width:100%;height:100%;object-fit:cover;border-radius:50%}
+    .artist-card-name{font-weight:700;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+    .artist-card-count{font-size:9px;color:#a7a7a7}
+    .artist-block{margin-bottom:14px;padding:12px 14px;background:#161616;border-radius:10px;border:1px solid rgba(255,255,255,.03);transition:.3s}
+    .artist-block:hover{border-color:rgba(29,185,84,.15);background:#1a1a1a}
+    .artist-block.glow-highlight{border-color:#1db954;box-shadow:0 0 20px rgba(29,185,84,.3);background:#1a2e1a}
+    .artist-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #222}
+    .artist-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#242424,#333);display:flex;align-items:center;justify-content:center;font-size:14px;color:#1db954;flex-shrink:0;overflow:hidden;position:relative}
+    .artist-avatar i{position:absolute;z-index:1}
+    .artist-avatar img{position:absolute;z-index:2;width:100%;height:100%;object-fit:cover;border-radius:50%}
+    .artist-name-text{font-size:13px;font-weight:700;flex-grow:1}
+    .artist-song-count{font-size:10px;color:#535353}
+    .artist-songs-list{display:flex;flex-direction:column;gap:4px}
     .oval-home-capsule{display:flex;align-items:center;background:#181818;padding:7px 16px;border-radius:30px;cursor:pointer;transition:.2s;border:1px solid rgba(255,255,255,.02)}
-    .oval-home-capsule:hover{background:#242424;transform:scale(1.01);border-color:rgba(255,255,255,.06)}
+    .oval-home-capsule:hover{background:#242424;border-color:rgba(255,255,255,.06)}
     .oval-home-capsule.playing-oval{border-color:#1db954;background:rgba(29,185,84,.08)}
     .oval-home-capsule.playing-oval .oval-home-title{color:#1db954}
     .oval-home-thumb{position:relative;width:30px;height:30px;border-radius:50%;background:#262626;display:flex;align-items:center;justify-content:center;font-size:11px;color:#1db954;margin-right:12px;flex-shrink:0;overflow:hidden}
@@ -98,28 +105,28 @@
     .oval-home-details{flex-grow:1;display:flex;flex-direction:column;overflow:hidden}
     .oval-home-title{font-weight:700;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .oval-home-artist{font-size:10px;color:#a7a7a7;margin-top:1px}
-    .oval-home-btns{display:flex;gap:12px;align-items:center;flex-shrink:0;margin-left:12px}
+    .oval-home-added-by{font-size:9px;color:#00d2ff;margin-left:auto;white-space:nowrap;flex-shrink:0;padding:2px 8px;background:rgba(0,210,255,.08);border-radius:10px;margin-right:8px}
+    .oval-home-btns{display:flex;gap:10px;align-items:center;flex-shrink:0;margin-left:4px}
     .oval-home-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:12px;transition:.2s}
     .oval-home-btn:hover{color:#1db954;transform:scale(1.1)}
     .oval-home-btn.active-fav{color:#1db954}
     .playlist-view-title{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center}
     .oval-playlist-container{display:flex;flex-direction:column;gap:8px}
     .oval-track-capsule{display:flex;align-items:center;background:#181818;padding:8px 18px;border-radius:30px;cursor:pointer;transition:.2s;border:1px solid rgba(255,255,255,.02)}
-    .oval-track-capsule:hover{background:#242424;transform:scale(1.01)}
+    .oval-track-capsule:hover{background:#242424}
     .oval-track-capsule.playing-oval{border-color:#1db954;background:rgba(29,185,84,.08)}
-    .oval-track-capsule.playing-oval .oval-title{color:#1db954}
     .oval-thumb{position:relative;width:32px;height:32px;border-radius:50%;background:#262626;display:flex;align-items:center;justify-content:center;font-size:12px;color:#1db954;margin-right:14px;flex-shrink:0;overflow:hidden}
     .oval-thumb i.fa-music{position:absolute;z-index:1}
     .oval-thumb img{position:absolute;z-index:2;width:100%;height:100%;object-fit:cover;border-radius:50%}
     .oval-details{flex-grow:1;display:flex;flex-direction:column}
     .oval-title{font-weight:700;font-size:12px}
     .oval-artist{font-size:10px;color:#a7a7a7;margin-top:1px}
-    .oval-action-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:13px;margin-left:12px;transition:.2s;display:flex;align-items:center}
-    .oval-action-btn:hover{color:#e91429;transform:scale(1.1)}
-    .empty-playlist-text{font-size:11px;color:#727272;font-style:italic;padding:10px 5px}
+    .oval-action-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:13px;margin-left:12px;transition:.2s}
+    .oval-action-btn:hover{color:#e91429}
+    .empty-playlist-text{font-size:11px;color:#727272;font-style:italic;padding:10px}
     .sidebar-section-label{font-size:10px;font-weight:700;color:#00d2ff;letter-spacing:.5px;margin-top:8px;margin-bottom:4px;padding:6px 8px;background:rgba(0,210,255,.06);border-radius:6px;display:flex;align-items:center;gap:6px;border-left:3px solid #00d2ff}
     .contributed-song-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;cursor:pointer;transition:.2s;border:1px solid transparent;position:relative}
-    .contributed-song-item:hover{background:#1a1a1a;border-color:rgba(0,210,255,.15)}
+    .contributed-song-item:hover{background:#1a1a1a}
     .contributed-song-item.playing-contrib{border-color:#1db954;background:rgba(29,185,84,.08)}
     .contrib-thumb{width:30px;height:30px;border-radius:4px;background:linear-gradient(135deg,#0a2a4a,#1a3a5a);display:flex;align-items:center;justify-content:center;font-size:10px;color:#00d2ff;flex-shrink:0;overflow:hidden;position:relative}
     .contrib-thumb i{position:absolute;z-index:1}
@@ -127,28 +134,27 @@
     .contrib-info{flex-grow:1;overflow:hidden}
     .contrib-info h4{font-size:10px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .contrib-info p{font-size:8px;color:#727272;margin-top:1px}
-    .contrib-delete-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:10px;opacity:0;transition:.2s;position:absolute;right:6px;top:50%;transform:translateY(-50%);width:20px;height:20px;display:flex;align-items:center;justify-content:center;border-radius:50%}
+    .contrib-delete-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:10px;opacity:0;transition:.2s;position:absolute;right:6px;top:50%;transform:translateY(-50%)}
     .contributed-song-item:hover .contrib-delete-btn{opacity:1}
-    .contrib-delete-btn:hover{color:#e91429;background:rgba(233,20,41,.1)}
+    .contrib-delete-btn:hover{color:#e91429}
     .firebase-status{font-size:9px;padding:3px 8px;border-radius:10px;margin-left:8px;font-weight:600}
     .firebase-status.connected{background:rgba(29,185,84,.15);color:#1db954}
     .firebase-status.disconnected{background:rgba(233,20,41,.15);color:#e91429}
-    .ads-sidebar{width:200px;background-color:#121212;border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0;height:100%}
+    .ads-sidebar{width:200px;background:#121212;border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0;height:100%}
     .ads-header{font-size:10px;font-weight:700;color:#727272;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #1f1f1f;padding-bottom:6px}
-    .ads-slot{flex-grow:1;background-color:#181818;border-radius:6px;border:1px dashed #282828;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;text-align:center;gap:10px;transition:.2s}
-    .ads-slot:hover{border-color:#535353;background-color:#1f1f1f}
+    .ads-slot{flex-grow:1;background:#181818;border-radius:6px;border:1px dashed #282828;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;text-align:center;gap:10px}
     .ads-icon{font-size:24px;color:#727272}
     .ads-text-title{font-size:11px;font-weight:700;color:#b3b3b3}
-    .ads-text-desc{font-size:9px;color:#727272;line-height:1.4}
+    .ads-text-desc{font-size:9px;color:#727272}
     .ads-dummy-image{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#282828,#3e3e3e);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#a7a7a7}
-    .player-bar{position:fixed;bottom:0;left:0;width:100%;height:65px;background-color:#000;display:flex;justify-content:space-between;align-items:center;padding:0 16px;border-top:1px solid #1c1c1c;z-index:10}
+    .player-bar{position:fixed;bottom:0;left:0;width:100%;height:65px;background:#000;display:flex;justify-content:space-between;align-items:center;padding:0 16px;border-top:1px solid #1c1c1c;z-index:10}
     .album-info{display:flex;align-items:center;gap:10px;width:30%}
-    .album-cover-mock{position:relative;width:40px;height:40px;background-color:#262626;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#1db954;flex-shrink:0;overflow:hidden}
+    .album-cover-mock{position:relative;width:40px;height:40px;background:#262626;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:14px;color:#1db954;flex-shrink:0;overflow:hidden}
     .album-cover-mock i{position:absolute;z-index:1}
     .album-cover-mock img{position:absolute;z-index:2;width:100%;height:100%;object-fit:cover;border-radius:4px}
     .album-text{overflow:hidden}
     .album-info h4{font-size:12px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .album-info p{font-size:10px;color:#a7a7a7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px}
+    .album-info p{font-size:10px;color:#a7a7a7;margin-top:2px}
     .player-controls{display:flex;flex-direction:column;align-items:center;gap:6px;width:40%}
     .control-buttons{display:flex;gap:16px;align-items:center;font-size:12px;color:#b3b3b3}
     .control-buttons i{cursor:pointer;transition:.1s}
@@ -160,42 +166,92 @@
     .volume-bar{width:60px;accent-color:#1db954}
     .modal-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.85);display:flex;justify-content:center;align-items:center;z-index:100;opacity:0;pointer-events:none;transition:opacity .3s ease}
     .modal-overlay.active{opacity:1;pointer-events:auto}
-    .playlist-modal{background-color:#0c0c0c;width:400px;max-height:90vh;overflow-y:auto;padding:25px;border-radius:16px;box-shadow:0 0 30px rgba(0,110,255,.3);border:2px solid transparent;background-image:linear-gradient(#0c0c0c,#0c0c0c),linear-gradient(135deg,#0052d4,#4364f7,#6fb1fc);background-origin:border-box;background-clip:padding-box,border-box;transform:scale(.8);transition:transform .3s ease}
+    .playlist-modal{background:#0c0c0c;width:420px;max-height:90vh;overflow-y:auto;padding:25px;border-radius:16px;box-shadow:0 0 30px rgba(0,110,255,.3);border:2px solid transparent;background-image:linear-gradient(#0c0c0c,#0c0c0c),linear-gradient(135deg,#0052d4,#4364f7,#6fb1fc);background-origin:border-box;background-clip:padding-box,border-box;transform:scale(.8);transition:transform .3s ease}
     .modal-overlay.active .playlist-modal{transform:scale(1)}
-    .modal-title{font-size:14px;font-weight:700;margin-bottom:18px;text-align:center;line-height:1.6}
+    .modal-title{font-size:14px;font-weight:700;margin-bottom:18px;text-align:center}
     .modal-input{width:100%;background:#181818;border:1px solid #333;border-radius:25px;padding:10px 18px;font-size:12px;color:#fff;outline:none;margin-bottom:12px;text-align:center;transition:.2s}
-    .modal-input:focus{border-color:#4364f7;background:#202020;box-shadow:0 0 10px rgba(67,100,247,.4)}
-    select.modal-input{cursor:pointer;appearance:none;text-align:center}
-    select.modal-input option{background:#181818;color:#fff}
+    .modal-input:focus{border-color:#4364f7;background:#202020}
+    .modal-input.left-align{text-align:left}
+    select.modal-input{cursor:pointer;appearance:none}
     .modal-buttons{display:flex;justify-content:center;gap:12px}
     .modal-btn{border:none;border-radius:20px;padding:9px 22px;font-size:11px;font-weight:700;cursor:pointer;transition:.2s}
     .btn-cancel{background:#242424;color:#fff}
     .btn-cancel:hover{background:#333}
-    .btn-submit{background:linear-gradient(135deg,#0052d4,#4364f7);color:#fff;box-shadow:0 3px 10px rgba(67,100,247,.4)}
-    .btn-submit:hover{transform:scale(1.03);opacity:.9}
+    .btn-submit{background:linear-gradient(135deg,#0052d4,#4364f7);color:#fff}
+    .btn-submit:hover{transform:scale(1.03)}
+    .btn-submit:disabled{opacity:.5;cursor:not-allowed}
+    .btn-danger{background:linear-gradient(135deg,#e91429,#a80f1d);color:#fff}
+    .btn-success{background:linear-gradient(135deg,#1db954,#14833b);color:#fff}
     .contrib-modal-section{margin-bottom:14px}
     .contrib-modal-label{font-size:11px;font-weight:600;color:#a7a7a7;margin-bottom:6px;display:flex;align-items:center;gap:6px}
     .contrib-modal-label i{color:#00d2ff;font-size:10px}
-    .contrib-tab-btns{display:flex;gap:8px;margin-bottom:14px;justify-content:center}
-    .contrib-tab-btn{background:#242424;border:1px solid #333;border-radius:20px;padding:7px 16px;font-size:11px;font-weight:600;color:#a7a7a7;cursor:pointer;transition:.2s}
-    .contrib-tab-btn.active{background:linear-gradient(135deg,#00d2ff,#3a7bd5);color:#fff;border-color:transparent}
-    .contrib-tab-content{display:none}
-    .contrib-tab-content.active{display:block}
-    .contrib-file-label{display:flex;align-items:center;justify-content:center;gap:8px;background:#181818;border:2px dashed #333;border-radius:12px;padding:18px;cursor:pointer;transition:.2s;font-size:12px;color:#727272}
-    .contrib-file-label:hover{border-color:#00d2ff;color:#00d2ff}
-    .contrib-file-label i{font-size:18px}
-    .contrib-file-input{display:none}
-    .contrib-file-name{font-size:10px;color:#1db954;text-align:center;margin-top:6px;display:none;word-break:break-all}
-    .contrib-auto-detect{font-size:9px;color:#00d2ff;text-align:center;margin-top:4px;padding:4px 8px;background:rgba(0,210,255,.08);border-radius:6px;display:none}
+    .upload-area{border:2px dashed #333;border-radius:12px;padding:24px;text-align:center;cursor:pointer;transition:.3s;background:#0f0f0f;position:relative;margin-bottom:12px}
+    .upload-area:hover,.upload-area.dragover{border-color:#00d2ff;background:rgba(0,210,255,.05)}
+    .upload-area.has-file{border-color:#1db954;background:rgba(29,185,84,.05)}
+    .upload-area input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+    .upload-icon{font-size:28px;color:#535353;margin-bottom:8px}
+    .upload-area:hover .upload-icon{color:#00d2ff}
+    .upload-area.has-file .upload-icon{color:#1db954}
+    .upload-text{font-size:12px;color:#727272;margin-bottom:4px}
+    .upload-subtext{font-size:10px;color:#535353}
+    .upload-filename{font-size:11px;color:#1db954;font-weight:600;margin-top:4px;display:none}
+    .upload-filesize{font-size:10px;color:#a7a7a7;margin-top:2px;display:none}
+    .auto-detect-badge{font-size:10px;color:#00d2ff;background:rgba(0,210,255,.1);border:1px solid rgba(0,210,255,.2);border-radius:8px;padding:6px 10px;margin-bottom:12px;display:none;text-align:center}
+    .upload-progress-wrap{margin-bottom:14px;display:none}
+    .upload-progress-label{font-size:10px;color:#a7a7a7;margin-bottom:6px;display:flex;justify-content:space-between}
+    .upload-progress-bar-bg{background:#242424;border-radius:10px;height:8px;overflow:hidden}
+    .upload-progress-bar-fill{height:100%;background:linear-gradient(90deg,#00d2ff,#1db954);border-radius:10px;width:0%}
+    .upload-status-text{font-size:10px;color:#00d2ff;text-align:center;margin-top:6px}
+    .or-divider{display:flex;align-items:center;gap:10px;margin:10px 0}
+    .or-divider span{font-size:10px;color:#535353;white-space:nowrap}
+    .or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:#242424}
+    .admin-panel{display:none;flex-direction:column}
+    .admin-panel-header{text-align:center;padding:24px;background:linear-gradient(135deg,rgba(0,0,0,.9),rgba(0,30,60,.6));border:1px solid rgba(0,210,255,.15);border-radius:12px;margin-bottom:16px}
+    .admin-panel-title{font-size:22px;font-weight:700;background:linear-gradient(135deg,#00d2ff,#3a7bd5);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .admin-panel-subtitle{font-size:10px;color:#535353;margin-top:4px}
+    .admin-tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
+    .admin-tab{background:#181818;border:1px solid #333;border-radius:20px;padding:7px 14px;font-size:11px;font-weight:600;color:#a7a7a7;cursor:pointer;transition:.2s;position:relative}
+    .admin-tab:hover{background:#242424;color:#fff}
+    .admin-tab.active{background:linear-gradient(135deg,#00d2ff,#3a7bd5);color:#fff;border-color:transparent}
+    .admin-tab .tab-badge{position:absolute;top:-4px;right:-4px;background:#e91429;color:#fff;font-size:8px;font-weight:700;padding:2px 5px;border-radius:10px}
+    .admin-tab-content{display:none}
+    .admin-tab-content.active{display:block}
+    .admin-card{background:#161616;border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:14px;margin-bottom:10px}
+    .admin-card:hover{border-color:rgba(0,210,255,.15)}
+    .admin-card-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:11px}
+    .admin-card-row i{color:#00d2ff;font-size:10px;width:14px;flex-shrink:0}
+    .admin-card-row .label{color:#727272;min-width:70px}
+    .admin-card-row .value{color:#fff;font-weight:600}
+    .admin-card-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+    .admin-card-actions .modal-btn{padding:6px 14px;font-size:10px}
+    .admin-stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+    .admin-stat-box{background:#181818;border:1px solid rgba(255,255,255,.05);border-radius:10px;padding:16px;text-align:center}
+    .admin-stat-num{font-size:24px;font-weight:700;background:linear-gradient(135deg,#00d2ff,#1db954);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .admin-stat-label{font-size:10px;color:#727272;margin-top:4px}
+    .admin-search{width:100%;background:#181818;border:1px solid #333;border-radius:20px;padding:8px 14px;font-size:11px;color:#fff;outline:none;margin-bottom:12px}
+    .admin-search:focus{border-color:#00d2ff}
+    .admin-empty{font-size:11px;color:#535353;font-style:italic;padding:16px;text-align:center}
+    .review-player{background:#0f0f0f;border-radius:8px;padding:10px;margin:8px 0;display:flex;align-items:center;gap:10px}
+    .review-play-btn{background:linear-gradient(135deg,#1db954,#14833b);border:none;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;color:#fff;flex-shrink:0}
+    .review-play-btn:hover{transform:scale(1.1)}
+    .review-progress{flex-grow:1}
+    .review-progress input[type=range]{width:100%;accent-color:#1db954;height:4px}
+    .review-time{font-size:9px;color:#535353;display:flex;justify-content:space-between}
+    .status-badge{font-size:9px;padding:2px 8px;border-radius:10px;font-weight:600}
+    .status-active{background:rgba(29,185,84,.15);color:#1db954}
+    .status-banned{background:rgba(233,20,41,.15);color:#e91429}
+    .status-pending{background:rgba(245,155,0,.15);color:#f59b00}
     .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:#282828;border:1px solid #404040;color:#fff;font-size:12px;font-weight:600;padding:10px 20px;border-radius:30px;z-index:999;opacity:0;transition:.3s;pointer-events:none;white-space:nowrap}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     .toast.success{border-color:#1db954;color:#1db954}
     .toast.warning{border-color:#f59b00;color:#f59b00}
+    .toast.error{border-color:#e91429;color:#e91429}
   </style>
 </head>
 <body>
   <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d2ff"/><stop offset="50%" stop-color="#4a90d9"/><stop offset="100%" stop-color="#3a7bd5"/></linearGradient></defs></svg>
 
+  <!-- AUTH -->
   <div class="auth-overlay" id="auth-overlay">
     <div class="auth-box-wrapper" id="register-wrapper">
       <div class="auth-box">
@@ -215,6 +271,7 @@
         <div class="elltify-logo"><svg viewBox="0 0 100 100"><path d="M30 72 Q50 62,70 72" stroke="url(#blueGrad)" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M24 58 Q50 44,76 58" stroke="url(#blueGrad)" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M18 44 Q50 26,82 44" stroke="url(#blueGrad)" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M12 30 Q50 8,88 30" stroke="url(#blueGrad)" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div>
         <div class="auth-title">Masuk ke Elltify</div>
         <div class="auth-error" id="login-error"></div>
+        <div class="auth-banned" id="login-banned"><i class="fa-solid fa-ban"></i> Akun kamu telah dibanned oleh admin.</div>
         <div class="auth-input-group"><input type="text" id="log-username" class="auth-input" placeholder="Username atau Email" autocomplete="off"><i class="fa-solid fa-user auth-input-icon"></i></div>
         <div class="auth-input-group"><input type="password" id="log-password" class="auth-input" placeholder="Kata Sandi"><i class="fa-solid fa-lock auth-input-icon"></i></div>
         <button class="auth-btn" onclick="handleLogin()">Masuk</button>
@@ -225,17 +282,21 @@
 
   <div class="toast" id="toast-notif"></div>
 
+  <!-- MAIN LAYOUT -->
   <div class="main-container">
+    <!-- SIDEBAR -->
     <div class="sidebar">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon"><svg viewBox="0 0 100 100"><path d="M30 72 Q50 62,70 72" stroke="url(#blueGrad)" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M24 58 Q50 44,76 58" stroke="url(#blueGrad)" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M18 44 Q50 26,82 44" stroke="url(#blueGrad)" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M12 30 Q50 8,88 30" stroke="url(#blueGrad)" stroke-width="5" fill="none" stroke-linecap="round"/></svg></div>
+        <span class="sidebar-logo-text">ELLTIFY</span>
+      </div>
       <div class="nav-links">
-        <a class="active" onclick="showMainSection()"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="active" id="nav-home" onclick="showMainSection()"><i class="fa-solid fa-house"></i> Home</a>
+        <a class="admin-link" id="nav-admin" onclick="showAdminPanel()" style="display:none"><i class="fa-solid fa-crown"></i> Admin Panel <span class="admin-badge-nav" id="pending-badge" style="display:none">0</span></a>
         <a class="logout-btn" onclick="handleLogout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar</a>
       </div>
       <div class="library">
-        <div class="library-header">
-          <span><i class="fa-solid fa-book"></i> Koleksi Kamu</span>
-          <span class="firebase-status disconnected" id="firebase-status">● Offline</span>
-        </div>
+        <div class="library-header"><span><i class="fa-solid fa-book"></i> Koleksi Kamu</span><span class="firebase-status disconnected" id="firebase-status">● Offline</span></div>
         <div class="playlist-box">
           <p class="box-p1">Kelola Musikmu</p>
           <p class="box-p2">Buat playlist atau tambahkan lagu baru</p>
@@ -252,25 +313,87 @@
       </div>
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="main-content">
       <div class="header">
         <div class="search-container"><i class="fa-solid fa-magnifying-glass"></i><input type="text" id="search-input" class="search-input" placeholder="Cari lagu atau artis..."></div>
         <div class="user-profile-badge"><i class="fa-solid fa-user"></i> <span id="display-username">User</span><span class="user-admin-tag" id="admin-tag" style="display:none">ADMIN</span></div>
       </div>
+
+      <!-- HOME -->
       <div id="section-home">
-        <div class="section-title"><i class="fa-solid fa-star"></i> Rekomendasi Utama</div>
-        <div class="cards-container" id="container-lagu-card"></div>
+        <div class="section-title"><i class="fa-solid fa-star"></i> Artis Populer</div>
+        <div class="artist-cards-row" id="container-artist-cards"></div>
         <hr class="section-divider-line">
         <div class="section-title"><i class="fa-solid fa-music"></i> Semua Lagu</div>
-        <div class="oval-list-home" id="container-lagu-oval"></div>
-        <div id="contributed-home-section"></div>
+        <div id="container-lagu-grouped"></div>
       </div>
+
+      <!-- PLAYLIST VIEW -->
       <div id="section-playlist" style="display:none">
         <div class="playlist-view-title" id="playlist-view-title">Playlist<span class="back-to-home" onclick="showMainSection()"><i class="fa-solid fa-chevron-left"></i> Kembali</span></div>
         <div class="oval-playlist-container" id="container-oval-playlist"></div>
       </div>
+
+      <!-- ADMIN PANEL -->
+      <div class="admin-panel" id="section-admin">
+        <div class="admin-panel-header">
+          <div class="admin-panel-title">👑 ADMIN PANEL</div>
+          <div class="admin-panel-subtitle">Kelola Elltify • <span class="back-to-home" onclick="showMainSection()"><i class="fa-solid fa-chevron-left"></i> Kembali</span></div>
+        </div>
+
+        <div class="admin-tabs">
+          <div class="admin-tab active" onclick="switchAdminTab('accounts')"><i class="fa-solid fa-users"></i> Akun</div>
+          <div class="admin-tab" onclick="switchAdminTab('ban')"><i class="fa-solid fa-ban"></i> Ban</div>
+          <div class="admin-tab" onclick="switchAdminTab('artists')"><i class="fa-solid fa-microphone"></i> Artis</div>
+          <div class="admin-tab" onclick="switchAdminTab('songs')"><i class="fa-solid fa-music"></i> Lagu</div>
+          <div class="admin-tab" onclick="switchAdminTab('review')"><i class="fa-solid fa-clock"></i> Review <span class="tab-badge" id="review-tab-badge" style="display:none">0</span></div>
+          <div class="admin-tab" onclick="switchAdminTab('stats')"><i class="fa-solid fa-chart-bar"></i> Stats</div>
+        </div>
+
+        <!-- TAB: ACCOUNTS -->
+        <div class="admin-tab-content active" id="admin-tab-accounts">
+          <input type="text" class="admin-search" id="admin-search-accounts" placeholder="🔍 Cari username atau email..." oninput="renderAdminAccounts()">
+          <div id="admin-accounts-list"></div>
+        </div>
+
+        <!-- TAB: BAN -->
+        <div class="admin-tab-content" id="admin-tab-ban">
+          <input type="text" class="admin-search" id="admin-search-ban" placeholder="🔍 Cari user yang dibanned..." oninput="renderAdminBan()">
+          <div id="admin-ban-list"></div>
+        </div>
+
+        <!-- TAB: ARTISTS -->
+        <div class="admin-tab-content" id="admin-tab-artists">
+          <div class="admin-card" style="border-color:rgba(0,210,255,.2)">
+            <div style="font-size:12px;font-weight:700;margin-bottom:10px"><i class="fa-solid fa-plus" style="color:#00d2ff"></i> Tambah Artis Baru</div>
+            <input type="text" class="modal-input left-align" id="admin-new-artist-name" placeholder="Nama artis..." style="margin-bottom:8px">
+            <input type="url" class="modal-input left-align" id="admin-new-artist-img" placeholder="URL foto artis (opsional)..." style="margin-bottom:8px">
+            <button class="modal-btn btn-submit" onclick="adminAddArtist()"><i class="fa-solid fa-plus"></i> Tambah</button>
+          </div>
+          <input type="text" class="admin-search" id="admin-search-artists" placeholder="🔍 Cari artis..." oninput="renderAdminArtists()">
+          <div id="admin-artists-list"></div>
+        </div>
+
+        <!-- TAB: SONGS -->
+        <div class="admin-tab-content" id="admin-tab-songs">
+          <input type="text" class="admin-search" id="admin-search-songs" placeholder="🔍 Cari lagu kontributor..." oninput="renderAdminSongs()">
+          <div id="admin-songs-list"></div>
+        </div>
+
+        <!-- TAB: REVIEW -->
+        <div class="admin-tab-content" id="admin-tab-review">
+          <div id="admin-review-list"></div>
+        </div>
+
+        <!-- TAB: STATS -->
+        <div class="admin-tab-content" id="admin-tab-stats">
+          <div id="admin-stats-content"></div>
+        </div>
+      </div>
     </div>
 
+    <!-- ADS -->
     <div class="ads-sidebar">
       <div class="ads-header">Sponsor</div>
       <div class="ads-slot">
@@ -282,6 +405,7 @@
     </div>
   </div>
 
+  <!-- PLAYER BAR -->
   <div class="player-bar">
     <div class="album-info">
       <div class="album-cover-mock" id="foot-icon"><i class="fa-solid fa-record-vinyl"></i></div>
@@ -298,11 +422,13 @@
     <div class="volume-controls"><i class="fa-solid fa-volume-high"></i><input type="range" id="volume-bar" min="0" max="1" step="0.05" value="0.7" class="volume-bar" oninput="changeVolume(this.value)"></div>
   </div>
 
+  <!-- PLAYLIST MODAL -->
   <div class="modal-overlay" id="custom-modal-overlay">
     <div class="playlist-modal">
       <div class="modal-title" id="modal-title-context">Nama Playlist Baru</div>
       <input type="text" id="modal-playlist-name" class="modal-input" placeholder="Tulis nama disini..." autocomplete="off">
       <select id="modal-playlist-select" class="modal-input" style="display:none"></select>
+      <div id="modal-extra-content"></div>
       <div class="modal-buttons" id="modal-action-wrapper">
         <button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button>
         <button class="modal-btn btn-submit" onclick="submitNewPlaylist()">Simpan</button>
@@ -310,475 +436,663 @@
     </div>
   </div>
 
+  <!-- CONTRIBUTE MODAL -->
   <div class="modal-overlay" id="contribute-modal-overlay">
     <div class="playlist-modal">
-      <div class="modal-title"><i class="fa-solid fa-upload" style="color:#00d2ff"></i> Tambah Lagu Baru</div>
-      <div class="contrib-tab-btns">
-        <button class="contrib-tab-btn active" onclick="switchContribTab('file')"><i class="fa-solid fa-file-audio"></i> Dari File</button>
-        <button class="contrib-tab-btn" onclick="switchContribTab('link')"><i class="fa-solid fa-link"></i> Dari Link</button>
+      <div class="modal-title"><i class="fa-solid fa-cloud-arrow-up" style="color:#00d2ff"></i> Tambah Lagu Baru</div>
+      <div class="upload-area" id="upload-area">
+        <input type="file" accept="audio/mp3,audio/mpeg,.mp3" id="contrib-file-input" onchange="handleFileSelect(this)">
+        <div class="upload-icon"><i class="fa-solid fa-music"></i></div>
+        <div class="upload-text">Klik atau drag file MP3 ke sini</div>
+        <div class="upload-subtext">Format: .mp3 • Maksimal 20MB</div>
+        <div class="upload-filename" id="upload-filename"></div>
+        <div class="upload-filesize" id="upload-filesize"></div>
       </div>
-      <div class="contrib-tab-content active" id="contrib-tab-file">
-        <div class="contrib-modal-section">
-          <label class="contrib-file-label" id="contrib-file-label"><i class="fa-solid fa-cloud-arrow-up"></i><span>Pilih file audio (.mp3, .wav, .ogg)</span><input type="file" accept="audio/*" class="contrib-file-input" id="contrib-file-input" onchange="handleFileSelect(this)"></label>
-          <div class="contrib-file-name" id="contrib-file-name"></div>
-          <div class="contrib-auto-detect" id="contrib-auto-detect"></div>
-        </div>
+      <div class="auto-detect-badge" id="auto-detect-badge"></div>
+      <div class="upload-progress-wrap" id="upload-progress-wrap">
+        <div class="upload-progress-label"><span>Mengupload...</span><span id="upload-percent">0%</span></div>
+        <div class="upload-progress-bar-bg"><div class="upload-progress-bar-fill" id="upload-progress-fill"></div></div>
+        <div class="upload-status-text" id="upload-status-text"></div>
       </div>
-      <div class="contrib-tab-content" id="contrib-tab-link">
-        <div class="contrib-modal-section">
-          <div class="contrib-modal-label"><i class="fa-solid fa-link"></i> Link Audio (URL langsung ke .mp3)</div>
-          <input type="url" id="contrib-link-input" class="modal-input" placeholder="https://example.com/lagu.mp3" style="text-align:left">
-        </div>
+      <div class="or-divider"><span>atau pakai link langsung</span></div>
+      <div class="contrib-modal-section">
+        <div class="contrib-modal-label"><i class="fa-solid fa-link"></i> Link Audio (.mp3)</div>
+        <input type="url" id="contrib-link-input" class="modal-input left-align" placeholder="https://archive.org/download/.../lagu.mp3">
       </div>
       <div class="contrib-modal-section">
         <div class="contrib-modal-label"><i class="fa-solid fa-heading"></i> Judul Lagu</div>
-        <input type="text" id="contrib-title" class="modal-input" placeholder="Otomatis terdeteksi..." autocomplete="off" style="text-align:left">
+        <input type="text" id="contrib-title" class="modal-input left-align" placeholder="Contoh: Faded" autocomplete="off">
       </div>
       <div class="contrib-modal-section">
         <div class="contrib-modal-label"><i class="fa-solid fa-microphone"></i> Nama Artis</div>
-        <input type="text" id="contrib-artist" class="modal-input" placeholder="Otomatis terdeteksi..." autocomplete="off" style="text-align:left">
+        <select id="contrib-artist-select" class="modal-input left-align" style="appearance:auto">
+          <option value="">-- Pilih Artis --</option>
+        </select>
+        <div id="contrib-artist-new-wrap" style="display:none;margin-top:6px">
+          <input type="text" id="contrib-artist-new" class="modal-input left-align" placeholder="Nama artis baru..." style="margin-bottom:0">
+          <div style="font-size:9px;color:#f59b00;margin-top:4px"><i class="fa-solid fa-info-circle"></i> Artis baru memerlukan persetujuan admin</div>
+        </div>
       </div>
       <div class="contrib-modal-section">
         <div class="contrib-modal-label"><i class="fa-solid fa-image"></i> Cover Image URL (opsional)</div>
-        <input type="url" id="contrib-cover" class="modal-input" placeholder="https://example.com/cover.jpg" style="text-align:left">
+        <input type="url" id="contrib-cover" class="modal-input left-align" placeholder="https://example.com/cover.jpg">
       </div>
       <div class="modal-buttons" style="margin-top:16px">
-        <button class="modal-btn btn-cancel" onclick="closeContributeModal()">Batal</button>
-        <button class="modal-btn btn-submit" onclick="submitContribution()"><i class="fa-solid fa-paper-plane"></i> Tambahkan</button>
+        <button class="modal-btn btn-cancel" onclick="closeContributeModal()" id="contrib-cancel-btn">Batal</button>
+        <button class="modal-btn btn-submit" onclick="submitContribution()" id="contrib-submit-btn"><i class="fa-solid fa-paper-plane"></i> Tambahkan</button>
       </div>
     </div>
   </div>
-
-  <!-- FIREBASE SDK -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyC_78NUDa34ksmFrMZSnFE1zgJXb5S7RQc",
-      authDomain: "elltyfy.firebaseapp.com",
-      databaseURL: "https://elltyfy-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "elltyfy",
-      storageBucket: "elltyfy.firebasestorage.app",
-      messagingSenderId: "674305976965",
-      appId: "1:674305976965:web:2b88683fb69bb7a5ea17ec",
-      measurementId: "G-1Q0HN85DPK"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const contributedRef = ref(db, 'contributed_songs');
-    const statusEl = document.getElementById('firebase-status');
-
-    onValue(contributedRef, function(snapshot) {
-      statusEl.textContent = '● Online';
-      statusEl.className = 'firebase-status connected';
-      window._contributedSongs = [];
-      if (snapshot.exists()) {
-        snapshot.forEach(function(child) {
-          window._contributedSongs.push(Object.assign({ _key: child.key }, child.val()));
-        });
-      }
-      if (typeof renderContributedSidebar === 'function') renderContributedSidebar();
-      if (typeof renderContributedHome === 'function') {
-        var si = document.getElementById('search-input');
-        renderContributedHome(si ? si.value.toLowerCase().trim() : '');
-      }
-    }, function(error) {
-      statusEl.textContent = '● Offline';
-      statusEl.className = 'firebase-status disconnected';
-      console.warn('Firebase error:', error);
-    });
-
-    window.firebasePushSong = function(songData) {
-      push(contributedRef, songData).then(function() {
-        if (typeof showToast === 'function') showToast('"' + songData.title + '" berhasil ditambahkan!');
-      }).catch(function(e) {
-        if (typeof showToast === 'function') showToast('Gagal menyimpan ke database', 'warning');
-        console.error(e);
-      });
-    };
-
-    window.firebaseDeleteSong = function(key, title) {
-      var songRef = ref(db, 'contributed_songs/' + key);
-      remove(songRef).then(function() {
-        if (typeof showToast === 'function') showToast('"' + title + '" dihapus oleh admin', 'warning');
-      }).catch(function(e) {
-        if (typeof showToast === 'function') showToast('Gagal menghapus', 'warning');
-        console.error(e);
-      });
-    };
-  </script>
-
-  <script>
+    <script>
     // =========================================================
-    // ADMIN CONFIG
+    // CONFIG
     // =========================================================
-    var ADMIN_USERNAME = 'ELLADMIN';
-    var ADMIN_PASSWORD = 'ELLADMIN123';
-    var ADMIN_EMAIL    = 'elladmin@elltify.com';
-    function isAdmin() { return currentUser && currentUser === ADMIN_USERNAME; }
-    function initAdminAccount() {
-      var db = JSON.parse(localStorage.getItem('elltify_users') || '{}');
-      if (!db[ADMIN_USERNAME]) {
-        db[ADMIN_USERNAME] = { password: ADMIN_PASSWORD, email: ADMIN_EMAIL, favorites: [], customPlaylists: [] };
-        localStorage.setItem('elltify_users', JSON.stringify(db));
-      }
+    var CLOUDINARY_CLOUD='dzzd7mm0b';
+    var CLOUDINARY_PRESET='elltify_audio';
+    var CLOUDINARY_URL='https://api.cloudinary.com/v1_1/'+CLOUDINARY_CLOUD+'/video/upload';
+    var TELEGRAM_BOT='8940668489:AAH_nqVIo5ujT4oXuf1NYuihaoUuI4jG1Sg';
+    var TELEGRAM_CHAT='7133977857';
+    var ADMIN_USERNAME='ELLADMIN',ADMIN_PASSWORD='ELLADMIN123',ADMIN_EMAIL='elladmin@elltify.com';
+
+    // =========================================================
+    // GLOBALS
+    // =========================================================
+    var currentUser=null;
+    function isAdmin(){return currentUser&&currentUser===ADMIN_USERNAME;}
+    window._contributedSongs=[];window._prevContribKeys=[];
+    window._pendingSongs=[];window._customArtists=[];
+    function getContributedSongs(){return window._contributedSongs||[];}
+    function getPendingSongs(){return window._pendingSongs||[];}
+    function getCustomArtists(){return window._customArtists||[];}
+
+    var currentPlaylistScope='all',activePlaylistId=null,favorites=[],customPlaylists=[];
+    var currentAudio=new Audio(),currentTrackIndex=-1,isPlaying=false;
+    var currentTrackIsContrib=false,currentContribKey=null;
+    var pendingSongToAdd=null,pendingPlaylistIdToDelete=null,toastTimer=null;
+    var selectedFile=null,isUploading=false;
+    var reviewAudio=new Audio(),reviewPlayingKey=null;
+
+    var masterPlay=document.getElementById('master-play'),progressBar=document.getElementById('progress-bar');
+    var currTimeText=document.getElementById('curr-time'),totTimeText=document.getElementById('tot-time');
+    var footTitle=document.getElementById('foot-title'),footArtist=document.getElementById('foot-artist'),footIcon=document.getElementById('foot-icon');
+    var containerGrouped=document.getElementById('container-lagu-grouped'),containerArtistCards=document.getElementById('container-artist-cards');
+    var containerOvalPlaylist=document.getElementById('container-oval-playlist'),sidebarPlaylistContainer=document.getElementById('sidebar-playlist-container');
+    var sectionHome=document.getElementById('section-home'),sectionPlaylist=document.getElementById('section-playlist'),sectionAdmin=document.getElementById('section-admin');
+    var playlistViewTitle=document.getElementById('playlist-view-title'),favCounter=document.getElementById('fav-counter');
+    var customModalOverlay=document.getElementById('custom-modal-overlay'),modalPlaylistNameInput=document.getElementById('modal-playlist-name');
+    var modalPlaylistSelect=document.getElementById('modal-playlist-select'),modalTitleContext=document.getElementById('modal-title-context');
+    var modalActionWrapper=document.getElementById('modal-action-wrapper'),searchInput=document.getElementById('search-input');
+    var contributeModalOverlay=document.getElementById('contribute-modal-overlay');
+    var authOverlay=document.getElementById('auth-overlay'),registerWrapper=document.getElementById('register-wrapper'),loginWrapper=document.getElementById('login-wrapper');
+    var regError=document.getElementById('register-error'),logError=document.getElementById('login-error'),displayUsername=document.getElementById('display-username');
+
+    function showToast(msg,type){type=type||'success';var t=document.getElementById('toast-notif');t.textContent=msg;t.className='toast '+type+' show';clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show');},3200);}
+    function renderImg(l){return '<i class="fa-solid '+(l.icon||'fa-music')+'"></i><img src="'+(l.img||'')+'" onerror="this.style.display=\'none\'">';}
+    function formatTime(s){if(isNaN(s)||s===Infinity)return'0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');}
+
+    // =========================================================
+    // DAFTAR LAGU (ARCHIVE.ORG)
+    // =========================================================
+    var BASE='https://archive.org/download/denny-caknan-feat-bella-bonita-sinarengan-official-music-video/audio/';
+    var daftarLagu=[
+      {title:"Tak Segampang Itu",artist:"Anggi Marito",audio:BASE+"Anggi%20Marito%20Tak%20Segampang%20Itu%20Official%20Music%20Video%20%281%29.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"Risk It All",artist:"Bruno Mars",audio:BASE+"Bruno%20-%20Mars%20Risk%20It%20All.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
+      {title:"Just The Way You Are",artist:"Bruno Mars",audio:BASE+"Bruno%20Mars%20-%20Just%20The%20Way%20You%20Are.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
+      {title:"Locked Out Of Heaven",artist:"Bruno Mars",audio:BASE+"Bruno%20Mars%20-%20Locked%20Out%20Of%20Heaven.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
+      {title:"That's What I Like",artist:"Bruno Mars",audio:BASE+"Bruno%20Mars%20-%20That%27s%20What%20I%20Like.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
+      {title:"The Lazy Song",artist:"Bruno Mars",audio:BASE+"The%20Lazy%20Song.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
+      {title:"Grenade",artist:"Bruno Mars",audio:BASE+"Grenade.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
+      {title:"It Will Rain",artist:"Bruno Mars",audio:BASE+"It%20Will%20Rain.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
+      {title:"When I Was Your Man",artist:"Bruno Mars",audio:BASE+"When%20I%20Was%20Your%20Man.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
+      {title:"Melukis Senja",artist:"Budi Doremi",audio:BASE+"Budi%20Doremi%20Melukis%20Senja%20Painting%20The%20Evening%20Sky%20Official%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb60bf3d5fc410714edeb71a93"},
+      {title:"SINARENGAN",artist:"DENNY CAKNAN",audio:BASE+"Denny%20Caknan%20Feat%20Bella%20Bonita%20SINARENGAN%20Official%20Music%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb1e4eb1be52e7208ff958742b"},
+      {title:"TUNGGAL EKA",artist:"DENNY CAKNAN",audio:BASE+"DENNY%20CAKNAN%20TUNGGAL%20EKA%20Official%20Music%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb1e4eb1be52e7208ff958742b"},
+      {title:"DJ MBG MAS BAHLIL GANTENG",artist:"DJ Apriyantoft",audio:BASE+"DJ%20MBG%20MAS%20BAHLIL%20GANTENG%20VIRAL%20TIKTOK%20TERBARU%202026%20YANG%20KALIAN%20CARI.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"SANES",artist:"GUYONWATON",audio:BASE+"GuyonWaton%20x%20Denny%20Caknan%20SANES%20Official%20Music%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eba7117ad43207dd4390b1bfb9"},
+      {title:"Sedia Aku Sebelum Hujan",artist:"Idgitaf",audio:BASE+"Idgitaf%20Sedia%20Aku%20Sebelum%20Hujan%20Official%20Lyric%20Video%20%281%29.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb56d7820a4b8ab41b712fb66a"},
+      {title:"TOGOG GANDRUNG",artist:"KAJAWI",audio:BASE+"KAJAWI%20Ft.DJALESTA%20TOGOG%20GANDRUNG%20Official%20Music%20Video%20kajawi%20kajawihiphop%20komikdigital.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"WAROK PONOROGO",artist:"KAJAWI",audio:BASE+"KAJAWI%20WAROK%20PONOROGO%20Official%20Lyric%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"MENTERI DURMAGATI",artist:"KAJAWI",audio:BASE+"MINI%20ALBUM%20SOULITIKA.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"DUKA",artist:"Last Child",audio:BASE+"SORROW.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"Rasah Bali",artist:"LAVORA",audio:BASE+"Rasah%20Bali%20LAVORA%20Ft%20Ena%20Vika%20Original%20Version%20Dwilogi%20Eps%202.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"Sewates Konco",artist:"LAVORA",audio:BASE+"Sewates%20Konco%20LAVORA%20Ft%20Destya%20Eka%20Original%20Version.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"Pura Pura Lupa",artist:"Mahen",audio:BASE+"Mahen%20Pura%20Pura%20Lupa%20Official%20Music%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebaef63567ea309489f7fbde04"},
+      {title:"kota ini tak sama tanpamu",artist:"nadhif basalamah",audio:BASE+"Nadhif%20Basalamah%20kota%20ini%20tak%20sama%20tanpamu%20Official%20Lyric%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8d0b9a41d3d4e6b0c3c4e1a2"},
+      {title:"Nemen",artist:"NDX AKA",audio:BASE+"NDX%20AKA%20Nemen%20HipHop%20Dangdut%20Version%20Official%20Lyric%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"Ego Wong Tuo",artist:"NDXAKA",audio:BASE+"NDXAKA%20Ego%20Wong%20Tuo%20Hiphop%20Dangdut%20Version%20Official%20Music%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"Andaikan Kau Datang",artist:"NOAH",audio:BASE+"NOAH%20Andaikan%20Kau%20Datang%20Official%20Music%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"Orang Yang Sama",artist:"Virgoun",audio:BASE+"Orang%20Yang%20Sama%20Virgoun%20Lirik%20Lagu%20OST.Aku%20Dan%20Mesin%20Waktu.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb748805f778a3c86c1dddf3fb"},
+      {title:"Monolog",artist:"Pamungkas",audio:BASE+"Pamungkas%20Monolog%20Lyrics%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eba76c4fbce827b5bd6287c805"},
+      {title:"Bahagia Lagi",artist:"Piche Kota",audio:BASE+"Piche%20Kota%20Bahagia%20Lagi%20Official%20Lyric%20Video%20%281%29.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
+      {title:"Lesung Pipi",artist:"Raim Laode",audio:BASE+"Raim%20Laode%20Lesung%20Pipi%20video%20lirik%20official.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebeb903f0b40ebce6058e58988"},
+      {title:"Bukti",artist:"Virgoun",audio:BASE+"Virgoun%20Bukti%20A%20Testament%20Official%20Lyric%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb748805f778a3c86c1dddf3fb"},
+      {title:"Surat Cinta Untuk Starla",artist:"Virgoun",audio:BASE+"Virgoun%20Surat%20Cinta%20Untuk%20Starla%20A%20Love%20Letter%20To%20Starla%20Official%20Lyric%20Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb748805f778a3c86c1dddf3fb"},
+      {title:"My Love",artist:"Westlife",audio:BASE+"Westlife%20My%20Love%20Lyrics.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb5d64e037cc6dfa4ffefac160"}
+    ];
+
+    // =========================================================
+    // UTILS
+    // =========================================================
+    function initAdminAccount(){var db=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(!db[ADMIN_USERNAME]){db[ADMIN_USERNAME]={password:ADMIN_PASSWORD,email:ADMIN_EMAIL,favorites:[],customPlaylists:[],banned:false};localStorage.setItem('elltify_users',JSON.stringify(db));}}
+    function updateAdminUI(){document.getElementById('admin-tag').style.display=isAdmin()?'inline':'none';document.getElementById('nav-admin').style.display=isAdmin()?'flex':'none';}
+    function isValidEmail(e){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
+    function validateEmailLive(el,hid){var h=document.getElementById(hid),v=el.value.trim();if(!v){el.classList.remove('input-error','input-success');h.classList.remove('visible');return;}if(isValidEmail(v)){el.classList.remove('input-error');el.classList.add('input-success');h.textContent='✓ Valid';h.style.color='#1db954';h.classList.add('visible');}else{el.classList.remove('input-success');el.classList.add('input-error');h.textContent='Format tidak valid';h.style.color='#e91429';h.classList.add('visible');}}
+    function setInputHint(el,hid,msg,isErr){var h=document.getElementById(hid);if(msg){el.classList.add(isErr?'input-error':'input-success');h.textContent=msg;h.style.color=isErr?'#e91429':'#1db954';h.classList.add('visible');}else{el.classList.remove('input-error','input-success');h.classList.remove('visible');}}
+    function clearAllRegHints(){['reg-username','reg-email','reg-password','reg-confirm-password'].forEach(function(id){document.getElementById(id).classList.remove('input-error','input-success');});['reg-username-hint','reg-email-hint','reg-password-hint','reg-confirm-hint'].forEach(function(id){var h=document.getElementById(id);h.classList.remove('visible');h.textContent='';});}
+    function autoDetectFromFilename(fn){var n=fn.replace(/\.[^.]+$/,'').replace(/\s*\(.*?\)\s*/g,' ').replace(/\s*\[.*?\]\s*/g,' ').replace(/official\s*(music\s*)?video/gi,'').replace(/lyrics?\s*video/gi,'').replace(/official\s*lyric\s*video/gi,'').replace(/official\s*audio/gi,'').trim();var t=n,a='';if(n.indexOf(' - ')>-1){var p=n.split(' - ');a=p[0].trim();t=p.slice(1).join(' - ').trim();}return{title:t.replace(/\s+/g,' ').trim()||n,artist:a.replace(/\s+/g,' ').trim()};}
+
+    // =========================================================
+    // GET ALL KNOWN ARTISTS
+    // =========================================================
+    function getAllArtists(){
+      var map={};
+      daftarLagu.forEach(function(l){if(!map[l.artist])map[l.artist]={img:l.img,source:'default'};});
+      getContributedSongs().forEach(function(s){if(!map[s.artist])map[s.artist]={img:s.img||'',source:'contributed'};});
+      getCustomArtists().forEach(function(a){if(!map[a.name])map[a.name]={img:a.img||'',source:'admin',_key:a._key};});
+      return map;
     }
-    function updateAdminUI() {
-      document.getElementById('admin-tag').style.display = isAdmin() ? 'inline' : 'none';
+    function isKnownArtist(name){var m=getAllArtists();var keys=Object.keys(m);for(var i=0;i<keys.length;i++){if(keys[i].toLowerCase().trim()===name.toLowerCase().trim())return keys[i];}return null;}
+
+    // DUPLICATE CHECK
+    function isDuplicateSong(title,artist){
+      var t=title.toLowerCase().trim(),a=artist.toLowerCase().trim();
+      for(var i=0;i<daftarLagu.length;i++){if(daftarLagu[i].title.toLowerCase().trim()===t&&daftarLagu[i].artist.toLowerCase().trim()===a)return true;}
+      var cs=getContributedSongs();for(var i=0;i<cs.length;i++){if(cs[i].title.toLowerCase().trim()===t&&cs[i].artist.toLowerCase().trim()===a)return true;}
+      var ps=getPendingSongs();for(var i=0;i<ps.length;i++){if(ps[i].title.toLowerCase().trim()===t&&ps[i].artist.toLowerCase().trim()===a)return true;}
+      return false;
     }
 
-    // =========================================================
-    // AUTO DETECT
-    // =========================================================
-    function autoDetectFromFilename(filename) {
-      var name = filename.replace(/\.[^.]+$/, '');
-      name = name.replace(/\s*\(.*?\)\s*/g, ' ').replace(/\s*\[.*?\]\s*/g, ' ');
-      name = name.replace(/official\s*(music\s*)?video/gi, '').replace(/lyrics?\s*video/gi, '');
-      name = name.replace(/official\s*lyric\s*video/gi, '').replace(/official\s*audio/gi, '').trim();
-      var title = name, artist = 'Unknown Artist';
-      if (name.indexOf(' - ') > -1) { var p = name.split(' - '); artist = p[0].trim(); title = p.slice(1).join(' - ').trim(); }
-      else if (name.indexOf('_') > -1) { var p = name.split('_'); if (p.length >= 2) { artist = p[0].trim().replace(/[-_]/g, ' '); title = p.slice(1).join(' ').trim().replace(/[-_]/g, ' '); } }
-      title = title.replace(/\s+/g, ' ').trim(); artist = artist.replace(/\s+/g, ' ').trim();
-      if (!title) title = name;
-      return { title: title, artist: artist };
+    // DOWNLOAD
+    function downloadSong(url,title,artist){
+      showToast('Mengunduh '+title+'...');
+      var fn=(artist+' - '+title+'.mp3').replace(/[<>:"/\\|?*]/g,'');
+      fetch(url).then(function(r){return r.blob();}).then(function(b){var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=fn;document.body.appendChild(a);a.click();document.body.removeChild(a);}).catch(function(){var a=document.createElement('a');a.href=url;a.download=fn;a.target='_blank';document.body.appendChild(a);a.click();document.body.removeChild(a);});
     }
 
-    // =========================================================
-    // VALIDASI EMAIL
-    // =========================================================
-    function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
-    function validateEmailLive(el, hid) {
-      var h = document.getElementById(hid), v = el.value.trim();
-      if (!v) { el.classList.remove('input-error','input-success'); h.classList.remove('visible'); return; }
-      if (isValidEmail(v)) { el.classList.remove('input-error'); el.classList.add('input-success'); h.textContent = '✓ Format email valid'; h.style.color = '#1db954'; h.classList.add('visible'); }
-      else { el.classList.remove('input-success'); el.classList.add('input-error'); h.textContent = 'Format email tidak valid'; h.style.color = '#e91429'; h.classList.add('visible'); }
-    }
-    function setInputHint(el, hid, msg, isErr) {
-      var h = document.getElementById(hid);
-      if (msg) { el.classList.add(isErr ? 'input-error' : 'input-success'); h.textContent = msg; h.style.color = isErr ? '#e91429' : '#1db954'; h.classList.add('visible'); }
-      else { el.classList.remove('input-error','input-success'); h.classList.remove('visible'); }
-    }
-    function clearAllRegHints() {
-      ['reg-username','reg-email','reg-password','reg-confirm-password'].forEach(function(id) { document.getElementById(id).classList.remove('input-error','input-success'); });
-      ['reg-username-hint','reg-email-hint','reg-password-hint','reg-confirm-hint'].forEach(function(id) { var h = document.getElementById(id); h.classList.remove('visible'); h.textContent = ''; });
+    // TELEGRAM
+    function sendTelegram(text){
+      fetch('https://api.telegram.org/bot'+TELEGRAM_BOT+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:TELEGRAM_CHAT,text:text,parse_mode:'HTML'})}).catch(function(e){console.warn('Telegram error:',e);});
     }
 
     // =========================================================
     // AUTH
     // =========================================================
-    var authOverlay = document.getElementById('auth-overlay');
-    var registerWrapper = document.getElementById('register-wrapper');
-    var loginWrapper = document.getElementById('login-wrapper');
-    var regError = document.getElementById('register-error');
-    var logError = document.getElementById('login-error');
-    var displayUsername = document.getElementById('display-username');
-    var currentUser = null;
-
-    function initAuth() {
-      var u = localStorage.getItem('elltify_loggedin');
-      if (u) { currentUser = u; displayUsername.innerText = u; authOverlay.classList.add('hidden'); updateAdminUI(); loadUserData(); }
-      else authOverlay.classList.remove('hidden');
-    }
-    function switchAuthMode(m) {
-      if (m === 'login') { registerWrapper.style.display = 'none'; loginWrapper.style.display = 'block'; logError.style.display = 'none'; }
-      else { registerWrapper.style.display = 'block'; loginWrapper.style.display = 'none'; regError.style.display = 'none'; clearAllRegHints(); }
-    }
-    function handleRegister() {
-      clearAllRegHints(); regError.style.display = 'none';
-      var u = document.getElementById('reg-username').value.trim();
-      var e = document.getElementById('reg-email').value.trim();
-      var p = document.getElementById('reg-password').value;
-      var cp = document.getElementById('reg-confirm-password').value;
-      var err = false;
-      if (!u) { setInputHint(document.getElementById('reg-username'),'reg-username-hint','Username wajib diisi',true); err=true; }
-      else if (u.length<3) { setInputHint(document.getElementById('reg-username'),'reg-username-hint','Minimal 3 karakter',true); err=true; }
-      if (!e) { setInputHint(document.getElementById('reg-email'),'reg-email-hint','Email wajib diisi',true); err=true; }
-      else if (!isValidEmail(e)) { setInputHint(document.getElementById('reg-email'),'reg-email-hint','Format email tidak valid',true); err=true; }
-      if (!p) { setInputHint(document.getElementById('reg-password'),'reg-password-hint','Kata sandi wajib diisi',true); err=true; }
-      else if (p.length<4) { setInputHint(document.getElementById('reg-password'),'reg-password-hint','Minimal 4 karakter',true); err=true; }
-      if (!cp) { setInputHint(document.getElementById('reg-confirm-password'),'reg-confirm-hint','Konfirmasi wajib diisi',true); err=true; }
-      else if (p&&p!==cp) { setInputHint(document.getElementById('reg-confirm-password'),'reg-confirm-hint','Tidak cocok',true); err=true; }
-      if (err) return;
-      var dbL = JSON.parse(localStorage.getItem('elltify_users')||'{}');
-      if (dbL[u]) { setInputHint(document.getElementById('reg-username'),'reg-username-hint','Username sudah terdaftar',true); return; }
-      if (Object.values(dbL).some(function(x){return x.email&&x.email.toLowerCase()===e.toLowerCase();})) { setInputHint(document.getElementById('reg-email'),'reg-email-hint','Email sudah digunakan',true); return; }
-      dbL[u]={password:p,email:e,favorites:[],customPlaylists:[]};
-      localStorage.setItem('elltify_users',JSON.stringify(dbL)); loginUser(u);
-    }
-    function handleLogin() {
-      logError.style.display='none';
-      var input=document.getElementById('log-username').value.trim(), p=document.getElementById('log-password').value;
-      if(!input||!p){showAuthError(logError,'Username/email dan kata sandi wajib diisi.');return;}
-      var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');
-      if(dbL[input]&&dbL[input].password===p){loginUser(input);return;}
-      var found=Object.keys(dbL).find(function(u){return dbL[u].email&&dbL[u].email.toLowerCase()===input.toLowerCase();});
-      if(found&&dbL[found].password===p){loginUser(found);return;}
-      showAuthError(logError,'Username/email atau kata sandi salah.');
-    }
-    function loginUser(username) {
-      currentUser=username; localStorage.setItem('elltify_loggedin',username); displayUsername.innerText=username; authOverlay.classList.add('hidden');
-      ['reg-username','reg-email','reg-password','reg-confirm-password','log-username','log-password'].forEach(function(id){document.getElementById(id).value='';});
-      clearAllRegHints(); updateAdminUI(); loadUserData(); showToast('Selamat datang, '+username+'!');
-    }
-    function handleLogout() {
-      saveUserData(); localStorage.removeItem('elltify_loggedin'); currentUser=null; pauseSong();
-      favorites=[]; customPlaylists=[]; activePlaylistId=null; currentPlaylistScope='all'; favCounter.innerText='0 lagu';
-      document.querySelectorAll('.custom-playlist-item').forEach(function(el){el.remove();});
-      showMainSection(); renderHomeContent(searchInput.value); updateAdminUI(); switchAuthMode('login'); authOverlay.classList.remove('hidden');
-    }
+    function initAuth(){var u=localStorage.getItem('elltify_loggedin');if(u){currentUser=u;displayUsername.innerText=u;authOverlay.classList.add('hidden');updateAdminUI();loadUserData();}else authOverlay.classList.remove('hidden');}
+    function switchAuthMode(m){document.getElementById('login-banned').style.display='none';if(m==='login'){registerWrapper.style.display='none';loginWrapper.style.display='block';logError.style.display='none';}else{registerWrapper.style.display='block';loginWrapper.style.display='none';regError.style.display='none';clearAllRegHints();}}
+    function handleRegister(){clearAllRegHints();regError.style.display='none';var u=document.getElementById('reg-username').value.trim(),e=document.getElementById('reg-email').value.trim(),p=document.getElementById('reg-password').value,cp=document.getElementById('reg-confirm-password').value,err=false;if(!u){setInputHint(document.getElementById('reg-username'),'reg-username-hint','Wajib diisi',true);err=true;}else if(u.length<3){setInputHint(document.getElementById('reg-username'),'reg-username-hint','Min 3 karakter',true);err=true;}if(!e){setInputHint(document.getElementById('reg-email'),'reg-email-hint','Wajib diisi',true);err=true;}else if(!isValidEmail(e)){setInputHint(document.getElementById('reg-email'),'reg-email-hint','Format tidak valid',true);err=true;}if(!p){setInputHint(document.getElementById('reg-password'),'reg-password-hint','Wajib diisi',true);err=true;}else if(p.length<4){setInputHint(document.getElementById('reg-password'),'reg-password-hint','Min 4 karakter',true);err=true;}if(!cp){setInputHint(document.getElementById('reg-confirm-password'),'reg-confirm-hint','Wajib diisi',true);err=true;}else if(p&&p!==cp){setInputHint(document.getElementById('reg-confirm-password'),'reg-confirm-hint','Tidak cocok',true);err=true;}if(err)return;var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(dbL[u]){setInputHint(document.getElementById('reg-username'),'reg-username-hint','Sudah terdaftar',true);return;}if(Object.values(dbL).some(function(x){return x.email&&x.email.toLowerCase()===e.toLowerCase();})){setInputHint(document.getElementById('reg-email'),'reg-email-hint','Email sudah digunakan',true);return;}dbL[u]={password:p,email:e,favorites:[],customPlaylists:[],banned:false};localStorage.setItem('elltify_users',JSON.stringify(dbL));loginUser(u);}
+    function handleLogin(){logError.style.display='none';document.getElementById('login-banned').style.display='none';var input=document.getElementById('log-username').value.trim(),p=document.getElementById('log-password').value;if(!input||!p){showAuthError(logError,'Username/email dan kata sandi wajib diisi.');return;}var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');var foundUser=null;if(dbL[input]&&dbL[input].password===p)foundUser=input;else{var f=Object.keys(dbL).find(function(u){return dbL[u].email&&dbL[u].email.toLowerCase()===input.toLowerCase();});if(f&&dbL[f].password===p)foundUser=f;}if(!foundUser){showAuthError(logError,'Username/email atau kata sandi salah.');return;}if(dbL[foundUser].banned){document.getElementById('login-banned').style.display='block';return;}loginUser(foundUser);}
+    function loginUser(u){currentUser=u;localStorage.setItem('elltify_loggedin',u);displayUsername.innerText=u;authOverlay.classList.add('hidden');['reg-username','reg-email','reg-password','reg-confirm-password','log-username','log-password'].forEach(function(id){document.getElementById(id).value='';});clearAllRegHints();updateAdminUI();loadUserData();showToast('Selamat datang, '+u+'!');}
+    function handleLogout(){saveUserData();localStorage.removeItem('elltify_loggedin');currentUser=null;pauseSong();reviewAudio.pause();favorites=[];customPlaylists=[];activePlaylistId=null;currentPlaylistScope='all';favCounter.innerText='0 lagu';document.querySelectorAll('.custom-playlist-item').forEach(function(el){el.remove();});showMainSection();renderHomeContent(searchInput.value);updateAdminUI();switchAuthMode('login');authOverlay.classList.remove('hidden');}
     function showAuthError(el,msg){el.innerText=msg;el.style.display='block';}
-    function loadUserData() {
-      if(!currentUser)return;
-      var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');
-      if(dbL[currentUser]){favorites=dbL[currentUser].favorites||[];customPlaylists=dbL[currentUser].customPlaylists||[];}
-      favCounter.innerText=favorites.length+' lagu'; renderSidebarPlaylists(); renderHomeContent(searchInput.value);
+    function loadUserData(){if(!currentUser)return;var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(dbL[currentUser]){favorites=dbL[currentUser].favorites||[];customPlaylists=dbL[currentUser].customPlaylists||[];}favCounter.innerText=favorites.length+' lagu';renderSidebarPlaylists();renderHomeContent(searchInput.value);}
+    function saveUserData(){if(!currentUser)return;var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(dbL[currentUser]){dbL[currentUser].favorites=favorites;dbL[currentUser].customPlaylists=customPlaylists;localStorage.setItem('elltify_users',JSON.stringify(dbL));}}
+
+    // =========================================================
+    // FIREBASE UPDATE HANDLER
+    // =========================================================
+    window.handleFirebaseUpdate=function(){
+      var newKeys=window._contributedSongs.map(function(s){return s._key;});
+      var oldKeys=window._prevContribKeys||[];
+      if(currentTrackIsContrib&&currentContribKey){if(oldKeys.indexOf(currentContribKey)>-1&&newKeys.indexOf(currentContribKey)===-1){currentAudio.pause();currentAudio.src='';isPlaying=false;currentTrackIsContrib=false;currentContribKey=null;currentTrackIndex=-1;masterPlay.className='fa-solid fa-circle-play play-icon';footTitle.innerText='Pilih Lagu';footArtist.innerText='Artis';footIcon.innerHTML='<i class="fa-solid fa-record-vinyl"></i>';progressBar.value=0;currTimeText.innerText='0:00';totTimeText.innerText='0:00';}}
+      var dk=oldKeys.filter(function(k){return newKeys.indexOf(k)===-1;});
+      if(dk.length>0){dk.forEach(function(d){var c='contrib:'+d;var fi=favorites.indexOf(c);if(fi>-1)favorites.splice(fi,1);customPlaylists.forEach(function(pl){var pi=pl.songs.indexOf(c);if(pi>-1)pl.songs.splice(pi,1);});});favCounter.innerText=favorites.length+' lagu';saveUserData();}
+      window._prevContribKeys=newKeys.slice();
+      // Update pending badge
+      var pc=getPendingSongs().length;
+      var pb=document.getElementById('pending-badge'),rb=document.getElementById('review-tab-badge');
+      if(pc>0){pb.textContent=pc;pb.style.display='inline';rb.textContent=pc;rb.style.display='inline';}else{pb.style.display='none';rb.style.display='none';}
+      renderContributedSidebar();renderHomeContent(searchInput?searchInput.value:'');
+      if(sectionAdmin.style.display==='flex')renderCurrentAdminTab();
+    };
+
+    // =========================================================
+    // ARTIST DROPDOWN
+    // =========================================================
+    function populateArtistDropdown(autoDetectedArtist){
+      var sel=document.getElementById('contrib-artist-select');
+      var wrap=document.getElementById('contrib-artist-new-wrap');
+      sel.innerHTML='<option value="">-- Pilih Artis --</option>';
+      var arts=getAllArtists();
+      var names=Object.keys(arts).sort(function(a,b){return a.toLowerCase().localeCompare(b.toLowerCase());});
+      names.forEach(function(n){var o=document.createElement('option');o.value=n;o.textContent=n+(arts[n].source==='admin'?' ⭐':'');sel.appendChild(o);});
+      var newOpt=document.createElement('option');newOpt.value='__NEW__';newOpt.textContent='➕ Artis baru (perlu approval admin)';sel.appendChild(newOpt);
+      // Auto select if detected
+      if(autoDetectedArtist){
+        var match=isKnownArtist(autoDetectedArtist);
+        if(match){sel.value=match;wrap.style.display='none';}
+        else{sel.value='__NEW__';wrap.style.display='block';document.getElementById('contrib-artist-new').value=autoDetectedArtist;}
+      }else{wrap.style.display='none';}
     }
-    function saveUserData() {
-      if(!currentUser)return;
-      var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');
-      if(dbL[currentUser]){dbL[currentUser].favorites=favorites;dbL[currentUser].customPlaylists=customPlaylists;localStorage.setItem('elltify_users',JSON.stringify(dbL));}
-    }
-
-    // =========================================================
-    // DAFTAR LAGU (35 LAGU - TANPA DUPLIKAT)
-    // =========================================================
-    var daftarLagu = [
-      {title:"Tak Segampang Itu",artist:"Anggi Marito",audio:"audio/Anggi Marito Tak Segampang Itu Official Music Video (1).mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"Risk It All",artist:"Bruno Mars",audio:"audio/Bruno - Mars Risk It All.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
-      {title:"Just The Way You Are",artist:"Bruno Mars",audio:"audio/Bruno Mars - Just The Way You Are.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
-      {title:"Locked Out Of Heaven",artist:"Bruno Mars",audio:"audio/Bruno Mars - Locked Out Of Heaven.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
-      {title:"That's What I Like",artist:"Bruno Mars",audio:"audio/Bruno Mars - That\u2019s What I Like.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
-      {title:"The Lazy Song",artist:"Bruno Mars",audio:"audio/The Lazy Song.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
-      {title:"Grenade",artist:"Bruno Mars",audio:"audio/Grenade.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
-      {title:"It Will Rain",artist:"Bruno Mars",audio:"audio/It Will Rain.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
-      {title:"When I Was Your Man",artist:"Bruno Mars",audio:"audio/When I Was Your Man.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebc36dd9eb55fb0db4911f25dd"},
-      {title:"Melukis Senja",artist:"Budi Doremi",audio:"audio/Budi Doremi Melukis Senja Painting The Evening Sky Official Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb60bf3d5fc410714edeb71a93"},
-      {title:"SINARENGAN",artist:"DENNY CAKNAN",audio:"audio/Denny Caknan Feat Bella Bonita SINARENGAN Official Music Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb1e4eb1be52e7208ff958742b"},
-      {title:"TUNGGAL EKA",artist:"DENNY CAKNAN",audio:"audio/DENNY CAKNAN TUNGGAL EKA Official Music Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb1e4eb1be52e7208ff958742b"},
-      {title:"DJ MBG MAS BAHLIL GANTENG",artist:"DJ Apriyantoft",audio:"audio/DJ MBG MAS BAHLIL GANTENG VIRAL TIKTOK TERBARU 2026 YANG KALIAN CARI.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"SANES",artist:"GUYONWATON",audio:"audio/GuyonWaton x Denny Caknan SANES Official Music Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eba7117ad43207dd4390b1bfb9"},
-      {title:"Sedia Aku Sebelum Hujan",artist:"Idgitaf",audio:"audio/Idgitaf Sedia Aku Sebelum Hujan Official Lyric Video (1).mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb56d7820a4b8ab41b712fb66a"},
-      {title:"TOGOG GANDRUNG",artist:"KAJAWI",audio:"audio/KAJAWI Ft.DJALESTA TOGOG GANDRUNG Official Music Video kajawi kajawihiphop komikdigital.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"WAROK PONOROGO",artist:"KAJAWI",audio:"audio/KAJAWI WAROK PONOROGO Official Lyric Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"MENTERI DURMAGATI",artist:"KAJAWI",audio:"audio/MINI ALBUM SOULITIKA.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"DUKA",artist:"Last Child",audio:"audio/SORROW.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"Rasah Bali",artist:"LAVORA",audio:"audio/Rasah Bali LAVORA Ft Ena Vika Original Version Dwilogi Eps 2.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"Sewates Konco",artist:"LAVORA",audio:"audio/Sewates Konco LAVORA Ft Destya Eka Original Version.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"Pura Pura Lupa",artist:"Mahen",audio:"audio/Mahen Pura Pura Lupa Official Music Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebaef63567ea309489f7fbde04"},
-      {title:"kota ini tak sama tanpamu",artist:"nadhif basalamah",audio:"audio/Nadhif Basalamah kota ini tak sama tanpamu Official Lyric Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8d0b9a41d3d4e6b0c3c4e1a2"},
-      {title:"Nemen",artist:"NDX AKA",audio:"audio/NDX AKA Nemen HipHop Dangdut Version Official Lyric Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"Ego Wong Tuo",artist:"NDXAKA",audio:"audio/NDXAKA Ego Wong Tuo Hiphop Dangdut Version Official Music Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"Andaikan Kau Datang",artist:"NOAH",audio:"audio/NOAH Andaikan Kau Datang Official Music Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"Orang Yang Sama",artist:"Virgoun",audio:"audio/Orang Yang Sama Virgoun Lirik Lagu OST.Aku Dan Mesin Waktu.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb748805f778a3c86c1dddf3fb"},
-      {title:"Monolog",artist:"Pamungkas",audio:"audio/Pamungkas Monolog Lyrics Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eba76c4fbce827b5bd6287c805"},
-      {title:"Bahagia Lagi",artist:"Piche Kota",audio:"audio/Piche Kota Bahagia Lagi Official Lyric Video (1).mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb8ae7f2aaa9817a704a87ea36"},
-      {title:"Lesung Pipi",artist:"Raim Laode",audio:"audio/Raim Laode Lesung Pipi video lirik official.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5ebeb903f0b40ebce6058e58988"},
-      {title:"Bukti",artist:"Virgoun",audio:"audio/Virgoun Bukti A Testament Official Lyric Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb748805f778a3c86c1dddf3fb"},
-      {title:"Surat Cinta Untuk Starla",artist:"Virgoun",audio:"audio/Virgoun Surat Cinta Untuk Starla A Love Letter To Starla Official Lyric Video.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb748805f778a3c86c1dddf3fb"},
-      {title:"My Love",artist:"Westlife",audio:"audio/Westlife My Love Lyrics.mp3",icon:"fa-music",img:"https://i.scdn.co/image/ab6761610000e5eb5d64e037cc6dfa4ffefac160"}
-    ];
-
-    // =========================================================
-    // CONTRIBUTED SONGS
-    // =========================================================
-    window._contributedSongs = [];
-    function getContributedSongs() { return window._contributedSongs || []; }
-
-    // =========================================================
-    // VARIABEL GLOBAL
-    // =========================================================
-    var CARD_LIMIT=5, currentPlaylistScope='all', activePlaylistId=null, favorites=[], customPlaylists=[];
-    var currentAudio=new Audio(), currentTrackIndex=-1, isPlaying=false;
-    var pendingSongIndexToAdd=null, pendingPlaylistIdToDelete=null, toastTimer=null, contribFileDataURL=null;
-    var masterPlay=document.getElementById('master-play'), progressBar=document.getElementById('progress-bar');
-    var currTimeText=document.getElementById('curr-time'), totTimeText=document.getElementById('tot-time');
-    var footTitle=document.getElementById('foot-title'), footArtist=document.getElementById('foot-artist'), footIcon=document.getElementById('foot-icon');
-    var containerCard=document.getElementById('container-lagu-card'), containerOval=document.getElementById('container-lagu-oval');
-    var containerOvalPlaylist=document.getElementById('container-oval-playlist'), sidebarPlaylistContainer=document.getElementById('sidebar-playlist-container');
-    var sectionHome=document.getElementById('section-home'), sectionPlaylist=document.getElementById('section-playlist');
-    var playlistViewTitle=document.getElementById('playlist-view-title'), favCounter=document.getElementById('fav-counter');
-    var customModalOverlay=document.getElementById('custom-modal-overlay'), modalPlaylistNameInput=document.getElementById('modal-playlist-name');
-    var modalPlaylistSelect=document.getElementById('modal-playlist-select'), modalTitleContext=document.getElementById('modal-title-context');
-    var modalActionWrapper=document.getElementById('modal-action-wrapper'), searchInput=document.getElementById('search-input');
-    var contributeModalOverlay=document.getElementById('contribute-modal-overlay');
-
-    function showToast(msg,type){type=type||'success';var t=document.getElementById('toast-notif');t.textContent=msg;t.className='toast '+type+' show';clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show');},2800);}
-    function renderImg(l){return '<i class="fa-solid '+(l.icon||'fa-music')+'"></i><img src="'+(l.img||'')+'" onerror="this.style.display=\'none\'">';}
-
-    // =========================================================
-    // RENDER HOME
-    // =========================================================
-    function renderHomeContent(filterText) {
-      filterText=filterText||''; containerCard.innerHTML=''; containerOval.innerHTML='';
-      var q=filterText.toLowerCase().trim();
-      daftarLagu.forEach(function(l,i) {
-        if(q&&l.title.toLowerCase().indexOf(q)===-1&&l.artist.toLowerCase().indexOf(q)===-1)return;
-        var isFav=favorites.indexOf(i)>-1, np=currentTrackIndex===i&&currentPlaylistScope!=='contributed';
-        if(i<CARD_LIMIT){
-          var c=document.createElement('div'); c.className='card'+(np?' playing':'');
-          c.onclick=(function(idx){return function(){currentPlaylistScope='all';loadTrack(idx);};})(i);
-          c.innerHTML='<div class="card-img">'+renderImg(l)+'</div><div class="card-title">'+l.title+'</div><div class="card-info">'+l.artist+'</div><button class="fav-btn '+(isFav?'active':'')+'" onclick="toggleFavorite(event,'+i+')"><i class="fa-solid fa-heart"></i></button><button class="add-to-playlist-btn" onclick="addTrackToActivePlaylist(event,'+i+')"><i class="fa-solid fa-plus"></i></button>';
-          containerCard.appendChild(c);
-        } else {
-          var c=document.createElement('div'); c.className='oval-home-capsule'+(np?' playing-oval':'');
-          c.onclick=(function(idx){return function(){currentPlaylistScope='all';loadTrack(idx);};})(i);
-          c.innerHTML='<div class="oval-home-thumb">'+renderImg(l)+'</div><div class="oval-home-details"><div class="oval-home-title">'+l.title+'</div><div class="oval-home-artist">'+l.artist+'</div></div><div class="oval-home-btns"><button class="oval-home-btn '+(isFav?'active-fav':'')+'" onclick="toggleFavorite(event,'+i+')"><i class="fa-solid fa-heart"></i></button><button class="oval-home-btn" onclick="addTrackToActivePlaylist(event,'+i+')"><i class="fa-solid fa-plus"></i></button></div>';
-          containerOval.appendChild(c);
-        }
-      });
-      renderContributedHome(q);
-    }
-
-    function renderContributedHome(q) {
-      q=q||''; var sec=document.getElementById('contributed-home-section'), songs=getContributedSongs();
-      var filtered=q?songs.filter(function(s){return s.title.toLowerCase().indexOf(q)>-1||s.artist.toLowerCase().indexOf(q)>-1;}):songs;
-      if(!filtered.length){sec.innerHTML='';return;}
-      var h='<hr class="section-divider-line"><div class="section-title"><i class="fa-solid fa-users"></i> Lagu dari Kontributor</div><div class="oval-list-home">';
-      filtered.forEach(function(song){
-        var si=songs.indexOf(song), gi=daftarLagu.length+si, np=currentTrackIndex===gi&&currentPlaylistScope==='contributed';
-        h+='<div class="oval-home-capsule '+(np?'playing-oval':'')+'" onclick="playContributedSong('+si+')"><div class="oval-home-thumb">'+renderImg(song)+'</div><div class="oval-home-details"><div class="oval-home-title">'+song.title+'</div><div class="oval-home-artist">'+song.artist+'</div></div><div class="oval-home-btns"><button class="oval-home-btn" onclick="event.stopPropagation();playContributedSong('+si+')"><i class="fa-solid fa-play"></i></button></div></div>';
-      });
-      h+='</div>'; sec.innerHTML=h;
-    }
-
-    function renderContributedSidebar() {
-      var sec=document.getElementById('contributed-sidebar-section'), songs=getContributedSongs();
-      if(!songs.length){sec.innerHTML='';return;}
-      var h='<div class="sidebar-section-label"><i class="fa-solid fa-clock-rotate-left"></i> Lagu yang baru ditambahkan</div>';
-      songs.slice().reverse().forEach(function(song,ri){
-        var ai=songs.length-1-ri, gi=daftarLagu.length+ai, cp=currentTrackIndex===gi&&currentPlaylistScope==='contributed';
-        var delBtn=isAdmin()?'<button class="contrib-delete-btn" onclick="event.stopPropagation();deleteContributedSong(\''+song._key+'\',\''+song.title.replace(/'/g,'')+'\')" ><i class="fa-solid fa-trash"></i></button>':'';
-        h+='<div class="contributed-song-item '+(cp?'playing-contrib':'')+'" onclick="playContributedSong('+ai+')"><div class="contrib-thumb"><i class="fa-solid fa-music"></i>'+(song.img?'<img src="'+song.img+'" onerror="this.style.display=\'none\'">':'')+'</div><div class="contrib-info"><h4>'+song.title+'</h4><p>'+song.artist+'</p></div>'+delBtn+'</div>';
-      });
-      sec.innerHTML=h;
-    }
-
-    function playContributedSong(ci) {
-      var songs=getContributedSongs(); if(ci<0||ci>=songs.length)return;
-      var s=songs[ci]; currentPlaylistScope='contributed'; currentTrackIndex=daftarLagu.length+ci;
-      footTitle.innerText=s.title; footArtist.innerText=s.artist; footIcon.innerHTML=renderImg(s);
-      currentAudio.src=s.audio; currentAudio.load(); playSong(); renderHomeContent(searchInput.value); renderContributedSidebar();
-    }
-
-    function deleteContributedSong(key,title) {
-      if(!isAdmin()){showToast('Hanya admin yang dapat menghapus lagu','warning');return;}
-      if(window.firebaseDeleteSong) window.firebaseDeleteSong(key,title);
-    }
+    document.getElementById('contrib-artist-select').addEventListener('change',function(){
+      var w=document.getElementById('contrib-artist-new-wrap');
+      if(this.value==='__NEW__'){w.style.display='block';document.getElementById('contrib-artist-new').focus();}else{w.style.display='none';}
+    });
 
     // =========================================================
     // CONTRIBUTE MODAL
     // =========================================================
-    function openContributeModal() {
-      contribFileDataURL=null;
-      ['contrib-title','contrib-artist','contrib-cover','contrib-link-input'].forEach(function(id){document.getElementById(id).value='';});
-      document.getElementById('contrib-file-name').style.display='none';
-      document.getElementById('contrib-auto-detect').style.display='none';
+    function openContributeModal(){
+      selectedFile=null;isUploading=false;
+      ['contrib-title','contrib-cover','contrib-link-input'].forEach(function(id){document.getElementById(id).value='';});
+      document.getElementById('contrib-artist-new').value='';
+      document.getElementById('upload-filename').style.display='none';
+      document.getElementById('upload-filesize').style.display='none';
+      document.getElementById('auto-detect-badge').style.display='none';
+      document.getElementById('upload-progress-wrap').style.display='none';
       document.getElementById('contrib-file-input').value='';
-      document.getElementById('contrib-file-label').querySelector('span').textContent='Pilih file audio (.mp3, .wav, .ogg)';
-      switchContribTab('file'); contributeModalOverlay.classList.add('active');
+      document.getElementById('contrib-submit-btn').disabled=false;
+      document.getElementById('contrib-cancel-btn').disabled=false;
+      document.getElementById('upload-area').classList.remove('has-file');
+      populateArtistDropdown('');
+      contributeModalOverlay.classList.add('active');
     }
-    function closeContributeModal(){contributeModalOverlay.classList.remove('active');}
-    contributeModalOverlay.addEventListener('click',function(e){if(e.target===contributeModalOverlay)closeContributeModal();});
+    function closeContributeModal(){if(isUploading)return;contributeModalOverlay.classList.remove('active');}
+    contributeModalOverlay.addEventListener('click',function(e){if(e.target===contributeModalOverlay&&!isUploading)closeContributeModal();});
 
-    function switchContribTab(tab) {
-      document.querySelectorAll('.contrib-tab-btn').forEach(function(b){b.classList.remove('active');});
-      document.querySelectorAll('.contrib-tab-content').forEach(function(c){c.classList.remove('active');});
-      if(tab==='file'){document.querySelector('.contrib-tab-btn:nth-child(1)').classList.add('active');document.getElementById('contrib-tab-file').classList.add('active');}
-      else{document.querySelector('.contrib-tab-btn:nth-child(2)').classList.add('active');document.getElementById('contrib-tab-link').classList.add('active');}
+    // DRAG DROP
+    var uploadArea=document.getElementById('upload-area');
+    uploadArea.addEventListener('dragover',function(e){e.preventDefault();uploadArea.classList.add('dragover');});
+    uploadArea.addEventListener('dragleave',function(){uploadArea.classList.remove('dragover');});
+    uploadArea.addEventListener('drop',function(e){e.preventDefault();uploadArea.classList.remove('dragover');if(e.dataTransfer.files.length>0)processFile(e.dataTransfer.files[0]);});
+    function handleFileSelect(input){if(input.files.length>0)processFile(input.files[0]);}
+    function processFile(file){
+      if(!file.name.toLowerCase().endsWith('.mp3')){showToast('Hanya file .mp3','warning');return;}
+      if(file.size>20*1024*1024){showToast('Maksimal 20MB','warning');return;}
+      selectedFile=file;
+      document.getElementById('upload-area').classList.add('has-file');
+      document.getElementById('upload-filename').textContent='✓ '+file.name;document.getElementById('upload-filename').style.display='block';
+      document.getElementById('upload-filesize').textContent=(file.size/1024/1024).toFixed(2)+' MB';document.getElementById('upload-filesize').style.display='block';
+      var det=autoDetectFromFilename(file.name);
+      if(det.title)document.getElementById('contrib-title').value=det.title;
+      populateArtistDropdown(det.artist);
+      var badge=document.getElementById('auto-detect-badge');
+      badge.innerHTML='<i class="fa-solid fa-wand-magic-sparkles" style="margin-right:5px"></i>Terdeteksi: <b>'+(det.artist||'?')+'</b> — <b>'+det.title+'</b>';
+      badge.style.display='block';
     }
 
-    function handleFileSelect(input) {
-      var file=input.files[0]; if(!file)return;
-      var nameEl=document.getElementById('contrib-file-name'), labelSpan=document.getElementById('contrib-file-label').querySelector('span');
-      var detectEl=document.getElementById('contrib-auto-detect');
-      nameEl.textContent='✓ '+file.name+' ('+(file.size/1024/1024).toFixed(2)+' MB)'; nameEl.style.display='block'; labelSpan.textContent=file.name;
-      var detected=autoDetectFromFilename(file.name);
-      document.getElementById('contrib-title').value=detected.title;
-      document.getElementById('contrib-artist').value=detected.artist;
-      detectEl.innerHTML='<i class="fa-solid fa-wand-magic-sparkles"></i> Terdeteksi: <b>'+detected.artist+'</b> — <b>'+detected.title+'</b>';
-      detectEl.style.display='block';
-      var reader=new FileReader();
-      reader.onload=function(e){contribFileDataURL=e.target.result;};
-      reader.readAsDataURL(file);
+    // CLOUDINARY UPLOAD
+    function uploadToCloudinary(file,onOk,onErr,onProg){
+      var fd=new FormData();fd.append('file',file);fd.append('upload_preset',CLOUDINARY_PRESET);fd.append('resource_type','video');
+      var xhr=new XMLHttpRequest();xhr.open('POST',CLOUDINARY_URL,true);
+      xhr.upload.onprogress=function(e){if(e.lengthComputable&&onProg)onProg(Math.round(e.loaded/e.total*100));};
+      xhr.onload=function(){if(xhr.status===200){var r=JSON.parse(xhr.responseText);onOk(r.secure_url);}else onErr('Upload gagal: '+xhr.status);};
+      xhr.onerror=function(){onErr('Koneksi error');};xhr.send(fd);
     }
 
-    function submitContribution() {
+    function submitContribution(){
+      if(isUploading)return;
       var title=document.getElementById('contrib-title').value.trim();
-      var artist=document.getElementById('contrib-artist').value.trim();
+      var selArtist=document.getElementById('contrib-artist-select').value;
+      var newArtist=document.getElementById('contrib-artist-new').value.trim();
       var cover=document.getElementById('contrib-cover').value.trim();
-      var linkInput=document.getElementById('contrib-link-input').value.trim();
-      var activeTab=document.querySelector('.contrib-tab-content.active').id;
+      var link=document.getElementById('contrib-link-input').value.trim();
+      var artist='';var isPending=false;
+      if(selArtist==='__NEW__'){
+        if(!newArtist){showToast('Nama artis wajib diisi','warning');return;}
+        artist=newArtist;isPending=true;
+      }else if(selArtist){artist=selArtist;}
+      else{showToast('Pilih artis','warning');return;}
+      if(!title){showToast('Judul wajib diisi','warning');return;}
+      if(isDuplicateSong(title,artist)){showToast('Maaf, "'+title+'" oleh '+artist+' sudah ada','error');return;}
+
       var audioSrc='';
-      if(activeTab==='contrib-tab-file'){if(!contribFileDataURL){showToast('Pilih file audio terlebih dahulu','warning');return;}audioSrc=contribFileDataURL;}
-      else{if(!linkInput){showToast('Masukkan link audio','warning');return;}audioSrc=linkInput;}
-      if(!title){showToast('Judul lagu wajib diisi','warning');return;}
-      if(!artist){showToast('Nama artis wajib diisi','warning');return;}
-      var newSong={title:title,artist:artist,audio:audioSrc,icon:'fa-music',img:cover||'',addedAt:new Date().toISOString()};
-      closeContributeModal();
-      if(window.firebasePushSong) window.firebasePushSong(newSong);
+      if(selectedFile){
+        isUploading=true;
+        document.getElementById('upload-progress-wrap').style.display='block';
+        document.getElementById('contrib-submit-btn').disabled=true;
+        document.getElementById('contrib-cancel-btn').disabled=true;
+        document.getElementById('upload-progress-fill').style.width='0%';
+        document.getElementById('upload-percent').textContent='0%';
+        document.getElementById('upload-status-text').textContent='Mempersiapkan...';
+        uploadToCloudinary(selectedFile,function(url){
+          isUploading=false;
+          document.getElementById('upload-progress-fill').style.width='100%';
+          document.getElementById('upload-percent').textContent='100%';
+          document.getElementById('upload-status-text').textContent='Selesai!';
+          setTimeout(function(){finishContribution(title,artist,url,cover,isPending);},500);
+        },function(err){
+          isUploading=false;document.getElementById('upload-progress-wrap').style.display='none';
+          document.getElementById('contrib-submit-btn').disabled=false;document.getElementById('contrib-cancel-btn').disabled=false;
+          showToast(err,'error');
+        },function(pct){
+          document.getElementById('upload-progress-fill').style.width=pct+'%';
+          document.getElementById('upload-percent').textContent=pct+'%';
+          document.getElementById('upload-status-text').textContent='Mengupload... '+pct+'%';
+        });
+      }else if(link){
+        if(!link.toLowerCase().match(/\.mp3(\?.*)?$/)){showToast('Link harus .mp3','warning');return;}
+        finishContribution(title,artist,link,cover,isPending);
+      }else{showToast('Pilih file atau masukkan link','warning');}
     }
 
-    // =========================================================
-    // PLAYER
-    // =========================================================
-    function formatTime(s){if(isNaN(s)||s===Infinity)return'0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');}
-    function loadTrack(i) {
-      if(i<0||i>=daftarLagu.length)return;
-      currentTrackIndex=i; currentPlaylistScope='all';
-      var l=daftarLagu[i]; footTitle.innerText=l.title; footArtist.innerText=l.artist; footIcon.innerHTML=renderImg(l);
-      currentAudio.src=l.audio; currentAudio.load(); playSong(); renderHomeContent(searchInput.value); renderContributedSidebar();
-      if(sectionPlaylist.style.display==='block'){
-        if(activePlaylistId==='favorites')renderOvalPlaylist('favorites','Lagu Favorit');
-        else{var pl=customPlaylists.find(function(p){return p.id===activePlaylistId;});if(pl)renderOvalPlaylist(pl.id,pl.name);}
+    function finishContribution(title,artist,audioUrl,cover,isPending){
+      var song={title:title,artist:artist,audio:audioUrl,icon:'fa-music',img:cover||'',addedBy:currentUser||'Anonim',addedAt:new Date().toISOString()};
+      closeContributeModal();
+      if(isPending){
+        song.status='pending';
+        if(window.firebasePushPending)window.firebasePushPending(song);
+        sendTelegram('🎵 <b>LAGU BARU MENUNGGU REVIEW</b>\n═══════════════════\n📋 Judul: '+title+'\n🎤 Artis: '+artist+' (BARU)\n👤 Upload: '+(currentUser||'Anonim')+'\n\n⚠️ Artis belum terdaftar\n🔗 Review di Admin Panel');
+        showToast('Lagu dikirim untuk review admin!','warning');
+      }else{
+        if(window.firebasePushSong)window.firebasePushSong(song);
       }
     }
-    function playSong(){if(currentTrackIndex===-1){loadTrack(0);return;}isPlaying=true;masterPlay.className='fa-solid fa-circle-pause play-icon';currentAudio.play().catch(function(e){console.warn('Audio:',e);});}
+
+    // =========================================================
+    // EVENT DELEGATION
+    // =========================================================
+    document.addEventListener('click',function(e){
+      var btn=e.target.closest('[data-action]');if(!btn)return;
+      var action=btn.getAttribute('data-action'),key=btn.getAttribute('data-key'),idx=btn.getAttribute('data-idx');
+      e.stopPropagation();
+      if(action==='fav'){var favId=key?'contrib:'+key:parseInt(idx);var fi=favorites.indexOf(favId);if(fi>-1){favorites.splice(fi,1);showToast('Dihapus dari Favorit','warning');}else{favorites.push(favId);showToast('Ditambahkan ke Favorit');}favCounter.innerText=favorites.length+' lagu';saveUserData();renderHomeContent(searchInput.value);if(sectionPlaylist.style.display==='block'&&activePlaylistId==='favorites')renderOvalPlaylist('favorites','Lagu Favorit');}
+      else if(action==='add-playlist'){pendingSongToAdd=key?'contrib:'+key:parseInt(idx);if(!customPlaylists.length)openPlaylistModal('create');else openPlaylistModal('select');}
+      else if(action==='play-contrib'){playContribByKey(key);}
+      else if(action==='play-track'){currentPlaylistScope='all';loadTrack(parseInt(idx));}
+      else if(action==='delete-contrib'){deleteContributedSong(key,btn.getAttribute('data-title')||'');}
+      else if(action==='remove-from-playlist'){removeTrackFromPlaylist(btn.getAttribute('data-pid'),key?'contrib:'+key:parseInt(idx));}
+      else if(action==='download'){downloadSong(btn.getAttribute('data-url'),btn.getAttribute('data-title'),btn.getAttribute('data-artist'));}
+    });
+
+    // =========================================================
+    // BUILD & RENDER HOME
+    // =========================================================
+    function buildArtistMap(q){q=q||'';var m={};daftarLagu.forEach(function(l,i){if(q&&l.title.toLowerCase().indexOf(q)===-1&&l.artist.toLowerCase().indexOf(q)===-1)return;if(!m[l.artist])m[l.artist]={songs:[],img:l.img};m[l.artist].songs.push({title:l.title,artist:l.artist,audio:l.audio,icon:l.icon,img:l.img,isContrib:false,daftarIdx:i,_key:null,addedBy:null});});getContributedSongs().forEach(function(s){if(q&&s.title.toLowerCase().indexOf(q)===-1&&s.artist.toLowerCase().indexOf(q)===-1)return;if(!m[s.artist])m[s.artist]={songs:[],img:s.img||''};m[s.artist].songs.push({title:s.title,artist:s.artist,audio:s.audio,icon:s.icon||'fa-music',img:s.img||'',isContrib:true,daftarIdx:-1,_key:s._key,addedBy:s.addedBy||'Anonim'});if(!m[s.artist].img&&s.img)m[s.artist].img=s.img;});return m;}
+    function renderArtistCards(map){containerArtistCards.innerHTML='';var names=Object.keys(map).sort(function(a,b){return a.toLowerCase().localeCompare(b.toLowerCase());});names.slice(0,5).forEach(function(name){var d=map[name],sid='artist-'+name.replace(/[^a-zA-Z0-9]/g,'-').toLowerCase();var c=document.createElement('div');c.className='artist-card';c.onclick=function(){scrollToArtist(sid);};c.innerHTML='<div class="artist-card-img"><i class="fa-solid fa-microphone"></i>'+(d.img?'<img src="'+d.img+'" onerror="this.style.display=\'none\'">':'')+'</div><div class="artist-card-name">'+name+'</div><div class="artist-card-count">'+d.songs.length+' lagu</div>';containerArtistCards.appendChild(c);});}
+    function scrollToArtist(id){var el=document.getElementById(id);if(!el)return;el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('glow-highlight');setTimeout(function(){el.classList.remove('glow-highlight');},1500);}
+    function renderHomeContent(ft){
+      ft=ft||'';containerGrouped.innerHTML='';var q=ft.toLowerCase().trim(),map=buildArtistMap(q);renderArtistCards(map);
+      var names=Object.keys(map).sort(function(a,b){return a.toLowerCase().localeCompare(b.toLowerCase());});
+      if(!names.length){containerGrouped.innerHTML='<p class="admin-empty">Tidak ada lagu ditemukan</p>';return;}
+      names.forEach(function(an){
+        var data=map[an],songs=data.songs,img=data.img||'',sid='artist-'+an.replace(/[^a-zA-Z0-9]/g,'-').toLowerCase();
+        var block=document.createElement('div');block.className='artist-block';block.id=sid;
+        var h='<div class="artist-header"><div class="artist-avatar"><i class="fa-solid fa-microphone"></i>'+(img?'<img src="'+img+'" onerror="this.style.display=\'none\'">':'')+'</div><div class="artist-name-text">'+an+'</div><div class="artist-song-count">'+songs.length+' lagu</div></div>';
+        var s='<div class="artist-songs-list">';
+        songs.forEach(function(song){
+          var np=song.isContrib?(currentTrackIsContrib&&currentContribKey===song._key):(!currentTrackIsContrib&&currentTrackIndex===song.daftarIdx);
+          var favId=song.isContrib?'contrib:'+song._key:song.daftarIdx;var isFav=favorites.indexOf(favId)>-1;
+          var aby=song.isContrib?'<span class="oval-home-added-by"><i class="fa-solid fa-user" style="font-size:8px;margin-right:3px"></i>oleh '+song.addedBy+'</span>':'';
+          var cc=song.isContrib?'data-action="play-contrib" data-key="'+song._key+'"':'data-action="play-track" data-idx="'+song.daftarIdx+'"';
+          var fa=song.isContrib?'data-action="fav" data-key="'+song._key+'"':'data-action="fav" data-idx="'+song.daftarIdx+'"';
+          var aa=song.isContrib?'data-action="add-playlist" data-key="'+song._key+'"':'data-action="add-playlist" data-idx="'+song.daftarIdx+'"';
+          var dl='data-action="download" data-url="'+song.audio.replace(/"/g,'&quot;')+'" data-title="'+song.title.replace(/"/g,'&quot;')+'" data-artist="'+song.artist.replace(/"/g,'&quot;')+'"';
+          var del=(song.isContrib&&isAdmin())?'<button class="oval-home-btn" data-action="delete-contrib" data-key="'+song._key+'" data-title="'+song.title.replace(/"/g,'&quot;')+'" style="color:#a7a7a7"><i class="fa-solid fa-trash"></i></button>':'';
+          s+='<div class="oval-home-capsule'+(np?' playing-oval':'')+'" '+cc+'><div class="oval-home-thumb">'+renderImg(song)+'</div><div class="oval-home-details"><div class="oval-home-title">'+song.title+'</div><div class="oval-home-artist">'+song.artist+'</div></div>'+aby+'<div class="oval-home-btns"><button class="oval-home-btn" '+dl+'><i class="fa-solid fa-download"></i></button><button class="oval-home-btn '+(isFav?'active-fav':'')+'" '+fa+'><i class="fa-solid fa-heart"></i></button><button class="oval-home-btn" '+aa+'><i class="fa-solid fa-plus"></i></button>'+del+'</div></div>';
+        });
+        s+='</div>';block.innerHTML=h+s;containerGrouped.appendChild(block);
+      });
+    }
+
+    // =========================================================
+    // PLAY, SIDEBAR, PLAYER
+    // =========================================================
+    function playContribByKey(key){var songs=getContributedSongs();for(var i=0;i<songs.length;i++){if(songs[i]._key===key){currentTrackIsContrib=true;currentContribKey=key;currentTrackIndex=-1;currentPlaylistScope='contributed';var s=songs[i];footTitle.innerText=s.title;footArtist.innerText=s.artist;footIcon.innerHTML=renderImg(s);currentAudio.src=s.audio;currentAudio.load();playSong();renderHomeContent(searchInput.value);renderContributedSidebar();return;}}}
+    function deleteContributedSong(key,title){if(!isAdmin()){showToast('Hanya admin','warning');return;}if(window.firebaseDeleteSong)window.firebaseDeleteSong(key,title);}
+    function renderContributedSidebar(){var sec=document.getElementById('contributed-sidebar-section'),songs=getContributedSongs();if(!songs.length){sec.innerHTML='';return;}var h='<div class="sidebar-section-label"><i class="fa-solid fa-clock-rotate-left"></i> Baru ditambahkan</div>';songs.slice().reverse().forEach(function(song){var cp=currentTrackIsContrib&&currentContribKey===song._key;var del=isAdmin()?'<button class="contrib-delete-btn" data-action="delete-contrib" data-key="'+song._key+'" data-title="'+song.title.replace(/"/g,'&quot;')+'"><i class="fa-solid fa-trash"></i></button>':'';h+='<div class="contributed-song-item '+(cp?'playing-contrib':'')+'" data-action="play-contrib" data-key="'+song._key+'"><div class="contrib-thumb"><i class="fa-solid fa-music"></i>'+(song.img?'<img src="'+song.img+'" onerror="this.style.display=\'none\'">':'')+'</div><div class="contrib-info"><h4>'+song.title+'</h4><p>'+song.artist+(song.addedBy?' • '+song.addedBy:'')+'</p></div>'+del+'</div>';});sec.innerHTML=h;}
+
+    function loadTrack(i){if(i<0||i>=daftarLagu.length)return;currentTrackIndex=i;currentTrackIsContrib=false;currentContribKey=null;currentPlaylistScope='all';var l=daftarLagu[i];footTitle.innerText=l.title;footArtist.innerText=l.artist;footIcon.innerHTML=renderImg(l);currentAudio.src=l.audio;currentAudio.load();playSong();renderHomeContent(searchInput.value);renderContributedSidebar();if(sectionPlaylist.style.display==='block'){if(activePlaylistId==='favorites')renderOvalPlaylist('favorites','Lagu Favorit');else{var pl=customPlaylists.find(function(p){return p.id===activePlaylistId;});if(pl)renderOvalPlaylist(pl.id,pl.name);}}}
+    function playSong(){if(currentTrackIndex===-1&&!currentTrackIsContrib){loadTrack(0);return;}isPlaying=true;masterPlay.className='fa-solid fa-circle-pause play-icon';currentAudio.play().catch(function(){});}
     function pauseSong(){isPlaying=false;masterPlay.className='fa-solid fa-circle-play play-icon';currentAudio.pause();}
     function togglePlay(){isPlaying?pauseSong():playSong();}
-    function nextTrack() {
-      if(currentPlaylistScope==='contributed'){var s=getContributedSongs(),ci=currentTrackIndex-daftarLagu.length;if(s.length)playContributedSong((ci+1)%s.length);return;}
-      if(currentPlaylistScope==='favorites'){if(!favorites.length)return;var i=favorites.indexOf(currentTrackIndex);loadTrack(favorites[(i+1)%favorites.length]);}
-      else if(currentPlaylistScope!=='all'){var pl=customPlaylists.find(function(p){return p.id===currentPlaylistScope;});if(!pl||!pl.songs.length)return;var i=pl.songs.indexOf(currentTrackIndex);loadTrack(pl.songs[(i+1)%pl.songs.length]);}
-      else{loadTrack((currentTrackIndex+1)%daftarLagu.length);}
-    }
-    function prevTrack() {
-      if(currentAudio.currentTime>3){currentAudio.currentTime=0;return;}
-      if(currentPlaylistScope==='contributed'){var s=getContributedSongs(),ci=currentTrackIndex-daftarLagu.length;if(s.length)playContributedSong((ci-1+s.length)%s.length);return;}
-      if(currentPlaylistScope==='favorites'){if(!favorites.length)return;var i=favorites.indexOf(currentTrackIndex);loadTrack(favorites[(i-1+favorites.length)%favorites.length]);}
-      else if(currentPlaylistScope!=='all'){var pl=customPlaylists.find(function(p){return p.id===currentPlaylistScope;});if(!pl||!pl.songs.length)return;var i=pl.songs.indexOf(currentTrackIndex);loadTrack(pl.songs[(i-1+pl.songs.length)%pl.songs.length]);}
-      else{loadTrack((currentTrackIndex-1+daftarLagu.length)%daftarLagu.length);}
-    }
+    function nextTrack(){if(currentTrackIsContrib){var s=getContributedSongs(),ci=-1;for(var i=0;i<s.length;i++){if(s[i]._key===currentContribKey){ci=i;break;}}if(s.length&&ci>-1)playContribByKey(s[(ci+1)%s.length]._key);return;}loadTrack((currentTrackIndex+1)%daftarLagu.length);}
+    function prevTrack(){if(currentAudio.currentTime>3){currentAudio.currentTime=0;return;}if(currentTrackIsContrib){var s=getContributedSongs(),ci=-1;for(var i=0;i<s.length;i++){if(s[i]._key===currentContribKey){ci=i;break;}}if(s.length&&ci>-1)playContribByKey(s[(ci-1+s.length)%s.length]._key);return;}loadTrack((currentTrackIndex-1+daftarLagu.length)%daftarLagu.length);}
     function seekTo(v){if(currentAudio.duration)currentAudio.currentTime=(v/100)*currentAudio.duration;}
     function changeVolume(v){currentAudio.volume=v;}
     currentAudio.addEventListener('timeupdate',function(){if(currentAudio.duration){progressBar.value=(currentAudio.currentTime/currentAudio.duration)*100;currTimeText.innerText=formatTime(currentAudio.currentTime);totTimeText.innerText=formatTime(currentAudio.duration);}});
     currentAudio.addEventListener('ended',nextTrack);
 
     // =========================================================
-    // FAVORITES & PLAYLISTS
+    // PLAYLISTS
     // =========================================================
-    function toggleFavorite(e,i){e.stopPropagation();var idx=favorites.indexOf(i);if(idx>-1){favorites.splice(idx,1);showToast('Dihapus dari Favorit','warning');}else{favorites.push(i);showToast('Ditambahkan ke Favorit');}favCounter.innerText=favorites.length+' lagu';saveUserData();renderHomeContent(searchInput.value);if(sectionPlaylist.style.display==='block'&&activePlaylistId==='favorites')renderOvalPlaylist('favorites','Lagu Favorit');}
-    function openPlaylistModal(m,d) {
-      m=m||'create';
-      if(m==='create'){modalPlaylistNameInput.style.display='block';modalPlaylistSelect.style.display='none';modalPlaylistNameInput.value='';modalTitleContext.innerText=pendingSongIndexToAdd!==null?'Bikin Playlist & Masukkan Lagu':'Nama Playlist Baru';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="submitNewPlaylist()">Simpan</button>';customModalOverlay.classList.add('active');setTimeout(function(){modalPlaylistNameInput.focus();},300);}
-      else if(m==='select'){modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='block';modalPlaylistSelect.innerHTML='';customPlaylists.forEach(function(pl){var o=document.createElement('option');o.value=pl.id;o.innerText=pl.name;modalPlaylistSelect.appendChild(o);});var on=document.createElement('option');on.value='new';on.innerText='+ Buat Playlist Baru';modalPlaylistSelect.appendChild(on);modalTitleContext.innerText='Pilih Playlist';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="submitSelectPlaylist()">Simpan</button>';customModalOverlay.classList.add('active');}
-      else if(m==='delete'){modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';modalTitleContext.innerHTML='Hapus playlist "'+d+'"?';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-submit" style="background:linear-gradient(135deg,#e91429,#a80f1d)" onclick="executeDeletePlaylist()">Hapus</button>';customModalOverlay.classList.add('active');}
-    }
-    function closePlaylistModal(){customModalOverlay.classList.remove('active');setTimeout(function(){pendingSongIndexToAdd=null;pendingPlaylistIdToDelete=null;},300);}
+    function openPlaylistModal(m,d){m=m||'create';document.getElementById('modal-extra-content').innerHTML='';if(m==='create'){modalPlaylistNameInput.style.display='block';modalPlaylistSelect.style.display='none';modalPlaylistNameInput.value='';modalTitleContext.innerText=pendingSongToAdd!==null?'Bikin Playlist & Masukkan Lagu':'Nama Playlist Baru';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="submitNewPlaylist()">Simpan</button>';customModalOverlay.classList.add('active');setTimeout(function(){modalPlaylistNameInput.focus();},300);}else if(m==='select'){modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='block';modalPlaylistSelect.innerHTML='';customPlaylists.forEach(function(pl){var o=document.createElement('option');o.value=pl.id;o.innerText=pl.name;modalPlaylistSelect.appendChild(o);});var on=document.createElement('option');on.value='new';on.innerText='+ Buat Playlist Baru';modalPlaylistSelect.appendChild(on);modalTitleContext.innerText='Pilih Playlist';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="submitSelectPlaylist()">Simpan</button>';customModalOverlay.classList.add('active');}else if(m==='delete'){modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';modalTitleContext.innerHTML='Hapus playlist "'+d+'"?';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="executeDeletePlaylist()">Hapus</button>';customModalOverlay.classList.add('active');}}
+    function closePlaylistModal(){customModalOverlay.classList.remove('active');setTimeout(function(){pendingSongToAdd=null;pendingPlaylistIdToDelete=null;},300);}
     customModalOverlay.addEventListener('click',function(e){if(e.target===customModalOverlay)closePlaylistModal();});
     modalPlaylistNameInput.addEventListener('keydown',function(e){if(e.key==='Enter')submitNewPlaylist();});
-    function submitNewPlaylist(){var n=modalPlaylistNameInput.value.trim();if(!n){closePlaylistModal();return;}var id='playlist-'+Date.now(),np={id:id,name:n,songs:[]};if(pendingSongIndexToAdd!==null)np.songs.push(pendingSongIndexToAdd);customPlaylists.push(np);activePlaylistId=id;renderSidebarPlaylists();saveUserData();closePlaylistModal();showToast(pendingSongIndexToAdd!==null?'Playlist "'+n+'" dibuat & lagu ditambahkan!':'Playlist "'+n+'" berhasil dibuat!');if(pendingSongIndexToAdd===null)viewPlaylist(id);else renderHomeContent(searchInput.value);}
-    function submitSelectPlaylist(){var sid=modalPlaylistSelect.value;if(sid==='new'){openPlaylistModal('create');return;}var pl=customPlaylists.find(function(p){return p.id===sid;});if(!pl)return;if(pendingSongIndexToAdd!==null){if(pl.songs.indexOf(pendingSongIndexToAdd)>-1)showToast('Lagu sudah ada di "'+pl.name+'"','warning');else{pl.songs.push(pendingSongIndexToAdd);renderSidebarPlaylists();saveUserData();showToast('Lagu ditambahkan ke "'+pl.name+'"');}}closePlaylistModal();}
-    function addTrackToActivePlaylist(e,si){e.stopPropagation();pendingSongIndexToAdd=si;if(!customPlaylists.length)openPlaylistModal('create');else openPlaylistModal('select');}
-    function renderSidebarPlaylists(){document.querySelectorAll('.custom-playlist-item').forEach(function(el){el.remove();});customPlaylists.forEach(function(pl){var d=document.createElement('div');d.className='playlist-item custom-playlist-item '+(activePlaylistId===pl.id?'active-folder':'');d.onclick=function(){viewPlaylist(pl.id);};d.innerHTML='<div class="playlist-icon-box" style="background:linear-gradient(135deg,#333,#111)"><i class="fa-solid fa-music"></i></div><div class="playlist-info-text"><h4>'+pl.name+'</h4><p>'+pl.songs.length+' lagu</p></div><button class="delete-playlist-btn" onclick="deletePlaylist(event,\''+pl.id+'\')"><i class="fa-solid fa-trash"></i></button>';sidebarPlaylistContainer.appendChild(d);});}
-    function deletePlaylist(e,pid){e.stopPropagation();var pl=customPlaylists.find(function(p){return p.id===pid;});if(!pl)return;pendingPlaylistIdToDelete=pid;openPlaylistModal('delete',pl.name);}
-    function executeDeletePlaylist(){if(!pendingPlaylistIdToDelete)return;var idx=customPlaylists.findIndex(function(p){return p.id===pendingPlaylistIdToDelete;});if(idx>-1){var n=customPlaylists[idx].name;customPlaylists.splice(idx,1);if(activePlaylistId===pendingPlaylistIdToDelete)showMainSection();renderSidebarPlaylists();saveUserData();showToast('Playlist "'+n+'" dihapus','warning');}closePlaylistModal();}
+    function submitNewPlaylist(){var n=modalPlaylistNameInput.value.trim();if(!n){closePlaylistModal();return;}var id='playlist-'+Date.now(),np={id:id,name:n,songs:[]};if(pendingSongToAdd!==null)np.songs.push(pendingSongToAdd);customPlaylists.push(np);activePlaylistId=id;renderSidebarPlaylists();saveUserData();closePlaylistModal();showToast(pendingSongToAdd!==null?'Playlist dibuat & lagu ditambahkan!':'Playlist "'+n+'" dibuat!');if(pendingSongToAdd===null)viewPlaylist(id);else renderHomeContent(searchInput.value);}
+    function submitSelectPlaylist(){var sid=modalPlaylistSelect.value;if(sid==='new'){openPlaylistModal('create');return;}var pl=customPlaylists.find(function(p){return p.id===sid;});if(!pl)return;if(pendingSongToAdd!==null){var ex=false;for(var i=0;i<pl.songs.length;i++){if(JSON.stringify(pl.songs[i])===JSON.stringify(pendingSongToAdd)){ex=true;break;}}if(ex)showToast('Sudah ada di playlist','warning');else{pl.songs.push(pendingSongToAdd);renderSidebarPlaylists();saveUserData();showToast('Ditambahkan!');}}closePlaylistModal();}
+    function renderSidebarPlaylists(){document.querySelectorAll('.custom-playlist-item').forEach(function(el){el.remove();});customPlaylists.forEach(function(pl){var d=document.createElement('div');d.className='playlist-item custom-playlist-item '+(activePlaylistId===pl.id?'active-folder':'');d.onclick=function(){viewPlaylist(pl.id);};d.innerHTML='<div class="playlist-icon-box" style="background:linear-gradient(135deg,#333,#111)"><i class="fa-solid fa-music"></i></div><div class="playlist-info-text"><h4>'+pl.name+'</h4><p>'+pl.songs.length+' lagu</p></div><button class="delete-playlist-btn" onclick="event.stopPropagation();deletePlaylist(\''+pl.id+'\')"><i class="fa-solid fa-trash"></i></button>';sidebarPlaylistContainer.appendChild(d);});}
+    function deletePlaylist(pid){pendingPlaylistIdToDelete=pid;var pl=customPlaylists.find(function(p){return p.id===pid;});if(pl)openPlaylistModal('delete',pl.name);}
+    function executeDeletePlaylist(){if(!pendingPlaylistIdToDelete)return;var idx=customPlaylists.findIndex(function(p){return p.id===pendingPlaylistIdToDelete;});if(idx>-1){customPlaylists.splice(idx,1);if(activePlaylistId===pendingPlaylistIdToDelete)showMainSection();renderSidebarPlaylists();saveUserData();showToast('Playlist dihapus','warning');}closePlaylistModal();}
     function viewPlaylist(id){activePlaylistId=id;currentPlaylistScope=id;document.querySelectorAll('.playlist-item').forEach(function(el){el.classList.remove('active-folder');});if(id==='favorites'){document.getElementById('folder-fav').classList.add('active-folder');renderOvalPlaylist('favorites','Lagu Favorit');}else{var pl=customPlaylists.find(function(p){return p.id===id;});if(pl){renderSidebarPlaylists();renderOvalPlaylist(pl.id,pl.name);}}}
-    function renderOvalPlaylist(pid,pn){sectionHome.style.display='none';sectionPlaylist.style.display='block';playlistViewTitle.innerHTML=pn+' <span class="back-to-home" onclick="showMainSection()"><i class="fa-solid fa-chevron-left"></i> Kembali</span>';containerOvalPlaylist.innerHTML='';var ti=pid==='favorites'?favorites:((customPlaylists.find(function(p){return p.id===pid;})||{}).songs||[]);if(!ti.length){containerOvalPlaylist.innerHTML='<p class="empty-playlist-text">Belum ada lagu.</p>';return;}ti.forEach(function(si){var l=daftarLagu[si];if(!l)return;var np=currentTrackIndex===si;var c=document.createElement('div');c.className='oval-track-capsule'+(np?' playing-oval':'');c.onclick=(function(idx){return function(){currentPlaylistScope=pid;loadTrack(idx);};})(si);c.innerHTML='<div class="oval-thumb">'+renderImg(l)+'</div><div class="oval-details"><div class="oval-title">'+l.title+'</div><div class="oval-artist">'+l.artist+'</div></div><button class="oval-action-btn" onclick="removeTrackFromPlaylist(event,\''+pid+'\','+si+')"><i class="fa-solid fa-xmark"></i></button>';containerOvalPlaylist.appendChild(c);});}
-    function removeTrackFromPlaylist(e,pid,si){e.stopPropagation();if(pid==='favorites'){var idx=favorites.indexOf(si);if(idx>-1)favorites.splice(idx,1);favCounter.innerText=favorites.length+' lagu';renderOvalPlaylist('favorites','Lagu Favorit');}else{var pl=customPlaylists.find(function(p){return p.id===pid;});if(pl){var idx=pl.songs.indexOf(si);if(idx>-1)pl.songs.splice(idx,1);renderSidebarPlaylists();renderOvalPlaylist(pl.id,pl.name);}}saveUserData();renderHomeContent(searchInput.value);showToast('Lagu dihapus','warning');}
-    function showMainSection(){sectionHome.style.display='block';sectionPlaylist.style.display='none';activePlaylistId=null;currentPlaylistScope='all';document.querySelectorAll('.playlist-item').forEach(function(el){el.classList.remove('active-folder');});}
+    function renderOvalPlaylist(pid,pn){sectionHome.style.display='none';sectionPlaylist.style.display='block';sectionAdmin.style.display='none';playlistViewTitle.innerHTML=pn+' <span class="back-to-home" onclick="showMainSection()"><i class="fa-solid fa-chevron-left"></i> Kembali</span>';containerOvalPlaylist.innerHTML='';var ti=pid==='favorites'?favorites:((customPlaylists.find(function(p){return p.id===pid;})||{}).songs||[]);if(!ti.length){containerOvalPlaylist.innerHTML='<p class="empty-playlist-text">Belum ada lagu.</p>';return;}ti.forEach(function(sid){var sd=null,ic=false,ck=null;if(typeof sid==='number')sd=daftarLagu[sid];else if(typeof sid==='string'&&sid.indexOf('contrib:')===0){ck=sid.substring(8);ic=true;var cs=getContributedSongs();for(var j=0;j<cs.length;j++){if(cs[j]._key===ck){sd=cs[j];break;}}}if(!sd)return;var np=ic?(currentTrackIsContrib&&currentContribKey===ck):(!currentTrackIsContrib&&currentTrackIndex===sid);var ra=ic?'data-action="remove-from-playlist" data-pid="'+pid+'" data-key="'+ck+'"':'data-action="remove-from-playlist" data-pid="'+pid+'" data-idx="'+sid+'"';var lb=ic&&sd.addedBy?' <span style="font-size:9px;color:#00d2ff;margin-left:6px">• '+sd.addedBy+'</span>':'';var c=document.createElement('div');c.className='oval-track-capsule'+(np?' playing-oval':'');c.setAttribute('data-action',ic?'play-contrib':'play-track');if(ic)c.setAttribute('data-key',ck);else c.setAttribute('data-idx',sid);c.innerHTML='<div class="oval-thumb">'+renderImg(sd)+'</div><div class="oval-details"><div class="oval-title">'+sd.title+lb+'</div><div class="oval-artist">'+sd.artist+'</div></div><button class="oval-action-btn" '+ra+'><i class="fa-solid fa-xmark"></i></button>';containerOvalPlaylist.appendChild(c);});}
+    function removeTrackFromPlaylist(pid,sid){if(pid==='favorites'){var idx=favorites.indexOf(sid);if(idx>-1)favorites.splice(idx,1);favCounter.innerText=favorites.length+' lagu';renderOvalPlaylist('favorites','Lagu Favorit');}else{var pl=customPlaylists.find(function(p){return p.id===pid;});if(pl){for(var i=0;i<pl.songs.length;i++){if(JSON.stringify(pl.songs[i])===JSON.stringify(sid)){pl.songs.splice(i,1);break;}}renderSidebarPlaylists();renderOvalPlaylist(pl.id,pl.name);}}saveUserData();renderHomeContent(searchInput.value);showToast('Dihapus','warning');}
+    function showMainSection(){sectionHome.style.display='block';sectionPlaylist.style.display='none';sectionAdmin.style.display='none';activePlaylistId=null;currentPlaylistScope='all';document.querySelectorAll('.playlist-item').forEach(function(el){el.classList.remove('active-folder');});document.getElementById('nav-home').classList.add('active');if(document.getElementById('nav-admin'))document.getElementById('nav-admin').classList.remove('active');}
     searchInput.addEventListener('input',function(e){renderHomeContent(e.target.value);});
+          // =========================================================
+    // ADMIN PANEL
+    // =========================================================
+    function showAdminPanel(){
+      if(!isAdmin())return;
+      sectionHome.style.display='none';sectionPlaylist.style.display='none';sectionAdmin.style.display='flex';
+      document.getElementById('nav-home').classList.remove('active');
+      document.getElementById('nav-admin').classList.add('active');
+      reviewAudio.pause();reviewPlayingKey=null;
+      switchAdminTab('accounts');
+    }
+
+    function switchAdminTab(tab){
+      document.querySelectorAll('.admin-tab').forEach(function(t){t.classList.remove('active');});
+      document.querySelectorAll('.admin-tab-content').forEach(function(c){c.classList.remove('active');});
+      var tabEl=document.querySelector('.admin-tab[onclick*="'+tab+'"]');
+      if(tabEl)tabEl.classList.add('active');
+      document.getElementById('admin-tab-'+tab).classList.add('active');
+      reviewAudio.pause();reviewPlayingKey=null;
+      renderCurrentAdminTab();
+    }
+
+    function renderCurrentAdminTab(){
+      var active=document.querySelector('.admin-tab-content.active');
+      if(!active)return;
+      var id=active.id;
+      if(id==='admin-tab-accounts')renderAdminAccounts();
+      else if(id==='admin-tab-ban')renderAdminBan();
+      else if(id==='admin-tab-artists')renderAdminArtists();
+      else if(id==='admin-tab-songs')renderAdminSongs();
+      else if(id==='admin-tab-review')renderAdminReview();
+      else if(id==='admin-tab-stats')renderAdminStats();
+    }
+
+    // TAB: ACCOUNTS
+    function renderAdminAccounts(){
+      var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');
+      var q=(document.getElementById('admin-search-accounts')||{}).value||'';
+      q=q.toLowerCase().trim();
+      var list=document.getElementById('admin-accounts-list');list.innerHTML='';
+      var users=Object.keys(dbL).filter(function(u){return u!==ADMIN_USERNAME;});
+      if(q)users=users.filter(function(u){return u.toLowerCase().indexOf(q)>-1||(dbL[u].email||'').toLowerCase().indexOf(q)>-1;});
+      if(!users.length){list.innerHTML='<div class="admin-empty">Tidak ada user ditemukan</div>';return;}
+      var num=0;
+      users.forEach(function(u){
+        num++;var d=dbL[u];
+        var favCount=(d.favorites||[]).length;
+        var plCount=(d.customPlaylists||[]).length;
+        var statusBadge=d.banned?'<span class="status-badge status-banned">🚫 Banned</span>':'<span class="status-badge status-active">✅ Aktif</span>';
+        list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><i class="fa-solid fa-hashtag"></i><span class="label">No</span><span class="value">'+num+'</span></div><div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Username</span><span class="value">'+u+'</span></div><div class="admin-card-row"><i class="fa-solid fa-envelope"></i><span class="label">Email</span><span class="value">'+(d.email||'-')+'</span></div><div class="admin-card-row"><i class="fa-solid fa-shield"></i><span class="label">Status</span><span class="value">'+statusBadge+'</span></div><div class="admin-card-row"><i class="fa-solid fa-heart"></i><span class="label">Favorit</span><span class="value">'+favCount+' lagu</span></div><div class="admin-card-row"><i class="fa-solid fa-list"></i><span class="label">Playlist</span><span class="value">'+plCount+'</span></div><div class="admin-card-actions">'+(d.banned?'<button class="modal-btn btn-success" onclick="adminUnbanUser(\''+u+'\')"><i class="fa-solid fa-lock-open"></i> Unban</button>':'<button class="modal-btn btn-danger" onclick="adminBanUser(\''+u+'\')"><i class="fa-solid fa-ban"></i> Ban</button>')+'</div></div>';
+      });
+    }
+
+    // TAB: BAN
+    function renderAdminBan(){
+      var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');
+      var q=(document.getElementById('admin-search-ban')||{}).value||'';
+      q=q.toLowerCase().trim();
+      var list=document.getElementById('admin-ban-list');list.innerHTML='';
+      var banned=Object.keys(dbL).filter(function(u){return u!==ADMIN_USERNAME&&dbL[u].banned;});
+      if(q)banned=banned.filter(function(u){return u.toLowerCase().indexOf(q)>-1;});
+      if(!banned.length){list.innerHTML='<div class="admin-empty">Tidak ada user yang dibanned</div>';return;}
+      banned.forEach(function(u){
+        list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Username</span><span class="value">'+u+'</span></div><div class="admin-card-row"><i class="fa-solid fa-envelope"></i><span class="label">Email</span><span class="value">'+(dbL[u].email||'-')+'</span></div><div class="admin-card-row"><i class="fa-solid fa-ban"></i><span class="label">Status</span><span class="value"><span class="status-badge status-banned">🚫 Banned</span></span></div><div class="admin-card-actions"><button class="modal-btn btn-success" onclick="adminUnbanUser(\''+u+'\')"><i class="fa-solid fa-lock-open"></i> Unban User</button></div></div>';
+      });
+    }
+
+    function adminBanUser(u){
+      if(u===ADMIN_USERNAME)return;
+      modalTitleContext.innerHTML='🚫 Ban user "'+u+'"?<br><span style="font-size:10px;color:#727272">User tidak bisa login setelah dibanned</span>';
+      modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
+      document.getElementById('modal-extra-content').innerHTML='';
+      modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="executeBanUser(\''+u+'\')"><i class="fa-solid fa-ban"></i> Ban</button>';
+      customModalOverlay.classList.add('active');
+    }
+    function executeBanUser(u){
+      var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');
+      if(dbL[u]){dbL[u].banned=true;localStorage.setItem('elltify_users',JSON.stringify(dbL));}
+      closePlaylistModal();showToast(u+' telah dibanned','warning');renderCurrentAdminTab();
+    }
+    function adminUnbanUser(u){
+      var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');
+      if(dbL[u]){dbL[u].banned=false;localStorage.setItem('elltify_users',JSON.stringify(dbL));}
+      showToast(u+' telah di-unban');renderCurrentAdminTab();
+    }
+
+    // TAB: ARTISTS
+    function renderAdminArtists(){
+      var q=(document.getElementById('admin-search-artists')||{}).value||'';
+      q=q.toLowerCase().trim();
+      var list=document.getElementById('admin-artists-list');list.innerHTML='';
+      var arts=getAllArtists();
+      var names=Object.keys(arts).sort(function(a,b){return a.toLowerCase().localeCompare(b.toLowerCase());});
+      if(q)names=names.filter(function(n){return n.toLowerCase().indexOf(q)>-1;});
+      if(!names.length){list.innerHTML='<div class="admin-empty">Tidak ada artis ditemukan</div>';return;}
+      // Count songs per artist
+      var songCount={};
+      daftarLagu.forEach(function(l){songCount[l.artist]=(songCount[l.artist]||0)+1;});
+      getContributedSongs().forEach(function(s){songCount[s.artist]=(songCount[s.artist]||0)+1;});
+      names.forEach(function(name){
+        var a=arts[name];
+        var srcLabel=a.source==='admin'?'<span style="color:#00d2ff;font-size:9px"> ⭐ Admin</span>':a.source==='contributed'?'<span style="color:#f59b00;font-size:9px"> Kontributor</span>':'<span style="color:#535353;font-size:9px"> Default</span>';
+        var count=songCount[name]||0;
+        var editDel=a.source==='admin'?'<button class="modal-btn btn-submit" onclick="adminEditArtist(\''+a._key+'\',\''+name.replace(/'/g,"\\'")+'\',\''+((a.img||'').replace(/'/g,"\\'"))+'\')"><i class="fa-solid fa-pen"></i> Edit</button><button class="modal-btn btn-danger" onclick="adminDeleteArtist(\''+a._key+'\',\''+name.replace(/'/g,"\\'")+'\')"><i class="fa-solid fa-trash"></i> Hapus</button>':'';
+        list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><i class="fa-solid fa-microphone"></i><span class="label">Artis</span><span class="value">'+name+srcLabel+'</span></div><div class="admin-card-row"><i class="fa-solid fa-music"></i><span class="label">Lagu</span><span class="value">'+count+' lagu</span></div>'+(editDel?'<div class="admin-card-actions">'+editDel+'</div>':'')+'</div>';
+      });
+    }
+
+    function adminAddArtist(){
+      var name=document.getElementById('admin-new-artist-name').value.trim();
+      var img=document.getElementById('admin-new-artist-img').value.trim();
+      if(!name){showToast('Nama artis wajib diisi','warning');return;}
+      if(isKnownArtist(name)){showToast('Artis "'+name+'" sudah ada','warning');return;}
+      if(window.firebasePushArtist)window.firebasePushArtist({name:name,img:img||'',addedAt:new Date().toISOString()});
+      document.getElementById('admin-new-artist-name').value='';
+      document.getElementById('admin-new-artist-img').value='';
+      showToast('Artis "'+name+'" ditambahkan!');
+    }
+
+    function adminEditArtist(key,oldName,oldImg){
+      modalTitleContext.innerHTML='✏️ Edit Artis';
+      modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
+      document.getElementById('modal-extra-content').innerHTML='<div class="contrib-modal-section"><div class="contrib-modal-label"><i class="fa-solid fa-microphone"></i> Nama Artis</div><input type="text" class="modal-input left-align" id="edit-artist-name" value="'+oldName.replace(/"/g,'&quot;')+'"></div><div class="contrib-modal-section"><div class="contrib-modal-label"><i class="fa-solid fa-image"></i> Foto URL</div><input type="url" class="modal-input left-align" id="edit-artist-img" value="'+oldImg.replace(/"/g,'&quot;')+'"></div>';
+      modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="executeEditArtist(\''+key+'\')"><i class="fa-solid fa-check"></i> Simpan</button>';
+      customModalOverlay.classList.add('active');
+    }
+    function executeEditArtist(key){
+      var name=document.getElementById('edit-artist-name').value.trim();
+      var img=document.getElementById('edit-artist-img').value.trim();
+      if(!name){showToast('Nama wajib diisi','warning');return;}
+      if(window.firebaseUpdateArtist)window.firebaseUpdateArtist(key,{name:name,img:img||'',addedAt:new Date().toISOString()});
+      closePlaylistModal();showToast('Artis diperbarui!');
+    }
+    function adminDeleteArtist(key,name){
+      modalTitleContext.innerHTML='🗑️ Hapus artis "'+name+'"?<br><span style="font-size:10px;color:#727272">Artis akan dihapus dari daftar</span>';
+      modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
+      document.getElementById('modal-extra-content').innerHTML='';
+      modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="executeDeleteArtist(\''+key+'\',\''+name.replace(/'/g,"\\'")+'\')"><i class="fa-solid fa-trash"></i> Hapus</button>';
+      customModalOverlay.classList.add('active');
+    }
+    function executeDeleteArtist(key,name){
+      if(window.firebaseDeleteArtist)window.firebaseDeleteArtist(key);
+      closePlaylistModal();showToast('Artis "'+name+'" dihapus','warning');
+    }
+
+    // TAB: SONGS
+    function renderAdminSongs(){
+      var q=(document.getElementById('admin-search-songs')||{}).value||'';
+      q=q.toLowerCase().trim();
+      var list=document.getElementById('admin-songs-list');list.innerHTML='';
+      var songs=getContributedSongs();
+      if(q)songs=songs.filter(function(s){return s.title.toLowerCase().indexOf(q)>-1||s.artist.toLowerCase().indexOf(q)>-1;});
+      if(!songs.length){list.innerHTML='<div class="admin-empty">Tidak ada lagu kontributor</div>';return;}
+      songs.forEach(function(s){
+        list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><i class="fa-solid fa-music"></i><span class="label">Judul</span><span class="value">'+s.title+'</span></div><div class="admin-card-row"><i class="fa-solid fa-microphone"></i><span class="label">Artis</span><span class="value">'+s.artist+'</span></div><div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Upload</span><span class="value">'+(s.addedBy||'Anonim')+'</span></div><div class="admin-card-actions"><button class="modal-btn btn-danger" onclick="deleteContributedSong(\''+s._key+'\',\''+s.title.replace(/'/g,'')+'\')"><i class="fa-solid fa-trash"></i> Hapus</button></div></div>';
+      });
+    }
+
+    // TAB: REVIEW (PENDING SONGS)
+    function renderAdminReview(){
+      var list=document.getElementById('admin-review-list');list.innerHTML='';
+      var songs=getPendingSongs();
+      if(!songs.length){list.innerHTML='<div class="admin-empty">✅ Semua lagu sudah direview!</div>';return;}
+      songs.forEach(function(s){
+        var isPlaying=reviewPlayingKey===s._key;
+        list.innerHTML+='<div class="admin-card" id="review-card-'+s._key+'"><div class="admin-card-row"><i class="fa-solid fa-music"></i><span class="label">Judul</span><span class="value"><span class="status-badge status-pending">⏳ Pending</span></span></div><div class="admin-card-row"><i class="fa-solid fa-heading"></i><span class="label">Judul</span></div><input type="text" class="modal-input left-align" id="review-title-'+s._key+'" value="'+s.title.replace(/"/g,'&quot;')+'" style="margin-bottom:8px"><div class="admin-card-row"><i class="fa-solid fa-microphone"></i><span class="label">Artis</span><span style="color:#f59b00;font-size:9px;margin-left:4px">⚠️ ARTIS BARU</span></div><input type="text" class="modal-input left-align" id="review-artist-'+s._key+'" value="'+s.artist.replace(/"/g,'&quot;')+'" style="margin-bottom:8px"><div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Upload</span><span class="value">'+(s.addedBy||'Anonim')+'</span></div><div class="review-player"><button class="review-play-btn" onclick="toggleReviewPlay(\''+s._key+'\',\''+s.audio.replace(/'/g,"\\'")+'\')" id="review-play-btn-'+s._key+'"><i class="fa-solid '+(isPlaying?'fa-pause':'fa-play')+'"></i></button><div class="review-progress"><input type="range" min="0" max="100" value="0" id="review-seek-'+s._key+'" oninput="seekReview(this.value)"><div class="review-time"><span id="review-curr-'+s._key+'">0:00</span><span id="review-dur-'+s._key+'">0:00</span></div></div></div><div class="admin-card-actions"><button class="modal-btn btn-success" onclick="approveReview(\''+s._key+'\')"><i class="fa-solid fa-check"></i> Setujui</button><button class="modal-btn btn-danger" onclick="rejectReview(\''+s._key+'\',\''+s.title.replace(/'/g,'')+'\')"><i class="fa-solid fa-xmark"></i> Tolak</button></div></div>';
+      });
+    }
+
+    // REVIEW AUDIO PLAYER
+    function toggleReviewPlay(key,audioUrl){
+      if(reviewPlayingKey===key){reviewAudio.pause();reviewPlayingKey=null;var btn=document.getElementById('review-play-btn-'+key);if(btn)btn.innerHTML='<i class="fa-solid fa-play"></i>';return;}
+      reviewAudio.pause();if(reviewPlayingKey){var oldBtn=document.getElementById('review-play-btn-'+reviewPlayingKey);if(oldBtn)oldBtn.innerHTML='<i class="fa-solid fa-play"></i>';}
+      reviewPlayingKey=key;reviewAudio.src=audioUrl;reviewAudio.load();reviewAudio.play().catch(function(){});
+      var btn=document.getElementById('review-play-btn-'+key);if(btn)btn.innerHTML='<i class="fa-solid fa-pause"></i>';
+    }
+    function seekReview(v){if(reviewAudio.duration)reviewAudio.currentTime=(v/100)*reviewAudio.duration;}
+    reviewAudio.addEventListener('timeupdate',function(){
+      if(!reviewPlayingKey||!reviewAudio.duration)return;
+      var seek=document.getElementById('review-seek-'+reviewPlayingKey);
+      var curr=document.getElementById('review-curr-'+reviewPlayingKey);
+      var dur=document.getElementById('review-dur-'+reviewPlayingKey);
+      if(seek)seek.value=(reviewAudio.currentTime/reviewAudio.duration)*100;
+      if(curr)curr.textContent=formatTime(reviewAudio.currentTime);
+      if(dur)dur.textContent=formatTime(reviewAudio.duration);
+    });
+    reviewAudio.addEventListener('ended',function(){
+      if(reviewPlayingKey){var btn=document.getElementById('review-play-btn-'+reviewPlayingKey);if(btn)btn.innerHTML='<i class="fa-solid fa-play"></i>';reviewPlayingKey=null;}
+    });
+
+    function approveReview(key){
+      var titleEl=document.getElementById('review-title-'+key);
+      var artistEl=document.getElementById('review-artist-'+key);
+      if(!titleEl||!artistEl)return;
+      var title=titleEl.value.trim();var artist=artistEl.value.trim();
+      if(!title||!artist){showToast('Judul & artis wajib diisi','warning');return;}
+      var songs=getPendingSongs();var song=null;
+      for(var i=0;i<songs.length;i++){if(songs[i]._key===key){song=songs[i];break;}}
+      if(!song)return;
+      reviewAudio.pause();reviewPlayingKey=null;
+      // Add to contributed_songs
+      var approved={title:title,artist:artist,audio:song.audio,icon:'fa-music',img:song.img||'',addedBy:song.addedBy||'Anonim',addedAt:song.addedAt||new Date().toISOString()};
+      if(window.firebasePushSong)window.firebasePushSong(approved);
+      // Add artist if new
+      if(!isKnownArtist(artist)){if(window.firebasePushArtist)window.firebasePushArtist({name:artist,img:'',addedAt:new Date().toISOString()});}
+      // Remove from pending
+      if(window.firebaseDeletePending)window.firebaseDeletePending(key);
+      showToast('"'+title+'" disetujui!');
+    }
+
+    function rejectReview(key,title){
+      modalTitleContext.innerHTML='❌ Tolak lagu "'+title+'"?';
+      modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
+      document.getElementById('modal-extra-content').innerHTML='';
+      modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="executeRejectReview(\''+key+'\',\''+title.replace(/'/g,'')+'\')"><i class="fa-solid fa-xmark"></i> Tolak</button>';
+      customModalOverlay.classList.add('active');
+    }
+    function executeRejectReview(key,title){
+      reviewAudio.pause();reviewPlayingKey=null;
+      if(window.firebaseDeletePending)window.firebaseDeletePending(key);
+      closePlaylistModal();showToast('"'+title+'" ditolak','warning');
+    }
+
+    // TAB: STATS
+    function renderAdminStats(){
+      var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');
+      var totalUsers=Object.keys(dbL).filter(function(u){return u!==ADMIN_USERNAME;}).length;
+      var bannedUsers=Object.keys(dbL).filter(function(u){return u!==ADMIN_USERNAME&&dbL[u].banned;}).length;
+      var contribCount=getContributedSongs().length;
+      var pendingCount=getPendingSongs().length;
+      var artistCount=Object.keys(getAllArtists()).length;
+      var content=document.getElementById('admin-stats-content');
+      content.innerHTML='<div class="admin-stat-grid"><div class="admin-stat-box"><div class="admin-stat-num">'+totalUsers+'</div><div class="admin-stat-label">👥 User Terdaftar</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+bannedUsers+'</div><div class="admin-stat-label">🚫 User Banned</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+daftarLagu.length+'</div><div class="admin-stat-label">🎵 Lagu Default</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+contribCount+'</div><div class="admin-stat-label">☁️ Lagu Kontributor</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+(daftarLagu.length+contribCount)+'</div><div class="admin-stat-label">📋 Total Lagu</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+pendingCount+'</div><div class="admin-stat-label">⏳ Menunggu Review</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+artistCount+'</div><div class="admin-stat-label">🎤 Total Artis</div></div></div>';
+    }
 
     // =========================================================
     // INIT
@@ -786,6 +1100,49 @@
     initAdminAccount();
     initAuth();
     renderHomeContent();
+  </script>
+
+  <!-- FIREBASE MODULE -->
+  <script type="module">
+    import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import{getDatabase,ref,push,set,onValue,remove}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+    const fc={apiKey:"AIzaSyC_78NUDa34ksmFrMZSnFE1zgJXb5S7RQc",authDomain:"elltyfy.firebaseapp.com",databaseURL:"https://elltyfy-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"elltyfy",storageBucket:"elltyfy.firebasestorage.app",messagingSenderId:"674305976965",appId:"1:674305976965:web:2b88683fb69bb7a5ea17ec",measurementId:"G-1Q0HN85DPK"};
+    const app=initializeApp(fc),db=getDatabase(app);
+    const contribRef=ref(db,'contributed_songs');
+    const pendingRef=ref(db,'pending_songs');
+    const artistsRef=ref(db,'custom_artists');
+    const stEl=document.getElementById('firebase-status');
+
+    // CONTRIBUTED SONGS
+    onValue(contribRef,function(snap){
+      stEl.textContent='● Online';stEl.className='firebase-status connected';
+      window._contributedSongs=[];
+      if(snap.exists()){snap.forEach(function(c){window._contributedSongs.push(Object.assign({_key:c.key},c.val()));});}
+      if(typeof window.handleFirebaseUpdate==='function')window.handleFirebaseUpdate();
+    },function(){stEl.textContent='● Offline';stEl.className='firebase-status disconnected';});
+
+    // PENDING SONGS
+    onValue(pendingRef,function(snap){
+      window._pendingSongs=[];
+      if(snap.exists()){snap.forEach(function(c){window._pendingSongs.push(Object.assign({_key:c.key},c.val()));});}
+      if(typeof window.handleFirebaseUpdate==='function')window.handleFirebaseUpdate();
+    });
+
+    // CUSTOM ARTISTS
+    onValue(artistsRef,function(snap){
+      window._customArtists=[];
+      if(snap.exists()){snap.forEach(function(c){window._customArtists.push(Object.assign({_key:c.key},c.val()));});}
+      if(typeof window.handleFirebaseUpdate==='function')window.handleFirebaseUpdate();
+    });
+
+    // FIREBASE FUNCTIONS
+    window.firebasePushSong=function(d){push(contribRef,d).then(function(){if(typeof showToast==='function')showToast('"'+d.title+'" berhasil ditambahkan!');}).catch(function(){if(typeof showToast==='function')showToast('Gagal menyimpan','warning');});};
+    window.firebaseDeleteSong=function(k,t){remove(ref(db,'contributed_songs/'+k)).then(function(){if(typeof showToast==='function')showToast('"'+t+'" dihapus','warning');}).catch(function(){if(typeof showToast==='function')showToast('Gagal menghapus','warning');});};
+    window.firebasePushPending=function(d){push(pendingRef,d).then(function(){}).catch(function(){if(typeof showToast==='function')showToast('Gagal mengirim','warning');});};
+    window.firebaseDeletePending=function(k){remove(ref(db,'pending_songs/'+k)).catch(function(){});};
+    window.firebasePushArtist=function(d){push(artistsRef,d).then(function(){}).catch(function(){if(typeof showToast==='function')showToast('Gagal menambah artis','warning');});};
+    window.firebaseUpdateArtist=function(k,d){set(ref(db,'custom_artists/'+k),d).then(function(){}).catch(function(){if(typeof showToast==='function')showToast('Gagal update','warning');});};
+    window.firebaseDeleteArtist=function(k){remove(ref(db,'custom_artists/'+k)).catch(function(){});};
   </script>
 </body>
 </html>
