@@ -8,34 +8,37 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;font-family:'Montserrat',sans-serif;box-sizing:border-box;color:white}
-    body{background-color:#000;overflow:hidden;height:100vh}
-    .auth-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000;display:flex;justify-content:center;align-items:center;z-index:1000;transition:opacity .3s ease}
+    body{background:#000;overflow:hidden;height:100vh}
+
+    /* AUTH - FULL SCREEN */
+    .auth-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:#000;display:flex;justify-content:center;align-items:center;z-index:1000;transition:opacity .3s}
     .auth-overlay.hidden{opacity:0;pointer-events:none}
     .auth-box-wrapper{padding:3px;border-radius:12px;background:linear-gradient(135deg,#00d2ff,#3a7bd5);box-shadow:0 10px 30px rgba(0,110,255,.4)}
-    .auth-box{background-color:#0c0c0c;padding:40px;border-radius:9px;width:370px;display:flex;flex-direction:column;align-items:center}
-    .elltify-logo{width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#0a0a0a 60%,#111);position:relative;margin-bottom:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(0,210,255,.5),0 0 25px rgba(58,123,213,.4),0 0 50px rgba(0,210,255,.15);overflow:hidden}
+    .auth-box{background:#0c0c0c;padding:40px;border-radius:9px;width:370px;display:flex;flex-direction:column;align-items:center}
+    .elltify-logo{width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#0a0a0a 60%,#111);position:relative;margin-bottom:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(0,210,255,.5),0 0 25px rgba(58,123,213,.4);overflow:hidden}
     .elltify-logo svg{width:54px;height:54px;filter:drop-shadow(0 0 6px rgba(0,210,255,.6))}
     .auth-title{font-size:20px;font-weight:700;margin-bottom:25px;text-align:center}
     .auth-input-group{width:100%;margin-bottom:12px;position:relative}
     .auth-input{width:100%;background:#181818;border:1px solid #333;border-radius:8px;padding:11px 14px 11px 38px;font-size:13px;color:white;outline:none;transition:.2s}
-    .auth-input:focus{border-color:#3a7bd5;background:#202020;box-shadow:0 0 8px rgba(58,123,213,.4)}
+    .auth-input:focus{border-color:#3a7bd5;background:#202020}
     .auth-input.input-error{border-color:#e91429}
     .auth-input.input-success{border-color:#1db954}
     .auth-input-icon{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:#555;font-size:13px;pointer-events:none}
-    .auth-input:focus~.auth-input-icon{color:#3a7bd5}
     .input-hint{font-size:10px;color:#e91429;margin-top:4px;padding-left:4px;display:none}
     .input-hint.visible{display:block}
     .auth-btn{width:100%;background:linear-gradient(135deg,#00d2ff,#3a7bd5);color:#fff;border:none;border-radius:25px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px;transition:.2s}
-    .auth-btn:hover{transform:scale(1.03);box-shadow:0 4px 15px rgba(0,110,255,.4)}
-    .auth-switch{margin-top:18px;font-size:11px;color:#b3b3b3;cursor:pointer;transition:.2s}
-    .auth-switch:hover{color:#00d2ff;text-decoration:underline}
+    .auth-btn:hover{transform:scale(1.03)}
+    .auth-switch{margin-top:18px;font-size:11px;color:#b3b3b3;cursor:pointer}
+    .auth-switch:hover{color:#00d2ff}
     .auth-error{color:#e91429;font-size:11px;margin-bottom:12px;text-align:center;display:none;background:rgba(233,20,41,.1);padding:8px;border-radius:6px;width:100%}
     .auth-banned{color:#e91429;font-size:12px;text-align:center;background:rgba(233,20,41,.15);padding:12px;border-radius:8px;border:1px solid rgba(233,20,41,.3);margin-bottom:12px;display:none}
+
+    /* MAIN LAYOUT */
     .main-container{display:flex;height:calc(100vh - 65px);padding:6px;gap:6px}
-    .sidebar{width:240px;background-color:#000;display:flex;flex-direction:column;gap:6px;font-size:11px;height:100%;flex-shrink:0}
+    .sidebar{width:240px;background:#000;display:flex;flex-direction:column;gap:6px;font-size:11px;height:100%;flex-shrink:0}
     .sidebar-logo{background:#121212;border-radius:6px;padding:12px 14px;display:flex;align-items:center;gap:10px}
-    .sidebar-logo-icon{width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#0a0a0a 60%,#111);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px rgba(0,210,255,.4),0 0 10px rgba(0,210,255,.15);flex-shrink:0}
-    .sidebar-logo-icon svg{width:18px;height:18px;filter:drop-shadow(0 0 3px rgba(0,210,255,.5))}
+    .sidebar-logo-icon{width:32px;height:32px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#0a0a0a 60%,#111);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 2px rgba(0,210,255,.4);flex-shrink:0}
+    .sidebar-logo-icon svg{width:18px;height:18px}
     .sidebar-logo-text{font-size:15px;font-weight:700;background:linear-gradient(135deg,#00d2ff,#3a7bd5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px}
     .nav-links{background:#121212;border-radius:6px;padding:14px}
     .nav-links a{display:flex;align-items:center;gap:12px;text-decoration:none;font-weight:700;opacity:.7;font-size:12px;transition:.2s;cursor:pointer;margin-bottom:12px}
@@ -64,6 +67,8 @@
     .delete-playlist-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:12px;position:absolute;right:10px;top:50%;transform:translateY(-50%);opacity:0;transition:.2s}
     .playlist-item:hover .delete-playlist-btn{opacity:1}
     .delete-playlist-btn:hover{color:#e91429}
+
+    /* MAIN CONTENT */
     .main-content{flex-grow:1;background:#121212;border-radius:6px;padding:16px;overflow-y:auto;display:flex;flex-direction:column}
     .header{display:flex;align-items:center;gap:12px;background:#121212;position:sticky;top:0;z-index:5;padding-bottom:10px}
     .search-container{position:relative;flex-grow:1;max-width:240px}
@@ -77,24 +82,28 @@
     .section-title i{color:#1db954;font-size:13px}
     .section-divider-line{border:none;border-top:1px solid #1f1f1f;margin:16px 0}
     .back-to-home{font-size:11px;color:#1db954;cursor:pointer;font-weight:600;margin-left:auto;background:rgba(29,185,84,.1);padding:4px 10px;border-radius:12px}
+
+    /* ARTIST */
     .artist-cards-row{display:flex;gap:12px;margin-bottom:6px;overflow-x:auto;padding-bottom:4px}
     .artist-card{min-width:120px;width:120px;background:#181818;padding:10px;border-radius:10px;cursor:pointer;transition:.3s;text-align:center;border:1px solid transparent;flex-shrink:0}
     .artist-card:hover{background:#282828;transform:translateY(-4px);border-color:rgba(29,185,84,.2)}
-    .artist-card-img{width:70px;height:70px;border-radius:50%;margin:0 auto 8px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 4px 12px rgba(0,0,0,.5)}
+    .artist-card-img{width:70px;height:70px;border-radius:50%;margin:0 auto 8px;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:22px}
     .artist-card-name{font-weight:700;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
     .artist-card-count{font-size:9px;color:#a7a7a7}
     .artist-block{margin-bottom:14px;padding:12px 14px;background:#161616;border-radius:10px;border:1px solid rgba(255,255,255,.03);transition:.3s}
     .artist-block:hover{border-color:rgba(29,185,84,.15);background:#1a1a1a}
     .artist-block.glow-highlight{border-color:#1db954;box-shadow:0 0 20px rgba(29,185,84,.3);background:#1a2e1a}
     .artist-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #222}
-    .artist-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;overflow:hidden}
+    .artist-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
     .artist-name-text{font-size:13px;font-weight:700;flex-grow:1}
     .artist-song-count{font-size:10px;color:#535353}
     .artist-songs-list{display:flex;flex-direction:column;gap:4px}
-    /* MOOD ICON THUMB */
+
+    /* MOOD THUMB */
     .mood-thumb{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;margin-right:12px;flex-shrink:0}
-    .mood-thumb-lg{width:38px;height:38px;font-size:16px}
     .mood-thumb-sm{width:26px;height:26px;font-size:11px;margin-right:8px}
+
+    /* SONG CAPSULE */
     .oval-home-capsule{display:flex;align-items:center;background:#181818;padding:7px 16px;border-radius:30px;cursor:pointer;transition:.2s;border:1px solid rgba(255,255,255,.02)}
     .oval-home-capsule:hover{background:#242424;border-color:rgba(255,255,255,.06)}
     .oval-home-capsule.playing-oval{border-color:#1db954;background:rgba(29,185,84,.08)}
@@ -107,6 +116,8 @@
     .oval-home-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:12px;transition:.2s}
     .oval-home-btn:hover{color:#1db954;transform:scale(1.1)}
     .oval-home-btn.active-fav{color:#1db954}
+
+    /* PLAYLIST VIEW */
     .playlist-view-title{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center}
     .oval-playlist-container{display:flex;flex-direction:column;gap:8px}
     .oval-track-capsule{display:flex;align-items:center;background:#181818;padding:8px 18px;border-radius:30px;cursor:pointer;transition:.2s;border:1px solid rgba(255,255,255,.02)}
@@ -116,9 +127,11 @@
     .oval-details{flex-grow:1;display:flex;flex-direction:column}
     .oval-title{font-weight:700;font-size:12px}
     .oval-artist{font-size:10px;color:#a7a7a7;margin-top:1px}
-    .oval-action-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:13px;margin-left:12px;transition:.2s}
+    .oval-action-btn{background:none;border:none;color:#a7a7a7;cursor:pointer;font-size:13px;margin-left:12px}
     .oval-action-btn:hover{color:#e91429}
     .empty-playlist-text{font-size:11px;color:#727272;font-style:italic;padding:10px}
+
+    /* SIDEBAR CONTRIB */
     .sidebar-section-label{font-size:10px;font-weight:700;color:#00d2ff;letter-spacing:.5px;margin-top:8px;margin-bottom:4px;padding:6px 8px;background:rgba(0,210,255,.06);border-radius:6px;display:flex;align-items:center;gap:6px;border-left:3px solid #00d2ff}
     .contributed-song-item{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;cursor:pointer;transition:.2s;border:1px solid transparent;position:relative}
     .contributed-song-item:hover{background:#1a1a1a}
@@ -132,6 +145,8 @@
     .firebase-status{font-size:9px;padding:3px 8px;border-radius:10px;margin-left:8px;font-weight:600}
     .firebase-status.connected{background:rgba(29,185,84,.15);color:#1db954}
     .firebase-status.disconnected{background:rgba(233,20,41,.15);color:#e91429}
+
+    /* ADS */
     .ads-sidebar{width:200px;background:#121212;border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:14px;flex-shrink:0;height:100%}
     .ads-header{font-size:10px;font-weight:700;color:#727272;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #1f1f1f;padding-bottom:6px}
     .ads-slot{flex-grow:1;background:#181818;border-radius:6px;border:1px dashed #282828;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;text-align:center;gap:10px}
@@ -139,6 +154,12 @@
     .ads-text-title{font-size:11px;font-weight:700;color:#b3b3b3}
     .ads-text-desc{font-size:9px;color:#727272}
     .ads-dummy-image{width:100%;aspect-ratio:1;background:linear-gradient(135deg,#282828,#3e3e3e);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#a7a7a7}
+    /* Mobile inline ad */
+    .ads-inline{display:none;background:#181818;border:1px dashed #282828;border-radius:8px;padding:12px;text-align:center;margin:12px 0}
+    .ads-inline .ads-text-title{font-size:10px}
+    .ads-inline .ads-text-desc{font-size:8px}
+
+    /* PLAYER BAR */
     .player-bar{position:fixed;bottom:0;left:0;width:100%;height:65px;background:#000;display:flex;justify-content:space-between;align-items:center;padding:0 16px;border-top:1px solid #1c1c1c;z-index:10}
     .album-info{display:flex;align-items:center;gap:10px;width:30%}
     .album-cover-mock{width:40px;height:40px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
@@ -154,12 +175,16 @@
     .progress-bar{width:100%;accent-color:#1db954;cursor:pointer;height:4px}
     .volume-controls{display:flex;gap:8px;align-items:center;width:30%;justify-content:flex-end;color:#a7a7a7;font-size:12px}
     .volume-bar{width:60px;accent-color:#1db954}
-    .modal-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.85);display:flex;justify-content:center;align-items:center;z-index:100;opacity:0;pointer-events:none;transition:opacity .3s ease}
+    /* Buffer bar */
+    .buffer-info{font-size:9px;color:#535353;text-align:center;display:none}
+
+    /* MODALS */
+    .modal-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.85);display:flex;justify-content:center;align-items:center;z-index:100;opacity:0;pointer-events:none;transition:opacity .3s}
     .modal-overlay.active{opacity:1;pointer-events:auto}
-    .playlist-modal{background:#0c0c0c;width:440px;max-height:90vh;overflow-y:auto;padding:25px;border-radius:16px;box-shadow:0 0 30px rgba(0,110,255,.3);border:2px solid transparent;background-image:linear-gradient(#0c0c0c,#0c0c0c),linear-gradient(135deg,#0052d4,#4364f7,#6fb1fc);background-origin:border-box;background-clip:padding-box,border-box;transform:scale(.8);transition:transform .3s ease}
+    .playlist-modal{background:#0c0c0c;width:440px;max-height:90vh;overflow-y:auto;padding:25px;border-radius:16px;box-shadow:0 0 30px rgba(0,110,255,.3);border:2px solid transparent;background-image:linear-gradient(#0c0c0c,#0c0c0c),linear-gradient(135deg,#0052d4,#4364f7,#6fb1fc);background-origin:border-box;background-clip:padding-box,border-box;transform:scale(.8);transition:transform .3s}
     .modal-overlay.active .playlist-modal{transform:scale(1)}
     .modal-title{font-size:14px;font-weight:700;margin-bottom:18px;text-align:center}
-    .modal-input{width:100%;background:#181818;border:1px solid #333;border-radius:25px;padding:10px 18px;font-size:12px;color:#fff;outline:none;margin-bottom:12px;text-align:center;transition:.2s}
+    .modal-input{width:100%;background:#181818;border:1px solid #333;border-radius:25px;padding:10px 18px;font-size:12px;color:#fff;outline:none;margin-bottom:12px;text-align:center}
     .modal-input:focus{border-color:#4364f7;background:#202020}
     .modal-input.left-align{text-align:left}
     select.modal-input{cursor:pointer;appearance:auto}
@@ -175,6 +200,8 @@
     .contrib-modal-section{margin-bottom:14px}
     .contrib-modal-label{font-size:11px;font-weight:600;color:#a7a7a7;margin-bottom:6px;display:flex;align-items:center;gap:6px}
     .contrib-modal-label i{color:#00d2ff;font-size:10px}
+
+    /* UPLOAD */
     .upload-area{border:2px dashed #333;border-radius:12px;padding:24px;text-align:center;cursor:pointer;transition:.3s;background:#0f0f0f;position:relative;margin-bottom:12px}
     .upload-area:hover,.upload-area.dragover{border-color:#00d2ff;background:rgba(0,210,255,.05)}
     .upload-area.has-file{border-color:#1db954;background:rgba(29,185,84,.05)}
@@ -192,7 +219,6 @@
     .or-divider{display:flex;align-items:center;gap:10px;margin:10px 0}
     .or-divider span{font-size:10px;color:#535353;white-space:nowrap}
     .or-divider::before,.or-divider::after{content:'';flex:1;height:1px;background:#242424}
-    /* BATCH FILE LIST */
     .batch-file-list{max-height:200px;overflow-y:auto;margin-bottom:12px}
     .batch-file-item{background:#161616;border:1px solid rgba(255,255,255,.05);border-radius:8px;padding:10px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
     .batch-file-info{flex-grow:1;overflow:hidden}
@@ -202,7 +228,7 @@
     .batch-file-artist select{background:#181818;border:1px solid #333;border-radius:15px;padding:4px 10px;font-size:10px;color:#fff;outline:none;width:100%}
     .batch-file-remove{background:none;border:none;color:#535353;cursor:pointer;font-size:12px}
     .batch-file-remove:hover{color:#e91429}
-    .batch-file-status{font-size:9px;padding:2px 6px;border-radius:8px;font-weight:600}
+
     /* ADMIN */
     .admin-panel{display:none;flex-direction:column}
     .admin-panel-header{text-align:center;padding:24px;background:linear-gradient(135deg,rgba(0,0,0,.9),rgba(0,30,60,.6));border:1px solid rgba(0,210,255,.15);border-radius:12px;margin-bottom:16px}
@@ -240,19 +266,110 @@
     .status-active{background:rgba(29,185,84,.15);color:#1db954}
     .status-banned{background:rgba(233,20,41,.15);color:#e91429}
     .status-pending{background:rgba(245,155,0,.15);color:#f59b00}
-    /* MOOD PICKER */
     .mood-picker{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
     .mood-option{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;border:2px solid transparent;transition:.2s}
     .mood-option:hover{transform:scale(1.1);border-color:rgba(255,255,255,.3)}
     .mood-option.selected{border-color:#1db954;box-shadow:0 0 10px rgba(29,185,84,.4)}
-    /* BUFFERING SPINNER */
     @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
     .buffering-icon{animation:spin 1s linear infinite;display:inline-block}
+
+    /* BOTTOM NAV (mobile only) */
+    .bottom-nav{display:none;position:fixed;bottom:0;left:0;width:100%;background:#0a0a0a;border-top:1px solid #1c1c1c;z-index:11;padding:6px 0 env(safe-area-inset-bottom,4px)}
+    .bottom-nav-items{display:flex;justify-content:space-around;align-items:center}
+    .bottom-nav-item{display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;padding:4px 8px;border-radius:8px;transition:.2s;background:none;border:none;color:#727272;font-size:9px;font-weight:600}
+    .bottom-nav-item i{font-size:16px}
+    .bottom-nav-item.active,.bottom-nav-item:hover{color:#1db954}
+
     .toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%) translateY(20px);background:#282828;border:1px solid #404040;color:#fff;font-size:12px;font-weight:600;padding:10px 20px;border-radius:30px;z-index:999;opacity:0;transition:.3s;pointer-events:none;white-space:nowrap}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
     .toast.success{border-color:#1db954;color:#1db954}
     .toast.warning{border-color:#f59b00;color:#f59b00}
     .toast.error{border-color:#e91429;color:#e91429}
+
+    /* =========================================================
+       RESPONSIVE MOBILE
+       ========================================================= */
+    @media(max-width:768px){
+      .main-container{flex-direction:column;height:calc(100vh - 120px);padding:4px;gap:4px}
+      .sidebar{display:none}
+      .ads-sidebar{display:none}
+      .ads-inline{display:block}
+      .main-content{border-radius:6px;padding:10px}
+      .header{gap:8px;padding-bottom:8px}
+      .search-container{max-width:100%}
+      .user-profile-badge{padding:4px 8px;font-size:10px}
+      .section-title{font-size:13px;margin-bottom:8px}
+      .artist-cards-row{gap:8px}
+      .artist-card{min-width:90px;width:90px;padding:8px}
+      .artist-card-img{width:50px;height:50px;font-size:16px}
+      .artist-card-name{font-size:9px}
+      .artist-card-count{font-size:8px}
+      .artist-block{padding:10px;margin-bottom:10px}
+      .artist-header{gap:8px;margin-bottom:8px;padding-bottom:6px}
+      .artist-avatar{width:30px;height:30px;font-size:12px}
+      .artist-name-text{font-size:11px}
+      .artist-song-count{font-size:9px}
+      .oval-home-capsule{padding:6px 10px;border-radius:20px}
+      .mood-thumb{width:24px;height:24px;font-size:11px;margin-right:8px}
+      .oval-home-title{font-size:11px}
+      .oval-home-artist{font-size:9px}
+      .oval-home-added-by{font-size:8px;padding:1px 5px;margin-right:4px}
+      .oval-home-btns{gap:6px}
+      .oval-home-btn{font-size:11px}
+
+      /* PLAYER BAR MOBILE */
+      .player-bar{height:auto;flex-direction:column;padding:8px 12px;bottom:50px;gap:4px}
+      .album-info{width:100%}
+      .album-cover-mock{width:32px;height:32px;font-size:13px}
+      .album-info h4{font-size:11px}
+      .album-info p{font-size:9px}
+      .player-controls{width:100%;gap:4px}
+      .control-buttons{gap:20px}
+      .play-icon{font-size:20px}
+      .playback-bar{max-width:100%}
+      .volume-controls{display:none}
+
+      /* BOTTOM NAV */
+      .bottom-nav{display:block}
+
+      /* TOAST */
+      .toast{bottom:130px;font-size:10px;padding:8px 14px}
+
+      /* MODAL */
+      .playlist-modal{width:95vw;padding:18px}
+      .modal-title{font-size:13px}
+      .modal-input{font-size:11px;padding:8px 14px}
+      .modal-btn{padding:7px 16px;font-size:10px}
+
+      /* AUTH */
+      .auth-box{width:90vw;padding:28px 20px}
+      .auth-title{font-size:18px}
+      .auth-input{font-size:12px;padding:10px 12px 10px 34px}
+      .elltify-logo{width:70px;height:70px;margin-bottom:18px}
+      .elltify-logo svg{width:42px;height:42px}
+
+      /* ADMIN */
+      .admin-panel-header{padding:16px}
+      .admin-panel-title{font-size:18px}
+      .admin-tabs{gap:4px}
+      .admin-tab{padding:5px 10px;font-size:10px}
+      .admin-card{padding:10px}
+      .admin-card-row{font-size:10px;gap:6px}
+      .admin-stat-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+      .admin-stat-box{padding:12px}
+      .admin-stat-num{font-size:20px}
+    }
+
+    @media(max-width:380px){
+      .artist-card{min-width:80px;width:80px;padding:6px}
+      .artist-card-img{width:44px;height:44px;font-size:14px}
+      .oval-home-capsule{padding:5px 8px}
+      .mood-thumb{width:22px;height:22px;font-size:10px;margin-right:6px}
+      .oval-home-title{font-size:10px}
+      .oval-home-btns{gap:4px}
+      .oval-home-btn{font-size:10px}
+      .control-buttons{gap:16px}
+    }
   </style>
 </head>
 <body>
@@ -328,9 +445,22 @@
       <div id="section-home">
         <div class="section-title"><i class="fa-solid fa-star"></i> Artis Populer</div>
         <div class="artist-cards-row" id="container-artist-cards"></div>
+
+        <!-- INLINE AD 1 (mobile) -->
+        <div class="ads-inline" id="ads-inline-1">
+          <p class="ads-text-title">🎵 Dapatkan Akun Premium</p>
+          <p class="ads-text-desc">Dengarkan musik tanpa iklan. Hanya Rp 49.990/bulan.</p>
+        </div>
+
         <hr class="section-divider-line">
         <div class="section-title"><i class="fa-solid fa-music"></i> Semua Lagu</div>
         <div id="container-lagu-grouped"></div>
+
+        <!-- INLINE AD 2 (mobile) -->
+        <div class="ads-inline" id="ads-inline-2">
+          <p class="ads-text-title">📢 Pasang Iklan di Elltify</p>
+          <p class="ads-text-desc">Jangkau ribuan pendengar musik. Hubungi kami!</p>
+        </div>
       </div>
 
       <div id="section-playlist" style="display:none">
@@ -383,6 +513,7 @@
       </div>
     </div>
 
+    <!-- ADS SIDEBAR (desktop) -->
     <div class="ads-sidebar">
       <div class="ads-header">Sponsor</div>
       <div class="ads-slot">
@@ -407,8 +538,20 @@
         <i class="fa-solid fa-forward-step" onclick="nextTrack()"></i>
       </div>
       <div class="playback-bar"><span id="curr-time">0:00</span><input type="range" id="progress-bar" min="0" max="100" value="0" class="progress-bar" oninput="seekTo(this.value)"><span id="tot-time">0:00</span></div>
+      <div class="buffer-info" id="buffer-info">Memuat...</div>
     </div>
     <div class="volume-controls"><i class="fa-solid fa-volume-high"></i><input type="range" id="volume-bar" min="0" max="1" step="0.05" value="0.7" class="volume-bar" oninput="changeVolume(this.value)"></div>
+  </div>
+
+  <!-- BOTTOM NAV (mobile) -->
+  <div class="bottom-nav" id="bottom-nav">
+    <div class="bottom-nav-items">
+      <button class="bottom-nav-item active" id="bnav-home" onclick="mobileNav('home')"><i class="fa-solid fa-house"></i><span>Home</span></button>
+      <button class="bottom-nav-item" id="bnav-search" onclick="mobileNav('search')"><i class="fa-solid fa-magnifying-glass"></i><span>Cari</span></button>
+      <button class="bottom-nav-item" id="bnav-add" onclick="openContributeModal()"><i class="fa-solid fa-plus-circle"></i><span>Tambah</span></button>
+      <button class="bottom-nav-item" id="bnav-fav" onclick="mobileNav('fav')"><i class="fa-solid fa-heart"></i><span>Favorit</span></button>
+      <button class="bottom-nav-item" id="bnav-profile" onclick="mobileNav('profile')"><i class="fa-solid fa-user"></i><span>Akun</span></button>
+    </div>
   </div>
 
   <!-- PLAYLIST MODAL -->
@@ -425,7 +568,7 @@
     </div>
   </div>
 
-  <!-- CONTRIBUTE MODAL (BATCH UPLOAD) -->
+  <!-- CONTRIBUTE MODAL -->
   <div class="modal-overlay" id="contribute-modal-overlay">
     <div class="playlist-modal">
       <div class="modal-title"><i class="fa-solid fa-cloud-arrow-up" style="color:#00d2ff"></i> Tambah Lagu Baru</div>
@@ -435,7 +578,6 @@
         <div class="upload-text">Klik atau drag file MP3 ke sini</div>
         <div class="upload-subtext">Bisa pilih <b>banyak file</b> sekaligus • Max 20MB/file</div>
       </div>
-      <!-- BATCH FILE LIST -->
       <div class="batch-file-list" id="batch-file-list" style="display:none"></div>
       <div class="upload-progress-wrap" id="upload-progress-wrap">
         <div class="upload-progress-label"><span id="upload-progress-text">Mengupload...</span><span id="upload-percent">0%</span></div>
@@ -469,6 +611,23 @@
       </div>
     </div>
   </div>
+
+  <!-- MOBILE PROFILE DROPDOWN -->
+  <div class="modal-overlay" id="mobile-profile-overlay">
+    <div class="playlist-modal" style="width:300px">
+      <div class="modal-title">👤 Akun</div>
+      <div style="text-align:center;margin-bottom:16px">
+        <div style="font-size:14px;font-weight:700" id="mobile-profile-name"></div>
+        <div style="font-size:10px;color:#535353;margin-top:4px" id="mobile-profile-email"></div>
+        <span class="user-admin-tag" id="mobile-admin-tag" style="display:none">ADMIN</span>
+      </div>
+      <div class="modal-buttons" style="flex-direction:column;gap:8px">
+        <button class="modal-btn btn-submit" id="mobile-admin-btn" onclick="closeMobileProfile();showAdminPanel()" style="display:none;width:100%"><i class="fa-solid fa-crown"></i> Admin Panel</button>
+        <button class="modal-btn btn-danger" onclick="closeMobileProfile();handleLogout()" style="width:100%"><i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar</button>
+        <button class="modal-btn btn-cancel" onclick="closeMobileProfile()" style="width:100%">Tutup</button>
+      </div>
+    </div>
+  </div>
     <script>
     // =========================================================
     // CONFIG
@@ -498,39 +657,12 @@
     var MOOD_KEYS=Object.keys(MOODS);
     function getMood(key){return MOODS[key]||MOODS.chill;}
     function renderMoodThumb(moodKey,cls){var m=getMood(moodKey);return '<div class="mood-thumb '+(cls||'')+'" style="background:'+m.gradient+'">'+m.icon+'</div>';}
-    function renderMoodPicker(selectedKey){
-      var h='<div class="mood-picker">';
-      MOOD_KEYS.forEach(function(k){var m=MOODS[k];h+='<div class="mood-option '+(selectedKey===k?'selected':'')+'" style="background:'+m.gradient+'" data-mood="'+k+'" onclick="selectMood(this,\''+k+'\')" title="'+m.label+'">'+m.icon+'</div>';});
-      h+='</div>';return h;
-    }
-    function selectMood(el,key){
-      el.closest('.mood-picker').querySelectorAll('.mood-option').forEach(function(o){o.classList.remove('selected');});
-      el.classList.add('selected');
-    }
-
-    // Artist gradient colors (auto-generated from name hash)
-    function artistGradient(name){
-      var h=0;for(var i=0;i<name.length;i++){h=name.charCodeAt(i)+((h<<5)-h);}
-      var hue=Math.abs(h%360),hue2=(hue+40)%360;
-      return 'linear-gradient(135deg,hsl('+hue+',60%,30%),hsl('+hue2+',70%,40%))';
-    }
-
-    // Default moods for hardcoded songs
-    var defaultMoods={
-      "Tak Segampang Itu":"sad","Risk It All":"romantic","Just The Way You Are":"romantic",
-      "Locked Out Of Heaven":"fire","That's What I Like":"happy","The Lazy Song":"chill",
-      "Grenade":"heartbreak","It Will Rain":"night","When I Was Your Man":"sad",
-      "Melukis Senja":"calm","SINARENGAN":"traditional","TUNGGAL EKA":"traditional",
-      "DJ MBG MAS BAHLIL GANTENG":"hiphop","SANES":"sad","Sedia Aku Sebelum Hujan":"romantic",
-      "TOGOG GANDRUNG":"traditional","WAROK PONOROGO":"traditional","MENTERI DURMAGATI":"hiphop",
-      "DUKA":"rock","Rasah Bali":"sad","Sewates Konco":"sad",
-      "Pura Pura Lupa":"heartbreak","kota ini tak sama tanpamu":"night",
-      "Nemen":"hiphop","Ego Wong Tuo":"hiphop","Andaikan Kau Datang":"sad",
-      "Orang Yang Sama":"heartbreak","Monolog":"calm","Bahagia Lagi":"inspire",
-      "Lesung Pipi":"happy","Bukti":"romantic","Surat Cinta Untuk Starla":"romantic",
-      "My Love":"romantic"
-    };
+    function renderMoodPicker(selectedKey){var h='<div class="mood-picker">';MOOD_KEYS.forEach(function(k){var m=MOODS[k];h+='<div class="mood-option '+(selectedKey===k?'selected':'')+'" style="background:'+m.gradient+'" data-mood="'+k+'" onclick="selectMood(this)" title="'+m.label+'">'+m.icon+'</div>';});h+='</div>';return h;}
+    function selectMood(el){el.closest('.mood-picker').querySelectorAll('.mood-option').forEach(function(o){o.classList.remove('selected');});el.classList.add('selected');}
+    function artistGradient(name){var h=0;for(var i=0;i<name.length;i++){h=name.charCodeAt(i)+((h<<5)-h);}var hue=Math.abs(h%360),hue2=(hue+40)%360;return 'linear-gradient(135deg,hsl('+hue+',60%,30%),hsl('+hue2+',70%,40%))';}
+    var defaultMoods={"Tak Segampang Itu":"sad","Risk It All":"romantic","Just The Way You Are":"romantic","Locked Out Of Heaven":"fire","That's What I Like":"happy","The Lazy Song":"chill","Grenade":"heartbreak","It Will Rain":"night","When I Was Your Man":"sad","Melukis Senja":"calm","SINARENGAN":"traditional","TUNGGAL EKA":"traditional","DJ MBG MAS BAHLIL GANTENG":"hiphop","SANES":"sad","Sedia Aku Sebelum Hujan":"romantic","TOGOG GANDRUNG":"traditional","WAROK PONOROGO":"traditional","MENTERI DURMAGATI":"hiphop","DUKA":"rock","Rasah Bali":"sad","Sewates Konco":"sad","Pura Pura Lupa":"heartbreak","kota ini tak sama tanpamu":"night","Nemen":"hiphop","Ego Wong Tuo":"hiphop","Andaikan Kau Datang":"sad","Orang Yang Sama":"heartbreak","Monolog":"calm","Bahagia Lagi":"inspire","Lesung Pipi":"happy","Bukti":"romantic","Surat Cinta Untuk Starla":"romantic","My Love":"romantic"};
     function getSongMood(song){return song.mood||defaultMoods[song.title]||'chill';}
+    function showAddedByLabel(addedBy){return addedBy&&addedBy!==ADMIN_USERNAME;}
 
     // =========================================================
     // GLOBALS
@@ -549,6 +681,7 @@
     var pendingSongToAdd=null,pendingPlaylistIdToDelete=null,toastTimer=null;
     var batchFiles=[],isUploading=false;
     var reviewAudio=new Audio(),reviewPlayingKey=null;
+    var bufferTimeout=null;
 
     var masterPlay=document.getElementById('master-play'),progressBar=document.getElementById('progress-bar');
     var currTimeText=document.getElementById('curr-time'),totTimeText=document.getElementById('tot-time');
@@ -563,6 +696,7 @@
     var contributeModalOverlay=document.getElementById('contribute-modal-overlay');
     var authOverlay=document.getElementById('auth-overlay'),registerWrapper=document.getElementById('register-wrapper'),loginWrapper=document.getElementById('login-wrapper');
     var regError=document.getElementById('register-error'),logError=document.getElementById('login-error'),displayUsername=document.getElementById('display-username');
+    var bufferInfo=document.getElementById('buffer-info');
 
     function showToast(msg,type){type=type||'success';var t=document.getElementById('toast-notif');t.textContent=msg;t.className='toast '+type+' show';clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show');},3200);}
     function formatTime(s){if(isNaN(s)||s===Infinity)return'0:00';return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');}
@@ -613,7 +747,7 @@
     function initAdminAccount(){var db=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(!db[ADMIN_USERNAME]){db[ADMIN_USERNAME]={password:ADMIN_PASSWORD,email:ADMIN_EMAIL,favorites:[],customPlaylists:[],banned:false};localStorage.setItem('elltify_users',JSON.stringify(db));}}
     function updateAdminUI(){document.getElementById('admin-tag').style.display=isAdmin()?'inline':'none';document.getElementById('nav-admin').style.display=isAdmin()?'flex':'none';}
     function isValidEmail(e){return/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);}
-    function validateEmailLive(el,hid){var h=document.getElementById(hid),v=el.value.trim();if(!v){el.classList.remove('input-error','input-success');h.classList.remove('visible');return;}if(isValidEmail(v)){el.classList.remove('input-error');el.classList.add('input-success');h.textContent='✓ Valid';h.style.color='#1db954';h.classList.add('visible');}else{el.classList.remove('input-success');el.classList.add('input-error');h.textContent='Format tidak valid';h.style.color='#e91429';h.classList.add('visible');}}
+    function validateEmailLive(el,hid){var h=document.getElementById(hid),v=el.value.trim();if(!v){el.classList.remove('input-error','input-success');h.classList.remove('visible');return;}if(isValidEmail(v)){el.classList.remove('input-error');el.classList.add('input-success');h.textContent='✓';h.style.color='#1db954';h.classList.add('visible');}else{el.classList.remove('input-success');el.classList.add('input-error');h.textContent='Tidak valid';h.style.color='#e91429';h.classList.add('visible');}}
     function setInputHint(el,hid,msg,isErr){var h=document.getElementById(hid);if(msg){el.classList.add(isErr?'input-error':'input-success');h.textContent=msg;h.style.color=isErr?'#e91429':'#1db954';h.classList.add('visible');}else{el.classList.remove('input-error','input-success');h.classList.remove('visible');}}
     function clearAllRegHints(){['reg-username','reg-email','reg-password','reg-confirm-password'].forEach(function(id){document.getElementById(id).classList.remove('input-error','input-success');});['reg-username-hint','reg-email-hint','reg-password-hint','reg-confirm-hint'].forEach(function(id){var h=document.getElementById(id);h.classList.remove('visible');h.textContent='';});}
     function autoDetectFromFilename(fn){var n=fn.replace(/\.[^.]+$/,'').replace(/\s*\(.*?\)\s*/g,' ').replace(/\s*\[.*?\]\s*/g,' ').replace(/official\s*(music\s*)?video/gi,'').replace(/lyrics?\s*video/gi,'').replace(/official\s*lyric\s*video/gi,'').replace(/official\s*audio/gi,'').trim();var t=n,a='';if(n.indexOf(' - ')>-1){var p=n.split(' - ');a=p[0].trim();t=p.slice(1).join(' - ').trim();}return{title:t.replace(/\s+/g,' ').trim()||n,artist:a.replace(/\s+/g,' ').trim()};}
@@ -624,24 +758,48 @@
     function sendTelegram(text){fetch('https://api.telegram.org/bot'+TELEGRAM_BOT+'/sendMessage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({chat_id:TELEGRAM_CHAT,text:text,parse_mode:'HTML'})}).catch(function(){});}
 
     // =========================================================
-    // BUFFERING
+    // BUFFERING + PRELOAD
     // =========================================================
     function setBuffering(state){
       isBuffering=state;
-      if(state){masterPlay.className='fa-solid fa-spinner play-icon buffering-icon';}
-      else if(isPlaying){masterPlay.className='fa-solid fa-circle-pause play-icon';}
-      else{masterPlay.className='fa-solid fa-circle-play play-icon';}
+      if(state){masterPlay.className='fa-solid fa-spinner play-icon buffering-icon';bufferInfo.style.display='block';bufferInfo.textContent='Memuat lagu...';}
+      else{bufferInfo.style.display='none';if(isPlaying)masterPlay.className='fa-solid fa-circle-pause play-icon';else masterPlay.className='fa-solid fa-circle-play play-icon';}
     }
-    currentAudio.addEventListener('waiting',function(){setBuffering(true);});
-    currentAudio.addEventListener('canplay',function(){setBuffering(false);});
-    currentAudio.addEventListener('playing',function(){setBuffering(false);});
+    currentAudio.addEventListener('waiting',function(){setBuffering(true);clearTimeout(bufferTimeout);bufferTimeout=setTimeout(function(){if(isBuffering)bufferInfo.textContent='Server lambat, mohon tunggu...';},8000);});
+    currentAudio.addEventListener('canplay',function(){setBuffering(false);clearTimeout(bufferTimeout);});
+    currentAudio.addEventListener('playing',function(){setBuffering(false);clearTimeout(bufferTimeout);});
+    currentAudio.addEventListener('error',function(){setBuffering(false);clearTimeout(bufferTimeout);showToast('Gagal memuat lagu','error');});
+    // Preload on hover
+    var preloadAudio=new Audio();
+    function preloadSong(url){if(preloadAudio.src!==url){preloadAudio.src=url;preloadAudio.load();}}
+
+    // =========================================================
+    // MOBILE NAV
+    // =========================================================
+    function mobileNav(tab){
+      document.querySelectorAll('.bottom-nav-item').forEach(function(b){b.classList.remove('active');});
+      if(tab==='home'){showMainSection();document.getElementById('bnav-home').classList.add('active');}
+      else if(tab==='search'){showMainSection();searchInput.focus();document.getElementById('bnav-search').classList.add('active');}
+      else if(tab==='fav'){viewPlaylist('favorites');document.getElementById('bnav-fav').classList.add('active');}
+      else if(tab==='profile'){openMobileProfile();document.getElementById('bnav-profile').classList.add('active');}
+    }
+    function openMobileProfile(){
+      document.getElementById('mobile-profile-name').textContent=currentUser||'Guest';
+      var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');
+      document.getElementById('mobile-profile-email').textContent=(dbL[currentUser]||{}).email||'';
+      document.getElementById('mobile-admin-tag').style.display=isAdmin()?'inline':'none';
+      document.getElementById('mobile-admin-btn').style.display=isAdmin()?'block':'none';
+      document.getElementById('mobile-profile-overlay').classList.add('active');
+    }
+    function closeMobileProfile(){document.getElementById('mobile-profile-overlay').classList.remove('active');}
+    document.getElementById('mobile-profile-overlay').addEventListener('click',function(e){if(e.target===this)closeMobileProfile();});
 
     // =========================================================
     // AUTH
     // =========================================================
     function initAuth(){var u=localStorage.getItem('elltify_loggedin');if(u){currentUser=u;displayUsername.innerText=u;authOverlay.classList.add('hidden');updateAdminUI();loadUserData();}else authOverlay.classList.remove('hidden');}
     function switchAuthMode(m){document.getElementById('login-banned').style.display='none';if(m==='login'){registerWrapper.style.display='none';loginWrapper.style.display='block';logError.style.display='none';}else{registerWrapper.style.display='block';loginWrapper.style.display='none';regError.style.display='none';clearAllRegHints();}}
-    function handleRegister(){clearAllRegHints();regError.style.display='none';var u=document.getElementById('reg-username').value.trim(),e=document.getElementById('reg-email').value.trim(),p=document.getElementById('reg-password').value,cp=document.getElementById('reg-confirm-password').value,err=false;if(!u){setInputHint(document.getElementById('reg-username'),'reg-username-hint','Wajib diisi',true);err=true;}else if(u.length<3){setInputHint(document.getElementById('reg-username'),'reg-username-hint','Min 3 karakter',true);err=true;}if(!e){setInputHint(document.getElementById('reg-email'),'reg-email-hint','Wajib diisi',true);err=true;}else if(!isValidEmail(e)){setInputHint(document.getElementById('reg-email'),'reg-email-hint','Tidak valid',true);err=true;}if(!p){setInputHint(document.getElementById('reg-password'),'reg-password-hint','Wajib diisi',true);err=true;}else if(p.length<4){setInputHint(document.getElementById('reg-password'),'reg-password-hint','Min 4 karakter',true);err=true;}if(!cp){setInputHint(document.getElementById('reg-confirm-password'),'reg-confirm-hint','Wajib diisi',true);err=true;}else if(p&&p!==cp){setInputHint(document.getElementById('reg-confirm-password'),'reg-confirm-hint','Tidak cocok',true);err=true;}if(err)return;var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(dbL[u]){setInputHint(document.getElementById('reg-username'),'reg-username-hint','Sudah terdaftar',true);return;}if(Object.values(dbL).some(function(x){return x.email&&x.email.toLowerCase()===e.toLowerCase();})){setInputHint(document.getElementById('reg-email'),'reg-email-hint','Sudah digunakan',true);return;}dbL[u]={password:p,email:e,favorites:[],customPlaylists:[],banned:false};localStorage.setItem('elltify_users',JSON.stringify(dbL));loginUser(u);}
+    function handleRegister(){clearAllRegHints();regError.style.display='none';var u=document.getElementById('reg-username').value.trim(),e=document.getElementById('reg-email').value.trim(),p=document.getElementById('reg-password').value,cp=document.getElementById('reg-confirm-password').value,err=false;if(!u){setInputHint(document.getElementById('reg-username'),'reg-username-hint','Wajib',true);err=true;}else if(u.length<3){setInputHint(document.getElementById('reg-username'),'reg-username-hint','Min 3',true);err=true;}if(!e){setInputHint(document.getElementById('reg-email'),'reg-email-hint','Wajib',true);err=true;}else if(!isValidEmail(e)){setInputHint(document.getElementById('reg-email'),'reg-email-hint','Tidak valid',true);err=true;}if(!p){setInputHint(document.getElementById('reg-password'),'reg-password-hint','Wajib',true);err=true;}else if(p.length<4){setInputHint(document.getElementById('reg-password'),'reg-password-hint','Min 4',true);err=true;}if(!cp){setInputHint(document.getElementById('reg-confirm-password'),'reg-confirm-hint','Wajib',true);err=true;}else if(p&&p!==cp){setInputHint(document.getElementById('reg-confirm-password'),'reg-confirm-hint','Tidak cocok',true);err=true;}if(err)return;var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(dbL[u]){setInputHint(document.getElementById('reg-username'),'reg-username-hint','Sudah ada',true);return;}if(Object.values(dbL).some(function(x){return x.email&&x.email.toLowerCase()===e.toLowerCase();})){setInputHint(document.getElementById('reg-email'),'reg-email-hint','Sudah dipakai',true);return;}dbL[u]={password:p,email:e,favorites:[],customPlaylists:[],banned:false};localStorage.setItem('elltify_users',JSON.stringify(dbL));loginUser(u);}
     function handleLogin(){logError.style.display='none';document.getElementById('login-banned').style.display='none';var input=document.getElementById('log-username').value.trim(),p=document.getElementById('log-password').value;if(!input||!p){showAuthError(logError,'Wajib diisi.');return;}var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');var found=null;if(dbL[input]&&dbL[input].password===p)found=input;else{var f=Object.keys(dbL).find(function(u){return dbL[u].email&&dbL[u].email.toLowerCase()===input.toLowerCase();});if(f&&dbL[f].password===p)found=f;}if(!found){showAuthError(logError,'Salah.');return;}if(dbL[found].banned){document.getElementById('login-banned').style.display='block';return;}loginUser(found);}
     function loginUser(u){currentUser=u;localStorage.setItem('elltify_loggedin',u);displayUsername.innerText=u;authOverlay.classList.add('hidden');['reg-username','reg-email','reg-password','reg-confirm-password','log-username','log-password'].forEach(function(id){document.getElementById(id).value='';});clearAllRegHints();updateAdminUI();loadUserData();showToast('Selamat datang, '+u+'!');}
     function handleLogout(){saveUserData();localStorage.removeItem('elltify_loggedin');currentUser=null;pauseSong();reviewAudio.pause();favorites=[];customPlaylists=[];activePlaylistId=null;currentPlaylistScope='all';favCounter.innerText='0 lagu';document.querySelectorAll('.custom-playlist-item').forEach(function(el){el.remove();});showMainSection();renderHomeContent(searchInput.value);updateAdminUI();switchAuthMode('login');authOverlay.classList.remove('hidden');}
@@ -665,7 +823,7 @@
     };
 
     // =========================================================
-    // CONTRIBUTE MODAL (BATCH)
+    // CONTRIBUTE MODAL
     // =========================================================
     function populateArtistDropdown(sel,autoArtist){
       sel.innerHTML='<option value="">-- Pilih Artis --</option>';
@@ -674,10 +832,7 @@
       var no=document.createElement('option');no.value='__NEW__';no.textContent='➕ Artis baru (perlu approval)';sel.appendChild(no);
       if(autoArtist){var match=isKnownArtist(autoArtist);if(match)sel.value=match;else{sel.value='__NEW__';}}
     }
-    document.getElementById('contrib-artist-select').addEventListener('change',function(){
-      var w=document.getElementById('contrib-artist-new-wrap');
-      if(this.value==='__NEW__'){w.style.display='block';}else{w.style.display='none';}
-    });
+    document.getElementById('contrib-artist-select').addEventListener('change',function(){document.getElementById('contrib-artist-new-wrap').style.display=this.value==='__NEW__'?'block':'none';});
 
     function openContributeModal(){
       batchFiles=[];isUploading=false;
@@ -703,131 +858,49 @@
     uploadArea.addEventListener('dragover',function(e){e.preventDefault();uploadArea.classList.add('dragover');});
     uploadArea.addEventListener('dragleave',function(){uploadArea.classList.remove('dragover');});
     uploadArea.addEventListener('drop',function(e){e.preventDefault();uploadArea.classList.remove('dragover');handleBatchDrop(e.dataTransfer.files);});
-
     function handleBatchFiles(input){handleBatchDrop(input.files);}
     function handleBatchDrop(files){
-      for(var i=0;i<files.length;i++){
-        var f=files[i];
-        if(!f.name.toLowerCase().endsWith('.mp3')){showToast(f.name+' bukan .mp3','warning');continue;}
-        if(f.size>20*1024*1024){showToast(f.name+' > 20MB','warning');continue;}
-        var det=autoDetectFromFilename(f.name);
-        batchFiles.push({file:f,title:det.title,artist:det.artist,status:'ready'});
-      }
-      if(batchFiles.length===0)return;
-      uploadArea.classList.add('has-file');
-      if(batchFiles.length===1){
-        // Single file mode
-        document.getElementById('batch-file-list').style.display='none';
-        document.getElementById('single-artist-section').style.display='block';
-        document.getElementById('single-artist-dropdown').style.display='block';
-        document.getElementById('contrib-title').value=batchFiles[0].title;
-        populateArtistDropdown(document.getElementById('contrib-artist-select'),batchFiles[0].artist);
-      }else{
-        // Batch mode
-        document.getElementById('single-artist-section').style.display='none';
-        document.getElementById('single-artist-dropdown').style.display='none';
-        renderBatchList();
-      }
+      for(var i=0;i<files.length;i++){var f=files[i];if(!f.name.toLowerCase().endsWith('.mp3')){showToast(f.name+' bukan .mp3','warning');continue;}if(f.size>20*1024*1024){showToast(f.name+' > 20MB','warning');continue;}var det=autoDetectFromFilename(f.name);batchFiles.push({file:f,title:det.title,artist:det.artist,status:'ready'});}
+      if(!batchFiles.length)return;uploadArea.classList.add('has-file');
+      if(batchFiles.length===1){document.getElementById('batch-file-list').style.display='none';document.getElementById('single-artist-section').style.display='block';document.getElementById('single-artist-dropdown').style.display='block';document.getElementById('contrib-title').value=batchFiles[0].title;populateArtistDropdown(document.getElementById('contrib-artist-select'),batchFiles[0].artist);}
+      else{document.getElementById('single-artist-section').style.display='none';document.getElementById('single-artist-dropdown').style.display='none';renderBatchList();}
     }
-    function renderBatchList(){
-      var list=document.getElementById('batch-file-list');list.innerHTML='';list.style.display='block';
-      batchFiles.forEach(function(bf,idx){
-        var statusHTML=bf.status==='done'?'<span class="batch-file-status" style="background:rgba(29,185,84,.15);color:#1db954">✓</span>':bf.status==='uploading'?'<span class="batch-file-status" style="background:rgba(0,210,255,.15);color:#00d2ff">⏳</span>':bf.status==='error'?'<span class="batch-file-status" style="background:rgba(233,20,41,.15);color:#e91429">✗</span>':'';
-        var selId='batch-artist-'+idx;
-        var h='<div class="batch-file-item"><div class="mood-thumb" style="background:linear-gradient(135deg,#242424,#444)"><i class="fa-solid fa-music" style="font-size:10px"></i></div><div class="batch-file-info"><div class="batch-file-name">'+bf.title+'</div><div class="batch-file-size">'+(bf.file.size/1024/1024).toFixed(1)+' MB'+(bf.artist?' • '+bf.artist:'')+'</div><div class="batch-file-artist"><select class="modal-input left-align" id="'+selId+'" style="margin:4px 0 0;padding:4px 8px;font-size:10px;border-radius:12px" onchange="batchArtistChange('+idx+',this)"></select></div></div>'+statusHTML+'<button class="batch-file-remove" onclick="removeBatchFile('+idx+')"><i class="fa-solid fa-xmark"></i></button></div>';
-        list.innerHTML+=h;
-        // Populate dropdown after render
-        setTimeout(function(){var sel=document.getElementById(selId);if(sel)populateArtistDropdown(sel,bf.artist);},10);
-      });
-    }
+    function renderBatchList(){var list=document.getElementById('batch-file-list');list.innerHTML='';list.style.display='block';batchFiles.forEach(function(bf,idx){var sid='batch-artist-'+idx;list.innerHTML+='<div class="batch-file-item"><div class="mood-thumb" style="background:linear-gradient(135deg,#242424,#444)"><i class="fa-solid fa-music" style="font-size:10px"></i></div><div class="batch-file-info"><div class="batch-file-name">'+bf.title+'</div><div class="batch-file-size">'+(bf.file.size/1024/1024).toFixed(1)+' MB</div><div class="batch-file-artist"><select id="'+sid+'" style="background:#181818;border:1px solid #333;border-radius:12px;padding:4px 8px;font-size:10px;color:#fff;width:100%;outline:none" onchange="batchArtistChange('+idx+',this)"></select></div></div><button class="batch-file-remove" onclick="removeBatchFile('+idx+')"><i class="fa-solid fa-xmark"></i></button></div>';setTimeout(function(){var sel=document.getElementById(sid);if(sel)populateArtistDropdown(sel,bf.artist);},10);});}
     function batchArtistChange(idx,sel){batchFiles[idx].selectedArtist=sel.value;}
-    function removeBatchFile(idx){batchFiles.splice(idx,1);if(batchFiles.length===0){uploadArea.classList.remove('has-file');document.getElementById('batch-file-list').style.display='none';document.getElementById('single-artist-section').style.display='block';document.getElementById('single-artist-dropdown').style.display='block';}else if(batchFiles.length===1){document.getElementById('batch-file-list').style.display='none';document.getElementById('single-artist-section').style.display='block';document.getElementById('single-artist-dropdown').style.display='block';document.getElementById('contrib-title').value=batchFiles[0].title;populateArtistDropdown(document.getElementById('contrib-artist-select'),batchFiles[0].artist);}else{renderBatchList();}}
-
-    function uploadToCloudinary(file,onOk,onErr,onProg){
-      var fd=new FormData();fd.append('file',file);fd.append('upload_preset',CLOUDINARY_PRESET);fd.append('resource_type','video');
-      var xhr=new XMLHttpRequest();xhr.open('POST',CLOUDINARY_URL,true);
-      xhr.upload.onprogress=function(e){if(e.lengthComputable&&onProg)onProg(Math.round(e.loaded/e.total*100));};
-      xhr.onload=function(){if(xhr.status===200){var r=JSON.parse(xhr.responseText);onOk(r.secure_url);}else onErr('Error: '+xhr.status);};
-      xhr.onerror=function(){onErr('Network error');};xhr.send(fd);
-    }
+    function removeBatchFile(idx){batchFiles.splice(idx,1);if(!batchFiles.length){uploadArea.classList.remove('has-file');document.getElementById('batch-file-list').style.display='none';document.getElementById('single-artist-section').style.display='block';document.getElementById('single-artist-dropdown').style.display='block';}else if(batchFiles.length===1){document.getElementById('batch-file-list').style.display='none';document.getElementById('single-artist-section').style.display='block';document.getElementById('single-artist-dropdown').style.display='block';document.getElementById('contrib-title').value=batchFiles[0].title;populateArtistDropdown(document.getElementById('contrib-artist-select'),batchFiles[0].artist);}else renderBatchList();}
+    function uploadToCloudinary(file,onOk,onErr,onProg){var fd=new FormData();fd.append('file',file);fd.append('upload_preset',CLOUDINARY_PRESET);fd.append('resource_type','video');var xhr=new XMLHttpRequest();xhr.open('POST',CLOUDINARY_URL,true);xhr.upload.onprogress=function(e){if(e.lengthComputable&&onProg)onProg(Math.round(e.loaded/e.total*100));};xhr.onload=function(){if(xhr.status===200){var r=JSON.parse(xhr.responseText);onOk(r.secure_url);}else onErr('Error '+xhr.status);};xhr.onerror=function(){onErr('Network error');};xhr.send(fd);}
 
     function submitContribution(){
-      if(isUploading)return;
-      var cover=document.getElementById('contrib-cover').value.trim();
-      var link=document.getElementById('contrib-link-input').value.trim();
-
-      // BATCH MODE
-      if(batchFiles.length>1){
-        isUploading=true;
-        document.getElementById('contrib-submit-btn').disabled=true;
-        document.getElementById('contrib-cancel-btn').disabled=true;
-        document.getElementById('upload-progress-wrap').style.display='block';
-        uploadBatchSequential(0,cover);
-        return;
-      }
-
-      // SINGLE FILE or LINK
-      var title=document.getElementById('contrib-title').value.trim();
-      var selA=document.getElementById('contrib-artist-select').value;
-      var newA=document.getElementById('contrib-artist-new').value.trim();
-      var artist='';var isPending=false;
-      if(selA==='__NEW__'){if(!newA){showToast('Artis wajib diisi','warning');return;}artist=newA;isPending=true;}
-      else if(selA){artist=selA;}else{showToast('Pilih artis','warning');return;}
-      if(!title){showToast('Judul wajib diisi','warning');return;}
+      if(isUploading)return;var cover=document.getElementById('contrib-cover').value.trim();var link=document.getElementById('contrib-link-input').value.trim();
+      if(batchFiles.length>1){isUploading=true;document.getElementById('contrib-submit-btn').disabled=true;document.getElementById('contrib-cancel-btn').disabled=true;document.getElementById('upload-progress-wrap').style.display='block';uploadBatchSeq(0,cover);return;}
+      var title=document.getElementById('contrib-title').value.trim();var selA=document.getElementById('contrib-artist-select').value;var newA=document.getElementById('contrib-artist-new').value.trim();
+      var artist='',isPending=false;
+      if(selA==='__NEW__'){if(!newA){showToast('Artis wajib','warning');return;}artist=newA;isPending=true;}else if(selA)artist=selA;else{showToast('Pilih artis','warning');return;}
+      if(!title){showToast('Judul wajib','warning');return;}
       if(isDuplicateSong(title,artist)){showToast('"'+title+'" sudah ada','error');return;}
-
-      if(batchFiles.length===1){
-        isUploading=true;
-        document.getElementById('contrib-submit-btn').disabled=true;
-        document.getElementById('contrib-cancel-btn').disabled=true;
-        document.getElementById('upload-progress-wrap').style.display='block';
-        document.getElementById('upload-progress-fill').style.width='0%';
-        document.getElementById('upload-percent').textContent='0%';
-        document.getElementById('upload-status-text').textContent='Mempersiapkan...';
-        uploadToCloudinary(batchFiles[0].file,function(url){
-          isUploading=false;
-          document.getElementById('upload-progress-fill').style.width='100%';
-          document.getElementById('upload-percent').textContent='100%';
-          setTimeout(function(){finishSingle(title,artist,url,cover,isPending);},400);
-        },function(err){isUploading=false;document.getElementById('upload-progress-wrap').style.display='none';document.getElementById('contrib-submit-btn').disabled=false;document.getElementById('contrib-cancel-btn').disabled=false;showToast(err,'error');
-        },function(pct){document.getElementById('upload-progress-fill').style.width=pct+'%';document.getElementById('upload-percent').textContent=pct+'%';document.getElementById('upload-status-text').textContent='Mengupload... '+pct+'%';});
-      }else if(link){
-        if(!link.toLowerCase().match(/\.mp3(\?.*)?$/)){showToast('Link harus .mp3','warning');return;}
-        finishSingle(title,artist,link,cover,isPending);
-      }else{showToast('Pilih file atau link','warning');}
+      if(batchFiles.length===1){isUploading=true;document.getElementById('contrib-submit-btn').disabled=true;document.getElementById('contrib-cancel-btn').disabled=true;document.getElementById('upload-progress-wrap').style.display='block';document.getElementById('upload-progress-fill').style.width='0%';document.getElementById('upload-percent').textContent='0%';
+        uploadToCloudinary(batchFiles[0].file,function(url){isUploading=false;document.getElementById('upload-progress-fill').style.width='100%';document.getElementById('upload-percent').textContent='100%';setTimeout(function(){finishSingle(title,artist,url,cover,isPending);},400);},function(err){isUploading=false;document.getElementById('upload-progress-wrap').style.display='none';document.getElementById('contrib-submit-btn').disabled=false;document.getElementById('contrib-cancel-btn').disabled=false;showToast(err,'error');},function(pct){document.getElementById('upload-progress-fill').style.width=pct+'%';document.getElementById('upload-percent').textContent=pct+'%';});}
+      else if(link){if(!link.toLowerCase().match(/\.mp3(\?.*)?$/)){showToast('Link harus .mp3','warning');return;}finishSingle(title,artist,link,cover,isPending);}
+      else showToast('Pilih file atau link','warning');
     }
-
     function finishSingle(title,artist,url,cover,isPending){
       var song={title:title,artist:artist,audio:url,icon:'fa-music',mood:'chill',addedBy:currentUser||'Anonim',addedAt:new Date().toISOString()};
       closeContributeModal();
-      if(isPending){song.status='pending';if(window.firebasePushPending)window.firebasePushPending(song);sendTelegram('🎵 <b>LAGU BARU MENUNGGU REVIEW</b>\n═══════════════\n📋 Judul: '+title+'\n🎤 Artis: '+artist+' (BARU)\n👤 Upload: '+(currentUser||'Anonim')+'\n\n⚠️ Artis belum terdaftar');showToast('Dikirim untuk review!','warning');}
+      if(isPending){song.status='pending';if(window.firebasePushPending)window.firebasePushPending(song);sendTelegram('🎵 <b>LAGU PENDING</b>\n📋 '+title+'\n🎤 '+artist+' (BARU)\n👤 '+(currentUser||'Anonim'));showToast('Dikirim untuk review!','warning');}
       else{if(window.firebasePushSong)window.firebasePushSong(song);}
     }
-
-    function uploadBatchSequential(idx,cover){
-      if(idx>=batchFiles.length){isUploading=false;closeContributeModal();showToast(batchFiles.length+' lagu berhasil diupload!');batchFiles=[];return;}
-      var bf=batchFiles[idx];bf.status='uploading';renderBatchList();
-      var total=batchFiles.length;
-      document.getElementById('upload-progress-text').textContent='Mengupload '+(idx+1)+'/'+total+'...';
-      document.getElementById('upload-status-text').textContent=bf.title;
-      var selEl=document.getElementById('batch-artist-'+idx);
-      var artist=bf.selectedArtist||(selEl?selEl.value:'')||bf.artist||'';
-      var isPending=false;
-      if(artist==='__NEW__'){artist=bf.artist||'Unknown';isPending=true;}
-      else if(!artist){bf.status='error';renderBatchList();uploadBatchSequential(idx+1,cover);return;}
-      else{var known=isKnownArtist(artist);if(!known)isPending=true;else artist=known;}
-      if(isDuplicateSong(bf.title,artist)){bf.status='done';renderBatchList();uploadBatchSequential(idx+1,cover);return;}
-      uploadToCloudinary(bf.file,function(url){
-        bf.status='done';
-        var pct=Math.round((idx+1)/total*100);
-        document.getElementById('upload-progress-fill').style.width=pct+'%';
-        document.getElementById('upload-percent').textContent=pct+'%';
+    function uploadBatchSeq(idx,cover){
+      if(idx>=batchFiles.length){isUploading=false;closeContributeModal();showToast(batchFiles.length+' lagu diupload!');batchFiles=[];return;}
+      var bf=batchFiles[idx];bf.status='uploading';renderBatchList();var total=batchFiles.length;
+      document.getElementById('upload-progress-text').textContent='Upload '+(idx+1)+'/'+total;document.getElementById('upload-status-text').textContent=bf.title;
+      var selEl=document.getElementById('batch-artist-'+idx);var artist=bf.selectedArtist||(selEl?selEl.value:'')||bf.artist||'';var isPending=false;
+      if(artist==='__NEW__'){artist=bf.artist||'Unknown';isPending=true;}else if(!artist){bf.status='error';renderBatchList();uploadBatchSeq(idx+1,cover);return;}else{var known=isKnownArtist(artist);if(!known)isPending=true;else artist=known;}
+      if(isDuplicateSong(bf.title,artist)){bf.status='done';renderBatchList();uploadBatchSeq(idx+1,cover);return;}
+      uploadToCloudinary(bf.file,function(url){bf.status='done';var pct=Math.round((idx+1)/total*100);document.getElementById('upload-progress-fill').style.width=pct+'%';document.getElementById('upload-percent').textContent=pct+'%';
         var song={title:bf.title,artist:artist,audio:url,icon:'fa-music',mood:'chill',addedBy:currentUser||'Anonim',addedAt:new Date().toISOString()};
-        if(isPending){song.status='pending';if(window.firebasePushPending)window.firebasePushPending(song);sendTelegram('🎵 <b>LAGU PENDING</b>\n📋 '+bf.title+'\n🎤 '+artist+' (BARU)\n👤 '+(currentUser||'Anonim'));}
-        else{if(window.firebasePushSong)window.firebasePushSong(song);}
-        renderBatchList();uploadBatchSequential(idx+1,cover);
-      },function(err){bf.status='error';renderBatchList();uploadBatchSequential(idx+1,cover);
-      },function(pct){var overall=Math.round((idx/total+pct/100/total)*100);document.getElementById('upload-progress-fill').style.width=overall+'%';document.getElementById('upload-percent').textContent=overall+'%';});
+        if(isPending){song.status='pending';if(window.firebasePushPending)window.firebasePushPending(song);sendTelegram('🎵 <b>PENDING</b>\n📋 '+bf.title+'\n🎤 '+artist+'\n👤 '+(currentUser||'Anonim'));}else{if(window.firebasePushSong)window.firebasePushSong(song);}
+        renderBatchList();uploadBatchSeq(idx+1,cover);
+      },function(){bf.status='error';renderBatchList();uploadBatchSeq(idx+1,cover);},function(pct){var o=Math.round((idx/total+pct/100/total)*100);document.getElementById('upload-progress-fill').style.width=o+'%';document.getElementById('upload-percent').textContent=o+'%';});
     }
 
     // =========================================================
@@ -835,15 +908,21 @@
     // =========================================================
     document.addEventListener('click',function(e){
       var btn=e.target.closest('[data-action]');if(!btn)return;
-      var action=btn.getAttribute('data-action'),key=btn.getAttribute('data-key'),idx=btn.getAttribute('data-idx');
-      e.stopPropagation();
-      if(action==='fav'){var favId=key?'contrib:'+key:parseInt(idx);var fi=favorites.indexOf(favId);if(fi>-1){favorites.splice(fi,1);showToast('Dihapus dari Favorit','warning');}else{favorites.push(favId);showToast('Ditambahkan ke Favorit');}favCounter.innerText=favorites.length+' lagu';saveUserData();renderHomeContent(searchInput.value);if(sectionPlaylist.style.display==='block'&&activePlaylistId==='favorites')renderOvalPlaylist('favorites','Lagu Favorit');}
+      var action=btn.getAttribute('data-action'),key=btn.getAttribute('data-key'),idx=btn.getAttribute('data-idx');e.stopPropagation();
+      if(action==='fav'){var fid=key?'contrib:'+key:parseInt(idx);var fi=favorites.indexOf(fid);if(fi>-1){favorites.splice(fi,1);showToast('Dihapus','warning');}else{favorites.push(fid);showToast('Difavoritkan');}favCounter.innerText=favorites.length+' lagu';saveUserData();renderHomeContent(searchInput.value);if(sectionPlaylist.style.display==='block'&&activePlaylistId==='favorites')renderOvalPlaylist('favorites','Lagu Favorit');}
       else if(action==='add-playlist'){pendingSongToAdd=key?'contrib:'+key:parseInt(idx);if(!customPlaylists.length)openPlaylistModal('create');else openPlaylistModal('select');}
       else if(action==='play-contrib'){playContribByKey(key);}
       else if(action==='play-track'){currentPlaylistScope='all';loadTrack(parseInt(idx));}
       else if(action==='delete-contrib'){deleteContributedSong(key,btn.getAttribute('data-title')||'');}
       else if(action==='remove-from-playlist'){removeTrackFromPlaylist(btn.getAttribute('data-pid'),key?'contrib:'+key:parseInt(idx));}
       else if(action==='download'){downloadSong(btn.getAttribute('data-url'),btn.getAttribute('data-title'),btn.getAttribute('data-artist'));}
+    });
+    // Preload on hover
+    document.addEventListener('mouseover',function(e){
+      var cap=e.target.closest('.oval-home-capsule[data-action="play-track"]');
+      if(cap){var i=parseInt(cap.getAttribute('data-idx'));if(!isNaN(i)&&daftarLagu[i])preloadSong(daftarLagu[i].audio);}
+      var cc=e.target.closest('.oval-home-capsule[data-action="play-contrib"]');
+      if(cc){var k=cc.getAttribute('data-key');var ss=getContributedSongs();for(var j=0;j<ss.length;j++){if(ss[j]._key===k){preloadSong(ss[j].audio);break;}}}
     });
 
     // =========================================================
@@ -856,7 +935,7 @@
     function renderHomeContent(ft){
       ft=ft||'';containerGrouped.innerHTML='';var q=ft.toLowerCase().trim(),map=buildArtistMap(q);renderArtistCards(map);
       var names=Object.keys(map).sort(function(a,b){return a.toLowerCase().localeCompare(b.toLowerCase());});
-      if(!names.length){containerGrouped.innerHTML='<p class="admin-empty">Tidak ada lagu ditemukan</p>';return;}
+      if(!names.length){containerGrouped.innerHTML='<p class="admin-empty">Tidak ada lagu</p>';return;}
       names.forEach(function(an){
         var data=map[an],songs=data.songs,sid='artist-'+an.replace(/[^a-zA-Z0-9]/g,'-').toLowerCase();
         var block=document.createElement('div');block.className='artist-block';block.id=sid;
@@ -864,8 +943,8 @@
         var s='<div class="artist-songs-list">';
         songs.forEach(function(song){
           var np=song.isContrib?(currentTrackIsContrib&&currentContribKey===song._key):(!currentTrackIsContrib&&currentTrackIndex===song.daftarIdx);
-          var favId=song.isContrib?'contrib:'+song._key:song.daftarIdx;var isFav=favorites.indexOf(favId)>-1;
-          var aby=song.isContrib?'<span class="oval-home-added-by"><i class="fa-solid fa-user" style="font-size:8px;margin-right:3px"></i>'+song.addedBy+'</span>':'';
+          var fid=song.isContrib?'contrib:'+song._key:song.daftarIdx;var isFav=favorites.indexOf(fid)>-1;
+          var aby=song.isContrib&&showAddedByLabel(song.addedBy)?'<span class="oval-home-added-by"><i class="fa-solid fa-user" style="font-size:8px;margin-right:3px"></i>'+song.addedBy+'</span>':'';
           var cc=song.isContrib?'data-action="play-contrib" data-key="'+song._key+'"':'data-action="play-track" data-idx="'+song.daftarIdx+'"';
           var fa=song.isContrib?'data-action="fav" data-key="'+song._key+'"':'data-action="fav" data-idx="'+song.daftarIdx+'"';
           var aa=song.isContrib?'data-action="add-playlist" data-key="'+song._key+'"':'data-action="add-playlist" data-idx="'+song.daftarIdx+'"';
@@ -882,11 +961,11 @@
     // =========================================================
     function playContribByKey(key){var songs=getContributedSongs();for(var i=0;i<songs.length;i++){if(songs[i]._key===key){currentTrackIsContrib=true;currentContribKey=key;currentTrackIndex=-1;currentPlaylistScope='contributed';var s=songs[i];var mood=getSongMood(s);footTitle.innerText=s.title;footArtist.innerText=s.artist;footIcon.innerHTML=getMood(mood).icon;footIcon.style.background=getMood(mood).gradient;currentAudio.src=s.audio;currentAudio.load();playSong();renderHomeContent(searchInput.value);renderContributedSidebar();return;}}}
     function deleteContributedSong(key,title){if(!isAdmin()){showToast('Hanya admin','warning');return;}if(window.firebaseDeleteSong)window.firebaseDeleteSong(key,title);}
-    function renderContributedSidebar(){var sec=document.getElementById('contributed-sidebar-section'),songs=getContributedSongs();if(!songs.length){sec.innerHTML='';return;}var h='<div class="sidebar-section-label"><i class="fa-solid fa-clock-rotate-left"></i> Baru ditambahkan</div>';songs.slice().reverse().forEach(function(song){var cp=currentTrackIsContrib&&currentContribKey===song._key;var del=isAdmin()?'<button class="contrib-delete-btn" data-action="delete-contrib" data-key="'+song._key+'" data-title="'+song.title.replace(/"/g,'&quot;')+'"><i class="fa-solid fa-trash"></i></button>':'';var mood=getSongMood(song);h+='<div class="contributed-song-item '+(cp?'playing-contrib':'')+'" data-action="play-contrib" data-key="'+song._key+'">'+renderMoodThumb(mood,'mood-thumb-sm')+'<div class="contrib-info"><h4>'+song.title+'</h4><p>'+song.artist+(song.addedBy?' • '+song.addedBy:'')+'</p></div>'+del+'</div>';});sec.innerHTML=h;}
+    function renderContributedSidebar(){var sec=document.getElementById('contributed-sidebar-section'),songs=getContributedSongs();if(!songs.length){sec.innerHTML='';return;}var h='<div class="sidebar-section-label"><i class="fa-solid fa-clock-rotate-left"></i> Baru ditambahkan</div>';songs.slice().reverse().forEach(function(song){var cp=currentTrackIsContrib&&currentContribKey===song._key;var del=isAdmin()?'<button class="contrib-delete-btn" data-action="delete-contrib" data-key="'+song._key+'" data-title="'+song.title.replace(/"/g,'&quot;')+'"><i class="fa-solid fa-trash"></i></button>':'';var mood=getSongMood(song);h+='<div class="contributed-song-item '+(cp?'playing-contrib':'')+'" data-action="play-contrib" data-key="'+song._key+'">'+renderMoodThumb(mood,'mood-thumb-sm')+'<div class="contrib-info"><h4>'+song.title+'</h4><p>'+song.artist+(showAddedByLabel(song.addedBy)?' • '+song.addedBy:'')+'</p></div>'+del+'</div>';});sec.innerHTML=h;}
 
     function loadTrack(i){if(i<0||i>=daftarLagu.length)return;currentTrackIndex=i;currentTrackIsContrib=false;currentContribKey=null;currentPlaylistScope='all';var l=daftarLagu[i];var mood=getSongMood(l);footTitle.innerText=l.title;footArtist.innerText=l.artist;footIcon.innerHTML=getMood(mood).icon;footIcon.style.background=getMood(mood).gradient;currentAudio.src=l.audio;currentAudio.load();playSong();renderHomeContent(searchInput.value);renderContributedSidebar();if(sectionPlaylist.style.display==='block'){if(activePlaylistId==='favorites')renderOvalPlaylist('favorites','Lagu Favorit');else{var pl=customPlaylists.find(function(p){return p.id===activePlaylistId;});if(pl)renderOvalPlaylist(pl.id,pl.name);}}}
-    function playSong(){if(currentTrackIndex===-1&&!currentTrackIsContrib){loadTrack(0);return;}isPlaying=true;setBuffering(true);masterPlay.className='fa-solid fa-spinner play-icon buffering-icon';currentAudio.play().catch(function(){});}
-    function pauseSong(){isPlaying=false;setBuffering(false);masterPlay.className='fa-solid fa-circle-play play-icon';currentAudio.pause();}
+    function playSong(){if(currentTrackIndex===-1&&!currentTrackIsContrib){loadTrack(0);return;}isPlaying=true;setBuffering(true);currentAudio.play().catch(function(){});}
+    function pauseSong(){isPlaying=false;setBuffering(false);currentAudio.pause();}
     function togglePlay(){isPlaying?pauseSong():playSong();}
     function nextTrack(){if(currentTrackIsContrib){var s=getContributedSongs(),ci=-1;for(var i=0;i<s.length;i++){if(s[i]._key===currentContribKey){ci=i;break;}}if(s.length&&ci>-1)playContribByKey(s[(ci+1)%s.length]._key);return;}loadTrack((currentTrackIndex+1)%daftarLagu.length);}
     function prevTrack(){if(currentAudio.currentTime>3){currentAudio.currentTime=0;return;}if(currentTrackIsContrib){var s=getContributedSongs(),ci=-1;for(var i=0;i<s.length;i++){if(s[i]._key===currentContribKey){ci=i;break;}}if(s.length&&ci>-1)playContribByKey(s[(ci-1+s.length)%s.length]._key);return;}loadTrack((currentTrackIndex-1+daftarLagu.length)%daftarLagu.length);}
@@ -896,13 +975,13 @@
     currentAudio.addEventListener('ended',nextTrack);
 
     // =========================================================
-    // PLAYLISTS (same as before)
+    // PLAYLISTS
     // =========================================================
-    function openPlaylistModal(m,d){document.getElementById('modal-extra-content').innerHTML='';if(m==='create'){modalPlaylistNameInput.style.display='block';modalPlaylistSelect.style.display='none';modalPlaylistNameInput.value='';modalTitleContext.innerText=pendingSongToAdd!==null?'Bikin Playlist & Masukkan Lagu':'Nama Playlist Baru';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="submitNewPlaylist()">Simpan</button>';customModalOverlay.classList.add('active');setTimeout(function(){modalPlaylistNameInput.focus();},300);}else if(m==='select'){modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='block';modalPlaylistSelect.innerHTML='';customPlaylists.forEach(function(pl){var o=document.createElement('option');o.value=pl.id;o.innerText=pl.name;modalPlaylistSelect.appendChild(o);});var on=document.createElement('option');on.value='new';on.innerText='+ Buat Playlist Baru';modalPlaylistSelect.appendChild(on);modalTitleContext.innerText='Pilih Playlist';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="submitSelectPlaylist()">Simpan</button>';customModalOverlay.classList.add('active');}else if(m==='delete'){modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';modalTitleContext.innerHTML='Hapus playlist "'+d+'"?';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="executeDeletePlaylist()">Hapus</button>';customModalOverlay.classList.add('active');}}
+    function openPlaylistModal(m,d){document.getElementById('modal-extra-content').innerHTML='';if(m==='create'){modalPlaylistNameInput.style.display='block';modalPlaylistSelect.style.display='none';modalPlaylistNameInput.value='';modalTitleContext.innerText=pendingSongToAdd!==null?'Tambah ke Playlist Baru':'Playlist Baru';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="submitNewPlaylist()">Simpan</button>';customModalOverlay.classList.add('active');setTimeout(function(){modalPlaylistNameInput.focus();},300);}else if(m==='select'){modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='block';modalPlaylistSelect.innerHTML='';customPlaylists.forEach(function(pl){var o=document.createElement('option');o.value=pl.id;o.innerText=pl.name;modalPlaylistSelect.appendChild(o);});var on=document.createElement('option');on.value='new';on.innerText='+ Buat Baru';modalPlaylistSelect.appendChild(on);modalTitleContext.innerText='Pilih Playlist';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="submitSelectPlaylist()">Simpan</button>';customModalOverlay.classList.add('active');}else if(m==='delete'){modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';modalTitleContext.innerHTML='Hapus "'+d+'"?';modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="executeDeletePlaylist()">Hapus</button>';customModalOverlay.classList.add('active');}}
     function closePlaylistModal(){customModalOverlay.classList.remove('active');setTimeout(function(){pendingSongToAdd=null;pendingPlaylistIdToDelete=null;},300);}
     customModalOverlay.addEventListener('click',function(e){if(e.target===customModalOverlay)closePlaylistModal();});
     modalPlaylistNameInput.addEventListener('keydown',function(e){if(e.key==='Enter')submitNewPlaylist();});
-    function submitNewPlaylist(){var n=modalPlaylistNameInput.value.trim();if(!n){closePlaylistModal();return;}var id='playlist-'+Date.now(),np={id:id,name:n,songs:[]};if(pendingSongToAdd!==null)np.songs.push(pendingSongToAdd);customPlaylists.push(np);activePlaylistId=id;renderSidebarPlaylists();saveUserData();closePlaylistModal();showToast('Playlist dibuat!');if(pendingSongToAdd===null)viewPlaylist(id);else renderHomeContent(searchInput.value);}
+    function submitNewPlaylist(){var n=modalPlaylistNameInput.value.trim();if(!n){closePlaylistModal();return;}var id='pl-'+Date.now(),np={id:id,name:n,songs:[]};if(pendingSongToAdd!==null)np.songs.push(pendingSongToAdd);customPlaylists.push(np);activePlaylistId=id;renderSidebarPlaylists();saveUserData();closePlaylistModal();showToast('Playlist dibuat!');if(pendingSongToAdd===null)viewPlaylist(id);else renderHomeContent(searchInput.value);}
     function submitSelectPlaylist(){var sid=modalPlaylistSelect.value;if(sid==='new'){openPlaylistModal('create');return;}var pl=customPlaylists.find(function(p){return p.id===sid;});if(!pl)return;if(pendingSongToAdd!==null){var ex=false;for(var i=0;i<pl.songs.length;i++){if(JSON.stringify(pl.songs[i])===JSON.stringify(pendingSongToAdd)){ex=true;break;}}if(ex)showToast('Sudah ada','warning');else{pl.songs.push(pendingSongToAdd);renderSidebarPlaylists();saveUserData();showToast('Ditambahkan!');}}closePlaylistModal();}
     function renderSidebarPlaylists(){document.querySelectorAll('.custom-playlist-item').forEach(function(el){el.remove();});customPlaylists.forEach(function(pl){var d=document.createElement('div');d.className='playlist-item custom-playlist-item '+(activePlaylistId===pl.id?'active-folder':'');d.onclick=function(){viewPlaylist(pl.id);};d.innerHTML='<div class="playlist-icon-box" style="background:linear-gradient(135deg,#333,#111)"><i class="fa-solid fa-music"></i></div><div class="playlist-info-text"><h4>'+pl.name+'</h4><p>'+pl.songs.length+' lagu</p></div><button class="delete-playlist-btn" onclick="event.stopPropagation();deletePlaylist(\''+pl.id+'\')"><i class="fa-solid fa-trash"></i></button>';sidebarPlaylistContainer.appendChild(d);});}
     function deletePlaylist(pid){pendingPlaylistIdToDelete=pid;var pl=customPlaylists.find(function(p){return p.id===pid;});if(pl)openPlaylistModal('delete',pl.name);}
@@ -910,7 +989,7 @@
     function viewPlaylist(id){activePlaylistId=id;currentPlaylistScope=id;document.querySelectorAll('.playlist-item').forEach(function(el){el.classList.remove('active-folder');});if(id==='favorites'){document.getElementById('folder-fav').classList.add('active-folder');renderOvalPlaylist('favorites','Lagu Favorit');}else{var pl=customPlaylists.find(function(p){return p.id===id;});if(pl){renderSidebarPlaylists();renderOvalPlaylist(pl.id,pl.name);}}}
     function renderOvalPlaylist(pid,pn){sectionHome.style.display='none';sectionPlaylist.style.display='block';sectionAdmin.style.display='none';playlistViewTitle.innerHTML=pn+' <span class="back-to-home" onclick="showMainSection()"><i class="fa-solid fa-chevron-left"></i> Kembali</span>';containerOvalPlaylist.innerHTML='';var ti=pid==='favorites'?favorites:((customPlaylists.find(function(p){return p.id===pid;})||{}).songs||[]);if(!ti.length){containerOvalPlaylist.innerHTML='<p class="empty-playlist-text">Belum ada lagu.</p>';return;}ti.forEach(function(sid){var sd=null,ic=false,ck=null;if(typeof sid==='number')sd=daftarLagu[sid];else if(typeof sid==='string'&&sid.indexOf('contrib:')===0){ck=sid.substring(8);ic=true;var cs=getContributedSongs();for(var j=0;j<cs.length;j++){if(cs[j]._key===ck){sd=cs[j];break;}}}if(!sd)return;var np=ic?(currentTrackIsContrib&&currentContribKey===ck):(!currentTrackIsContrib&&currentTrackIndex===sid);var mood=getSongMood(sd);var ra=ic?'data-action="remove-from-playlist" data-pid="'+pid+'" data-key="'+ck+'"':'data-action="remove-from-playlist" data-pid="'+pid+'" data-idx="'+sid+'"';var c=document.createElement('div');c.className='oval-track-capsule'+(np?' playing-oval':'');c.setAttribute('data-action',ic?'play-contrib':'play-track');if(ic)c.setAttribute('data-key',ck);else c.setAttribute('data-idx',sid);c.innerHTML='<div class="oval-thumb" style="'+getMood(mood).gradient+'">'+getMood(mood).icon+'</div><div class="oval-details"><div class="oval-title">'+sd.title+'</div><div class="oval-artist">'+sd.artist+'</div></div><button class="oval-action-btn" '+ra+'><i class="fa-solid fa-xmark"></i></button>';containerOvalPlaylist.appendChild(c);});}
     function removeTrackFromPlaylist(pid,sid){if(pid==='favorites'){var idx=favorites.indexOf(sid);if(idx>-1)favorites.splice(idx,1);favCounter.innerText=favorites.length+' lagu';renderOvalPlaylist('favorites','Lagu Favorit');}else{var pl=customPlaylists.find(function(p){return p.id===pid;});if(pl){for(var i=0;i<pl.songs.length;i++){if(JSON.stringify(pl.songs[i])===JSON.stringify(sid)){pl.songs.splice(i,1);break;}}renderSidebarPlaylists();renderOvalPlaylist(pl.id,pl.name);}}saveUserData();renderHomeContent(searchInput.value);showToast('Dihapus','warning');}
-    function showMainSection(){sectionHome.style.display='block';sectionPlaylist.style.display='none';sectionAdmin.style.display='none';activePlaylistId=null;currentPlaylistScope='all';document.querySelectorAll('.playlist-item').forEach(function(el){el.classList.remove('active-folder');});document.getElementById('nav-home').classList.add('active');if(document.getElementById('nav-admin'))document.getElementById('nav-admin').classList.remove('active');}
+    function showMainSection(){sectionHome.style.display='block';sectionPlaylist.style.display='none';sectionAdmin.style.display='none';activePlaylistId=null;currentPlaylistScope='all';document.querySelectorAll('.playlist-item').forEach(function(el){el.classList.remove('active-folder');});document.getElementById('nav-home').classList.add('active');var na=document.getElementById('nav-admin');if(na)na.classList.remove('active');}
     searchInput.addEventListener('input',function(e){renderHomeContent(e.target.value);});
           // =========================================================
     // ADMIN PANEL
@@ -919,17 +998,16 @@
       if(!isAdmin())return;
       sectionHome.style.display='none';sectionPlaylist.style.display='none';sectionAdmin.style.display='flex';
       document.getElementById('nav-home').classList.remove('active');
-      document.getElementById('nav-admin').classList.add('active');
+      var na=document.getElementById('nav-admin');if(na)na.classList.add('active');
       reviewAudio.pause();reviewPlayingKey=null;
       switchAdminTab('accounts');
     }
     function switchAdminTab(tab){
       document.querySelectorAll('.admin-tab').forEach(function(t){t.classList.remove('active');});
       document.querySelectorAll('.admin-tab-content').forEach(function(c){c.classList.remove('active');});
-      var tabEl=document.querySelector('.admin-tab[onclick*="'+tab+'"]');if(tabEl)tabEl.classList.add('active');
+      var te=document.querySelector('.admin-tab[onclick*="'+tab+'"]');if(te)te.classList.add('active');
       document.getElementById('admin-tab-'+tab).classList.add('active');
-      reviewAudio.pause();reviewPlayingKey=null;
-      renderCurrentAdminTab();
+      reviewAudio.pause();reviewPlayingKey=null;renderCurrentAdminTab();
     }
     function renderCurrentAdminTab(){
       var a=document.querySelector('.admin-tab-content.active');if(!a)return;var id=a.id;
@@ -950,7 +1028,7 @@
       if(q)users=users.filter(function(u){return u.toLowerCase().indexOf(q)>-1||(dbL[u].email||'').toLowerCase().indexOf(q)>-1;});
       if(!users.length){list.innerHTML='<div class="admin-empty">Tidak ada user</div>';return;}
       var n=0;users.forEach(function(u){n++;var d=dbL[u];var sb=d.banned?'<span class="status-badge status-banned">🚫 Banned</span>':'<span class="status-badge status-active">✅ Aktif</span>';
-        list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><i class="fa-solid fa-hashtag"></i><span class="label">No</span><span class="value">'+n+'</span></div><div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Username</span><span class="value">'+u+'</span></div><div class="admin-card-row"><i class="fa-solid fa-envelope"></i><span class="label">Email</span><span class="value">'+(d.email||'-')+'</span></div><div class="admin-card-row"><i class="fa-solid fa-shield"></i><span class="label">Status</span><span class="value">'+sb+'</span></div><div class="admin-card-row"><i class="fa-solid fa-heart"></i><span class="label">Favorit</span><span class="value">'+(d.favorites||[]).length+' lagu</span></div><div class="admin-card-row"><i class="fa-solid fa-list"></i><span class="label">Playlist</span><span class="value">'+(d.customPlaylists||[]).length+'</span></div><div class="admin-card-actions">'+(d.banned?'<button class="modal-btn btn-success" onclick="adminUnbanUser(\''+u+'\')"><i class="fa-solid fa-lock-open"></i> Unban</button>':'<button class="modal-btn btn-danger" onclick="adminBanUser(\''+u+'\')"><i class="fa-solid fa-ban"></i> Ban</button>')+'</div></div>';
+        list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><i class="fa-solid fa-hashtag"></i><span class="label">No</span><span class="value">'+n+'</span></div><div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Username</span><span class="value">'+u+'</span></div><div class="admin-card-row"><i class="fa-solid fa-envelope"></i><span class="label">Email</span><span class="value">'+(d.email||'-')+'</span></div><div class="admin-card-row"><i class="fa-solid fa-shield"></i><span class="label">Status</span><span class="value">'+sb+'</span></div><div class="admin-card-row"><i class="fa-solid fa-heart"></i><span class="label">Favorit</span><span class="value">'+(d.favorites||[]).length+'</span></div><div class="admin-card-row"><i class="fa-solid fa-list"></i><span class="label">Playlist</span><span class="value">'+(d.customPlaylists||[]).length+'</span></div><div class="admin-card-actions">'+(d.banned?'<button class="modal-btn btn-success" onclick="adminUnban(\''+u+'\')"><i class="fa-solid fa-lock-open"></i> Unban</button>':'<button class="modal-btn btn-danger" onclick="adminBan(\''+u+'\')"><i class="fa-solid fa-ban"></i> Ban</button>')+'</div></div>';
       });
     }
 
@@ -962,17 +1040,16 @@
       var banned=Object.keys(dbL).filter(function(u){return u!==ADMIN_USERNAME&&dbL[u].banned;});
       if(q)banned=banned.filter(function(u){return u.toLowerCase().indexOf(q)>-1;});
       if(!banned.length){list.innerHTML='<div class="admin-empty">Tidak ada user banned</div>';return;}
-      banned.forEach(function(u){list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Username</span><span class="value">'+u+'</span></div><div class="admin-card-row"><i class="fa-solid fa-envelope"></i><span class="label">Email</span><span class="value">'+(dbL[u].email||'-')+'</span></div><div class="admin-card-actions"><button class="modal-btn btn-success" onclick="adminUnbanUser(\''+u+'\')"><i class="fa-solid fa-lock-open"></i> Unban</button></div></div>';});
+      banned.forEach(function(u){list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">User</span><span class="value">'+u+'</span></div><div class="admin-card-actions"><button class="modal-btn btn-success" onclick="adminUnban(\''+u+'\')"><i class="fa-solid fa-lock-open"></i> Unban</button></div></div>';});
     }
-    function adminBanUser(u){
-      modalTitleContext.innerHTML='🚫 Ban "'+u+'"?<br><span style="font-size:10px;color:#727272">User tidak bisa login</span>';
-      modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
-      document.getElementById('modal-extra-content').innerHTML='';
-      modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="executeBan(\''+u+'\')">Ban</button>';
+    function adminBan(u){
+      modalTitleContext.innerHTML='🚫 Ban "'+u+'"?';modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
+      document.getElementById('modal-extra-content').innerHTML='<p style="font-size:10px;color:#727272;text-align:center">User tidak bisa login</p>';
+      modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="exBan(\''+u+'\')">Ban</button>';
       customModalOverlay.classList.add('active');
     }
-    function executeBan(u){var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(dbL[u]){dbL[u].banned=true;localStorage.setItem('elltify_users',JSON.stringify(dbL));}closePlaylistModal();showToast(u+' dibanned','warning');renderCurrentAdminTab();}
-    function adminUnbanUser(u){var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(dbL[u]){dbL[u].banned=false;localStorage.setItem('elltify_users',JSON.stringify(dbL));}showToast(u+' di-unban');renderCurrentAdminTab();}
+    function exBan(u){var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(dbL[u]){dbL[u].banned=true;localStorage.setItem('elltify_users',JSON.stringify(dbL));}closePlaylistModal();showToast(u+' dibanned','warning');renderCurrentAdminTab();}
+    function adminUnban(u){var dbL=JSON.parse(localStorage.getItem('elltify_users')||'{}');if(dbL[u]){dbL[u].banned=false;localStorage.setItem('elltify_users',JSON.stringify(dbL));}showToast(u+' di-unban');renderCurrentAdminTab();}
 
     // ARTISTS
     function renderAdminArtists(){
@@ -982,41 +1059,32 @@
       if(q)names=names.filter(function(n){return n.toLowerCase().indexOf(q)>-1;});
       if(!names.length){list.innerHTML='<div class="admin-empty">Tidak ada artis</div>';return;}
       var sc={};daftarLagu.forEach(function(l){sc[l.artist]=(sc[l.artist]||0)+1;});getContributedSongs().forEach(function(s){sc[s.artist]=(sc[s.artist]||0)+1;});
-      names.forEach(function(name){var a=arts[name];var src=a.source==='admin'?' ⭐ Admin':a.source==='contributed'?' Kontributor':' Default';var ed=a.source==='admin'?'<button class="modal-btn btn-submit" onclick="adminEditArtist(\''+a._key+'\',\''+name.replace(/'/g,"\\'")+'\')"><i class="fa-solid fa-pen"></i> Edit</button><button class="modal-btn btn-danger" onclick="adminDeleteArtist(\''+a._key+'\',\''+name.replace(/'/g,"\\'")+'\')"><i class="fa-solid fa-trash"></i> Hapus</button>':'';
-        list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><div class="mood-thumb" style="'+artistGradient(name)+'"><i class="fa-solid fa-microphone" style="font-size:10px"></i></div><span class="value">'+name+'<span style="font-size:9px;color:#535353">'+src+'</span></span></div><div class="admin-card-row"><i class="fa-solid fa-music"></i><span class="label">Lagu</span><span class="value">'+(sc[name]||0)+'</span></div>'+(ed?'<div class="admin-card-actions">'+ed+'</div>':'')+'</div>';
+      names.forEach(function(name){var a=arts[name];var src=a.source==='admin'?' ⭐':'';var ed=a.source==='admin'?'<button class="modal-btn btn-submit" onclick="adminEditArtist(\''+a._key+'\',\''+name.replace(/'/g,"\\'")+'\')"><i class="fa-solid fa-pen"></i> Edit</button><button class="modal-btn btn-danger" onclick="adminDelArtist(\''+a._key+'\',\''+name.replace(/'/g,"\\'")+'\')"><i class="fa-solid fa-trash"></i></button>':'';
+        list.innerHTML+='<div class="admin-card"><div class="admin-card-row"><div class="mood-thumb mood-thumb-sm" style="'+artistGradient(name)+'"><i class="fa-solid fa-microphone" style="font-size:9px"></i></div><span class="value">'+name+src+'</span></div><div class="admin-card-row"><i class="fa-solid fa-music"></i><span class="label">Lagu</span><span class="value">'+(sc[name]||0)+'</span></div>'+(ed?'<div class="admin-card-actions">'+ed+'</div>':'')+'</div>';
       });
     }
     function adminAddArtist(){
       var name=document.getElementById('admin-new-artist-name').value.trim();
       var img=document.getElementById('admin-new-artist-img').value.trim();
-      if(!name){showToast('Nama wajib diisi','warning');return;}
+      if(!name){showToast('Nama wajib','warning');return;}
       if(isKnownArtist(name)){showToast('"'+name+'" sudah ada','warning');return;}
       if(window.firebasePushArtist)window.firebasePushArtist({name:name,img:img||'',addedAt:new Date().toISOString()});
-      document.getElementById('admin-new-artist-name').value='';document.getElementById('admin-new-artist-img').value='';
-      showToast('"'+name+'" ditambahkan!');
+      document.getElementById('admin-new-artist-name').value='';document.getElementById('admin-new-artist-img').value='';showToast('"'+name+'" ditambahkan!');
     }
     function adminEditArtist(key,oldName){
-      modalTitleContext.innerHTML='✏️ Edit Artis';
-      modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
+      modalTitleContext.innerHTML='✏️ Edit Artis';modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
       document.getElementById('modal-extra-content').innerHTML='<div class="contrib-modal-section"><div class="contrib-modal-label"><i class="fa-solid fa-microphone"></i> Nama</div><input type="text" class="modal-input left-align" id="edit-artist-name" value="'+oldName.replace(/"/g,'&quot;')+'"></div><div class="contrib-modal-section"><div class="contrib-modal-label"><i class="fa-solid fa-image"></i> Foto URL</div><input type="url" class="modal-input left-align" id="edit-artist-img" value=""></div>';
-      modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="executeEditArtist(\''+key+'\')">Simpan</button>';
+      modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Batal</button><button class="modal-btn btn-submit" onclick="exEditArtist(\''+key+'\')">Simpan</button>';
       customModalOverlay.classList.add('active');
     }
-    function executeEditArtist(key){
-      var name=document.getElementById('edit-artist-name').value.trim();
-      var img=document.getElementById('edit-artist-img').value.trim();
-      if(!name){showToast('Nama wajib','warning');return;}
-      if(window.firebaseUpdateArtist)window.firebaseUpdateArtist(key,{name:name,img:img||'',addedAt:new Date().toISOString()});
-      closePlaylistModal();showToast('Artis diperbarui!');
-    }
-    function adminDeleteArtist(key,name){
-      modalTitleContext.innerHTML='🗑️ Hapus "'+name+'"?';
-      modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
+    function exEditArtist(key){var name=document.getElementById('edit-artist-name').value.trim();var img=document.getElementById('edit-artist-img').value.trim();if(!name){showToast('Nama wajib','warning');return;}if(window.firebaseUpdateArtist)window.firebaseUpdateArtist(key,{name:name,img:img||'',addedAt:new Date().toISOString()});closePlaylistModal();showToast('Diperbarui!');}
+    function adminDelArtist(key,name){
+      modalTitleContext.innerHTML='🗑️ Hapus "'+name+'"?';modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
       document.getElementById('modal-extra-content').innerHTML='';
       modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="exDelArtist(\''+key+'\')">Hapus</button>';
       customModalOverlay.classList.add('active');
     }
-    function exDelArtist(key){if(window.firebaseDeleteArtist)window.firebaseDeleteArtist(key);closePlaylistModal();showToast('Artis dihapus','warning');}
+    function exDelArtist(key){if(window.firebaseDeleteArtist)window.firebaseDeleteArtist(key);closePlaylistModal();showToast('Dihapus','warning');}
 
     // SONGS
     function renderAdminSongs(){
@@ -1025,55 +1093,46 @@
       var songs=getContributedSongs();
       if(q)songs=songs.filter(function(s){return s.title.toLowerCase().indexOf(q)>-1||s.artist.toLowerCase().indexOf(q)>-1;});
       if(!songs.length){list.innerHTML='<div class="admin-empty">Tidak ada lagu kontributor</div>';return;}
-      songs.forEach(function(s){var mood=getSongMood(s);
-        list.innerHTML+='<div class="admin-card"><div class="admin-card-row">'+renderMoodThumb(mood,'mood-thumb-sm')+'<span class="value">'+s.title+'</span></div><div class="admin-card-row"><i class="fa-solid fa-microphone"></i><span class="label">Artis</span><span class="value">'+s.artist+'</span></div><div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Upload</span><span class="value">'+(s.addedBy||'Anonim')+'</span></div><div class="admin-card-actions"><button class="modal-btn btn-danger" onclick="deleteContributedSong(\''+s._key+'\',\''+s.title.replace(/'/g,'')+'\')"><i class="fa-solid fa-trash"></i> Hapus</button></div></div>';
+      songs.forEach(function(s){var mood=getSongMood(s);var aby=showAddedByLabel(s.addedBy)?'<div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Upload</span><span class="value">'+s.addedBy+'</span></div>':'';
+        list.innerHTML+='<div class="admin-card"><div class="admin-card-row">'+renderMoodThumb(mood,'mood-thumb-sm')+'<span class="value">'+s.title+'</span></div><div class="admin-card-row"><i class="fa-solid fa-microphone"></i><span class="label">Artis</span><span class="value">'+s.artist+'</span></div>'+aby+'<div class="admin-card-actions"><button class="modal-btn btn-danger" onclick="deleteContributedSong(\''+s._key+'\',\''+s.title.replace(/'/g,'')+'\')"><i class="fa-solid fa-trash"></i> Hapus</button></div></div>';
       });
     }
 
-    // REVIEW (with mood picker)
+    // REVIEW
     function renderAdminReview(){
       var list=document.getElementById('admin-review-list');list.innerHTML='';
       var songs=getPendingSongs();
-      if(!songs.length){list.innerHTML='<div class="admin-empty">✅ Semua lagu sudah direview!</div>';return;}
+      if(!songs.length){list.innerHTML='<div class="admin-empty">✅ Semua sudah direview!</div>';return;}
       songs.forEach(function(s){
         var isP=reviewPlayingKey===s._key;
-        list.innerHTML+='<div class="admin-card" id="review-card-'+s._key+'">'+
+        list.innerHTML+='<div class="admin-card">'+
           '<div class="admin-card-row"><span class="status-badge status-pending">⏳ Pending</span></div>'+
           '<div class="admin-card-row"><i class="fa-solid fa-heading"></i><span class="label">Judul</span></div>'+
-          '<input type="text" class="modal-input left-align" id="review-title-'+s._key+'" value="'+s.title.replace(/"/g,'&quot;')+'">'+
+          '<input type="text" class="modal-input left-align" id="rev-t-'+s._key+'" value="'+s.title.replace(/"/g,'&quot;')+'">'+
           '<div class="admin-card-row"><i class="fa-solid fa-microphone"></i><span class="label">Artis</span><span style="color:#f59b00;font-size:9px;margin-left:4px">⚠️ BARU</span></div>'+
-          '<input type="text" class="modal-input left-align" id="review-artist-'+s._key+'" value="'+s.artist.replace(/"/g,'&quot;')+'">'+
+          '<input type="text" class="modal-input left-align" id="rev-a-'+s._key+'" value="'+s.artist.replace(/"/g,'&quot;')+'">'+
           '<div class="admin-card-row"><i class="fa-solid fa-user"></i><span class="label">Upload</span><span class="value">'+(s.addedBy||'Anonim')+'</span></div>'+
-          '<div class="review-player"><button class="review-play-btn" onclick="toggleReviewPlay(\''+s._key+'\',\''+s.audio.replace(/'/g,"\\'")+'\')" id="review-play-btn-'+s._key+'"><i class="fa-solid '+(isP?'fa-pause':'fa-play')+'"></i></button><div class="review-progress"><input type="range" min="0" max="100" value="0" id="review-seek-'+s._key+'" oninput="seekReview(this.value)"><div class="review-time"><span id="review-curr-'+s._key+'">0:00</span><span id="review-dur-'+s._key+'">0:00</span></div></div></div>'+
+          '<div class="review-player"><button class="review-play-btn" onclick="toggleRevPlay(\''+s._key+'\',\''+s.audio.replace(/'/g,"\\'")+'\')" id="rev-btn-'+s._key+'"><i class="fa-solid '+(isP?'fa-pause':'fa-play')+'"></i></button><div class="review-progress"><input type="range" min="0" max="100" value="0" id="rev-seek-'+s._key+'" oninput="seekRev(this.value)"><div class="review-time"><span id="rev-c-'+s._key+'">0:00</span><span id="rev-d-'+s._key+'">0:00</span></div></div></div>'+
           '<div class="admin-card-row"><i class="fa-solid fa-palette"></i><span class="label">Mood</span></div>'+
-          renderMoodPicker(s.mood||'chill').replace('class="mood-picker"','class="mood-picker" id="mood-picker-'+s._key+'"')+
-          '<div class="admin-card-actions"><button class="modal-btn btn-success" onclick="approveReview(\''+s._key+'\')"><i class="fa-solid fa-check"></i> Setujui</button><button class="modal-btn btn-danger" onclick="rejectReview(\''+s._key+'\',\''+s.title.replace(/'/g,'')+'\')"><i class="fa-solid fa-xmark"></i> Tolak</button></div></div>';
+          renderMoodPicker(s.mood||'chill').replace('class="mood-picker"','class="mood-picker" id="mp-'+s._key+'"')+
+          '<div class="admin-card-actions"><button class="modal-btn btn-success" onclick="approveRev(\''+s._key+'\')"><i class="fa-solid fa-check"></i> Setujui</button><button class="modal-btn btn-danger" onclick="rejectRev(\''+s._key+'\',\''+s.title.replace(/'/g,'')+'\')"><i class="fa-solid fa-xmark"></i> Tolak</button></div></div>';
       });
     }
-
-    // Review player
-    function toggleReviewPlay(key,url){
-      if(reviewPlayingKey===key){reviewAudio.pause();reviewPlayingKey=null;var b=document.getElementById('review-play-btn-'+key);if(b)b.innerHTML='<i class="fa-solid fa-play"></i>';return;}
-      reviewAudio.pause();if(reviewPlayingKey){var ob=document.getElementById('review-play-btn-'+reviewPlayingKey);if(ob)ob.innerHTML='<i class="fa-solid fa-play"></i>';}
+    function toggleRevPlay(key,url){
+      if(reviewPlayingKey===key){reviewAudio.pause();reviewPlayingKey=null;var b=document.getElementById('rev-btn-'+key);if(b)b.innerHTML='<i class="fa-solid fa-play"></i>';return;}
+      reviewAudio.pause();if(reviewPlayingKey){var ob=document.getElementById('rev-btn-'+reviewPlayingKey);if(ob)ob.innerHTML='<i class="fa-solid fa-play"></i>';}
       reviewPlayingKey=key;reviewAudio.src=url;reviewAudio.load();reviewAudio.play().catch(function(){});
-      var b=document.getElementById('review-play-btn-'+key);if(b)b.innerHTML='<i class="fa-solid fa-pause"></i>';
+      var b=document.getElementById('rev-btn-'+key);if(b)b.innerHTML='<i class="fa-solid fa-pause"></i>';
     }
-    function seekReview(v){if(reviewAudio.duration)reviewAudio.currentTime=(v/100)*reviewAudio.duration;}
-    reviewAudio.addEventListener('timeupdate',function(){if(!reviewPlayingKey||!reviewAudio.duration)return;var s=document.getElementById('review-seek-'+reviewPlayingKey),c=document.getElementById('review-curr-'+reviewPlayingKey),d=document.getElementById('review-dur-'+reviewPlayingKey);if(s)s.value=(reviewAudio.currentTime/reviewAudio.duration)*100;if(c)c.textContent=formatTime(reviewAudio.currentTime);if(d)d.textContent=formatTime(reviewAudio.duration);});
-    reviewAudio.addEventListener('ended',function(){if(reviewPlayingKey){var b=document.getElementById('review-play-btn-'+reviewPlayingKey);if(b)b.innerHTML='<i class="fa-solid fa-play"></i>';reviewPlayingKey=null;}});
+    function seekRev(v){if(reviewAudio.duration)reviewAudio.currentTime=(v/100)*reviewAudio.duration;}
+    reviewAudio.addEventListener('timeupdate',function(){if(!reviewPlayingKey||!reviewAudio.duration)return;var s=document.getElementById('rev-seek-'+reviewPlayingKey),c=document.getElementById('rev-c-'+reviewPlayingKey),d=document.getElementById('rev-d-'+reviewPlayingKey);if(s)s.value=(reviewAudio.currentTime/reviewAudio.duration)*100;if(c)c.textContent=formatTime(reviewAudio.currentTime);if(d)d.textContent=formatTime(reviewAudio.duration);});
+    reviewAudio.addEventListener('ended',function(){if(reviewPlayingKey){var b=document.getElementById('rev-btn-'+reviewPlayingKey);if(b)b.innerHTML='<i class="fa-solid fa-play"></i>';reviewPlayingKey=null;}});
 
-    function approveReview(key){
-      var tEl=document.getElementById('review-title-'+key),aEl=document.getElementById('review-artist-'+key);
-      if(!tEl||!aEl)return;
-      var title=tEl.value.trim(),artist=aEl.value.trim();
-      if(!title||!artist){showToast('Judul & artis wajib','warning');return;}
-      // Get selected mood
-      var moodKey='chill';
-      var picker=document.getElementById('mood-picker-'+key);
-      if(picker){var sel=picker.querySelector('.mood-option.selected');if(sel)moodKey=sel.getAttribute('data-mood');}
-      var songs=getPendingSongs();var song=null;
-      for(var i=0;i<songs.length;i++){if(songs[i]._key===key){song=songs[i];break;}}
-      if(!song)return;
+    function approveRev(key){
+      var tEl=document.getElementById('rev-t-'+key),aEl=document.getElementById('rev-a-'+key);if(!tEl||!aEl)return;
+      var title=tEl.value.trim(),artist=aEl.value.trim();if(!title||!artist){showToast('Judul & artis wajib','warning');return;}
+      var moodKey='chill';var picker=document.getElementById('mp-'+key);if(picker){var sel=picker.querySelector('.mood-option.selected');if(sel)moodKey=sel.getAttribute('data-mood');}
+      var songs=getPendingSongs();var song=null;for(var i=0;i<songs.length;i++){if(songs[i]._key===key){song=songs[i];break;}}if(!song)return;
       reviewAudio.pause();reviewPlayingKey=null;
       var approved={title:title,artist:artist,audio:song.audio,icon:'fa-music',mood:moodKey,addedBy:song.addedBy||'Anonim',addedAt:song.addedAt||new Date().toISOString()};
       if(window.firebasePushSong)window.firebasePushSong(approved);
@@ -1081,9 +1140,8 @@
       if(window.firebaseDeletePending)window.firebaseDeletePending(key);
       showToast('"'+title+'" disetujui!');
     }
-    function rejectReview(key,title){
-      modalTitleContext.innerHTML='❌ Tolak "'+title+'"?';
-      modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
+    function rejectRev(key,title){
+      modalTitleContext.innerHTML='❌ Tolak "'+title+'"?';modalPlaylistNameInput.style.display='none';modalPlaylistSelect.style.display='none';
       document.getElementById('modal-extra-content').innerHTML='';
       modalActionWrapper.innerHTML='<button class="modal-btn btn-cancel" onclick="closePlaylistModal()">Tidak</button><button class="modal-btn btn-danger" onclick="exReject(\''+key+'\')">Tolak</button>';
       customModalOverlay.classList.add('active');
@@ -1096,7 +1154,7 @@
       var tu=Object.keys(dbL).filter(function(u){return u!==ADMIN_USERNAME;}).length;
       var bu=Object.keys(dbL).filter(function(u){return u!==ADMIN_USERNAME&&dbL[u].banned;}).length;
       var cc=getContributedSongs().length,pc=getPendingSongs().length,ac=Object.keys(getAllArtists()).length;
-      document.getElementById('admin-stats-content').innerHTML='<div class="admin-stat-grid"><div class="admin-stat-box"><div class="admin-stat-num">'+tu+'</div><div class="admin-stat-label">👥 User</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+bu+'</div><div class="admin-stat-label">🚫 Banned</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+daftarLagu.length+'</div><div class="admin-stat-label">🎵 Default</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+cc+'</div><div class="admin-stat-label">☁️ Kontributor</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+(daftarLagu.length+cc)+'</div><div class="admin-stat-label">📋 Total Lagu</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+pc+'</div><div class="admin-stat-label">⏳ Pending</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+ac+'</div><div class="admin-stat-label">🎤 Artis</div></div></div>';
+      document.getElementById('admin-stats-content').innerHTML='<div class="admin-stat-grid"><div class="admin-stat-box"><div class="admin-stat-num">'+tu+'</div><div class="admin-stat-label">👥 User</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+bu+'</div><div class="admin-stat-label">🚫 Banned</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+daftarLagu.length+'</div><div class="admin-stat-label">🎵 Default</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+cc+'</div><div class="admin-stat-label">☁️ Kontributor</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+(daftarLagu.length+cc)+'</div><div class="admin-stat-label">📋 Total</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+pc+'</div><div class="admin-stat-label">⏳ Pending</div></div><div class="admin-stat-box"><div class="admin-stat-num">'+ac+'</div><div class="admin-stat-label">🎤 Artis</div></div></div>';
     }
 
     // =========================================================
@@ -1107,41 +1165,24 @@
     renderHomeContent();
   </script>
 
-  <!-- FIREBASE MODULE -->
+  <!-- FIREBASE -->
   <script type="module">
     import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import{getDatabase,ref,push,set,onValue,remove}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
     const fc={apiKey:"AIzaSyC_78NUDa34ksmFrMZSnFE1zgJXb5S7RQc",authDomain:"elltyfy.firebaseapp.com",databaseURL:"https://elltyfy-default-rtdb.asia-southeast1.firebasedatabase.app",projectId:"elltyfy",storageBucket:"elltyfy.firebasestorage.app",messagingSenderId:"674305976965",appId:"1:674305976965:web:2b88683fb69bb7a5ea17ec",measurementId:"G-1Q0HN85DPK"};
     const app=initializeApp(fc),db=getDatabase(app);
-    const contribRef=ref(db,'contributed_songs');
-    const pendingRef=ref(db,'pending_songs');
-    const artistsRef=ref(db,'custom_artists');
+    const cRef=ref(db,'contributed_songs'),pRef=ref(db,'pending_songs'),aRef=ref(db,'custom_artists');
     const stEl=document.getElementById('firebase-status');
 
-    onValue(contribRef,function(snap){
-      stEl.textContent='● Online';stEl.className='firebase-status connected';
-      window._contributedSongs=[];
-      if(snap.exists()){snap.forEach(function(c){window._contributedSongs.push(Object.assign({_key:c.key},c.val()));});}
-      if(typeof window.handleFirebaseUpdate==='function')window.handleFirebaseUpdate();
-    },function(){stEl.textContent='● Offline';stEl.className='firebase-status disconnected';});
+    onValue(cRef,function(s){stEl.textContent='● Online';stEl.className='firebase-status connected';window._contributedSongs=[];if(s.exists()){s.forEach(function(c){window._contributedSongs.push(Object.assign({_key:c.key},c.val()));});}if(typeof window.handleFirebaseUpdate==='function')window.handleFirebaseUpdate();},function(){stEl.textContent='● Offline';stEl.className='firebase-status disconnected';});
+    onValue(pRef,function(s){window._pendingSongs=[];if(s.exists()){s.forEach(function(c){window._pendingSongs.push(Object.assign({_key:c.key},c.val()));});}if(typeof window.handleFirebaseUpdate==='function')window.handleFirebaseUpdate();});
+    onValue(aRef,function(s){window._customArtists=[];if(s.exists()){s.forEach(function(c){window._customArtists.push(Object.assign({_key:c.key},c.val()));});}if(typeof window.handleFirebaseUpdate==='function')window.handleFirebaseUpdate();});
 
-    onValue(pendingRef,function(snap){
-      window._pendingSongs=[];
-      if(snap.exists()){snap.forEach(function(c){window._pendingSongs.push(Object.assign({_key:c.key},c.val()));});}
-      if(typeof window.handleFirebaseUpdate==='function')window.handleFirebaseUpdate();
-    });
-
-    onValue(artistsRef,function(snap){
-      window._customArtists=[];
-      if(snap.exists()){snap.forEach(function(c){window._customArtists.push(Object.assign({_key:c.key},c.val()));});}
-      if(typeof window.handleFirebaseUpdate==='function')window.handleFirebaseUpdate();
-    });
-
-    window.firebasePushSong=function(d){push(contribRef,d).then(function(){if(typeof showToast==='function')showToast('"'+d.title+'" ditambahkan!');}).catch(function(){if(typeof showToast==='function')showToast('Gagal','warning');});};
+    window.firebasePushSong=function(d){push(cRef,d).then(function(){if(typeof showToast==='function')showToast('"'+d.title+'" ditambahkan!');}).catch(function(){if(typeof showToast==='function')showToast('Gagal','warning');});};
     window.firebaseDeleteSong=function(k,t){remove(ref(db,'contributed_songs/'+k)).then(function(){if(typeof showToast==='function')showToast('"'+t+'" dihapus','warning');}).catch(function(){if(typeof showToast==='function')showToast('Gagal','warning');});};
-    window.firebasePushPending=function(d){push(pendingRef,d).catch(function(){if(typeof showToast==='function')showToast('Gagal','warning');});};
+    window.firebasePushPending=function(d){push(pRef,d).catch(function(){if(typeof showToast==='function')showToast('Gagal','warning');});};
     window.firebaseDeletePending=function(k){remove(ref(db,'pending_songs/'+k)).catch(function(){});};
-    window.firebasePushArtist=function(d){push(artistsRef,d).catch(function(){if(typeof showToast==='function')showToast('Gagal','warning');});};
+    window.firebasePushArtist=function(d){push(aRef,d).catch(function(){if(typeof showToast==='function')showToast('Gagal','warning');});};
     window.firebaseUpdateArtist=function(k,d){set(ref(db,'custom_artists/'+k),d).catch(function(){if(typeof showToast==='function')showToast('Gagal','warning');});};
     window.firebaseDeleteArtist=function(k){remove(ref(db,'custom_artists/'+k)).catch(function(){});};
   </script>
